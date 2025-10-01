@@ -23,7 +23,7 @@
     └── README.md
     ```
 
-## Properties
+## Data structure
 
 For each post (title and body), we have the following data structure:
 
