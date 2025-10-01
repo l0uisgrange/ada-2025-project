@@ -24,6 +24,7 @@
     │   └── main.ipynb
     └── README.md
     ```
+4. Open a terminal on this folder, and execute `python -m venv /PATH/TO/ada-2025-project/.venv` to create a virtual environment
 
 ## 🗄️ Data structure
 
