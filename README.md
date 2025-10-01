@@ -1,6 +1,6 @@
 
 
-# <img src="https://epfl-ada.github.io/assets/img/ada.svg" width="60" /> ADA Semester Project
+# <img src="https://epfl-ada.github.io/assets/img/ada.svg" width="60" /> Semester Project (Fall 2025)
 
 | SCIPER | Name |
 | :-- | :-- |
@@ -9,6 +9,10 @@
 | [340497](https://people.epfl.ch/daniel.alvesataide) | Daniel Ataíde |
 | [329310](https://people.epfl.ch/arnaud.tadic) | Arnaud Jacques Yves Tadic |
 | [308396](https://people.epfl.ch/yuri.cho) | Yuri Cho |
+
+## 📃 Proposal
+
+_Complete here for P2_
 
 ## ⚙️ Installation
 
