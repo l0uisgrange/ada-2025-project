@@ -41,7 +41,10 @@ For each post (title and body), we have the following data structure:
 - LINK_SENTIMENT 
 - PROPERTIES (as an array of floats listed below)
 
-### Content properties
+<details>
+
+<summary>Complete list of properties</summary>
+
 1. Number of characters
 2. Number of characters without counting white space
 3. Fraction of alphabetical characters
@@ -128,3 +131,5 @@ For each post (title and body), we have the following data structure:
 84. LIWC_Dissent
 85. LIWC_Nonflu
 86. LIWC_Filler
+
+</details>
