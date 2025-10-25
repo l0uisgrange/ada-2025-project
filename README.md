@@ -26,18 +26,21 @@ The final story will reveal who holds the real influence in the digital marketpl
 
 ## ❓ Research Questions
 
-- **1 - The Modus Operandi**.
+#### The Modus Operandi
   
-  Can we build behavioral profiles (M.O.s) for distinct consumer types based on their digital "fingerprints" (cross-linking) and recorded "statements" (linguistic features)?
-- **2 - Behavior During the "Big Job"**.
+Can we build behavioral profiles (M.O.s) for distinct consumer types based on their digital "fingerprints" (cross-linking) and recorded "statements" (linguistic features)?
+
+#### Behavior During the "Big Job"
   
-  How do our suspects change their M.O. during high-stakes "heists" (Black Friday, product launches, Christmas)?
-- **3 - The "Shot-Callers"**.
+How do our suspects change their M.O. during high-stakes "heists" (Black Friday, product launches, Christmas)?
+
+#### The "Shot-Callers
   
-  Which personas successfully "mobilize" other users into cross-community "meets" (discussions) about a product?
-- **4 - The "Broken Telephone" Investigation**.
+Which personas successfully "mobilize" other users into cross-community "meets" (discussions) about a product?
+
+#### The "Broken Telephone" Investigation
   
-  Does the "intel" (positive or negative sentiment) about a product get distorted or "laundered" as it passes between different personas?
+Does the "intel" (positive or negative sentiment) about a product get distorted or "laundered" as it passes between different personas?
 
 ## 📊 Additional Datasets
 
