@@ -14,14 +14,17 @@
 <!-- A 150 word description of the project idea and goals. What’s the motivation behind your project? What story would you like to tell, and why? -->
 
 This project will treat Reddit's commerce communities as a digital crime scene, where clues 
-are just waiting to be uncovered. Our primary goal is to run a data investigation to 
-"profile the usual suspects"—the distinct consumer personas (the "Brand Loyalist," the "Skeptic," the "Early Adopter"). 
-We will analyze their digital "fingerprints" (cross-linking patterns) and "statements" (linguistic features) to establish
+are just waiting to be uncovered. Our primary goal is to profile the distinct consumer personas 
+(Brand Loyalists, Skeptics, Early Adopters). 
+We will analyze their digital fingerprints (cross-linking patterns) and statements (linguistic features) to establish
 a clear Modus Operandi (M.O.) for each.
 
+In today's market, a product's success is often decided by anonymous online conversations. We’re motivated by a simple 
+question: who really controls a product's narrative?
+
 Our story follows these "suspects" as we, the investigators, track their behavior during high-stakes "heists" like 
-Black Friday and new product launches. We'll identify the "shot-callers" who successfully mobilize product discussions 
-and run a "broken telephone" investigation to see how "intel" (sentiment) gets "laundered" or distorted as it spreads. 
+Black Friday and new product launches. We'll identify the "shot-callers" that mobilize product discussions 
+and also see how intel (sentiment) gets laundered or distorted as it spreads. 
 The final story will reveal who holds the real influence in the digital marketplace.
 
 ## ❓ Research Questions
