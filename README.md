@@ -26,23 +26,18 @@ The final story will reveal who holds the real influence in the digital marketpl
 
 ## ❓ Research Questions
 
-## 1 - The Modus Operandi
-Can we build behavioral profiles (M.O.s) for distinct consumer types based on their digital 
-"fingerprints" (cross-linking) and recorded "statements" (linguistic features)?
-
-## 2 - Behavior During the "Big Job"
-How do our suspects change their M.O. during high-stakes "heists" 
-(Black Friday, product launches, Christmas)?
-
-## 3 - The "Shot-Callers"
-Which personas successfully "mobilize" other users into cross-community "meets" (discussions)
-about a product?
-
-## 4 - The "Broken Telephone" Investigation
-Does the "intel" (positive or negative sentiment) about a product get distorted or "laundered" 
-as it passes between different personas?
-
-<!-- A list of research questions you would like to address during the project. -->
+- **1 - The Modus Operandi**.
+  
+  Can we build behavioral profiles (M.O.s) for distinct consumer types based on their digital "fingerprints" (cross-linking) and recorded "statements" (linguistic features)?
+- **2 - Behavior During the "Big Job"**.
+  
+  How do our suspects change their M.O. during high-stakes "heists" (Black Friday, product launches, Christmas)?
+- **3 - The "Shot-Callers"**.
+  
+  Which personas successfully "mobilize" other users into cross-community "meets" (discussions) about a product?
+- **4 - The "Broken Telephone" Investigation**.
+  
+  Does the "intel" (positive or negative sentiment) about a product get distorted or "laundered" as it passes between different personas?
 
 ## 📊 Additional Datasets
 
@@ -51,6 +46,33 @@ as it passes between different personas?
 ## 🏗️ Methods
 
 ## ⏰ Proposed Timeline
+
+#### Week 1 (Nov 6)
+- Obtain, preprocess and clean the dataset
+- Define commerce related tags to cluster subreddits (for example: `tech`, `luxury`, `services`, `goods`, etc.)
+
+#### Week 2 (Nov 13)
+- Exploratory Data Analysis (EDA)
+- LIWC and tags descriptive statistics
+- Initial visualizations
+
+#### Week 3 (Nov 20)
+- Consumer persona clustering
+- Subreddit feature engineering (LIWC + embeddings + degree stats)
+- Cluster validation
+
+#### Week 4 (Nov 27)
+- Temporal dynamics per persona using time-series trends around events
+- Influence network analysis
+
+#### Week 5 (Dec 4)
+- Integrate results and write analysis
+- Refine figures and ensure reproducible pipeline
+- Full results notebook (EDA → clustering → influence)
+
+#### Week 6 (Dec 11)
+- Storytelling and polishing to have an interactive data story
+- Prepare final presentation and submission
 
 ## 🤝 Team Organization
 
