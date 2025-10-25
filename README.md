@@ -1,4 +1,4 @@
-# <img src="https://epfl-ada.github.io/assets/img/ada.svg" width="40" />  Project Name
+# <img src="https://epfl-ada.github.io/assets/img/ada.svg" width="40" /> Consumer Personas, C.S.I
 
 >[!IMPORTANT]
 >README.md file containing the detailed project proposal (up to 1000 words). Your README.md should contain:
@@ -13,7 +13,34 @@
 
 <!-- A 150 word description of the project idea and goals. What’s the motivation behind your project? What story would you like to tell, and why? -->
 
+This project will treat Reddit's commerce communities as a digital crime scene, where clues 
+are just waiting to be uncovered. Our primary goal is to run a data investigation to 
+"profile the usual suspects"—the distinct consumer personas (the "Brand Loyalist," the "Skeptic," the "Early Adopter"). 
+We will analyze their digital "fingerprints" (cross-linking patterns) and "statements" (linguistic features) to establish
+a clear Modus Operandi (M.O.) for each.
+
+Our story follows these "suspects" as we, the investigators, track their behavior during high-stakes "heists" like 
+Black Friday and new product launches. We'll identify the "shot-callers" who successfully mobilize product discussions 
+and run a "broken telephone" investigation to see how "intel" (sentiment) gets "laundered" or distorted as it spreads. 
+The final story will reveal who holds the real influence in the digital marketplace.
+
 ## ❓ Research Questions
+
+## 1 - The Modus Operandi
+Can we build behavioral profiles (M.O.s) for distinct consumer types based on their digital 
+"fingerprints" (cross-linking) and recorded "statements" (linguistic features)?
+
+## 2 - Behavior During the "Big Job"
+How do our suspects change their M.O. during high-stakes "heists" 
+(Black Friday, product launches, Christmas)?
+
+## 3 - The "Shot-Callers"
+Which personas successfully "mobilize" other users into cross-community "meets" (discussions)
+about a product?
+
+## 4 - The "Broken Telephone" Investigation
+Does the "intel" (positive or negative sentiment) about a product get distorted or "laundered" 
+as it passes between different personas?
 
 <!-- A list of research questions you would like to address during the project. -->
 
