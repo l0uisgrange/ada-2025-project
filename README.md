@@ -51,6 +51,49 @@ Does the "intel" (positive or negative sentiment) about a product get distorted 
 
 ## 🏗️ Methods
 
+#### Data Preprocessing and Filtering
+- Load Reddit Hyperlinks dataset
+- Filter for commerce-related subreddits using LIWC categories
+- Normalize subreddit names and handle missing or ambigous data
+- Retain edges with valid linguistic features
+
+Main outcome:
+A cleaned and filtered dataset (edges_filtered.csv) focused on commerce-related subreddits with relevant linguistic features.
+
+#### Exploratory Data Analysis (EDA)
+- Descriptive statistics:
+  - Number of nodes and edges
+  - Finding which subreddits are highly connected
+  - Polarity and sentiment distributions
+  - Temporal activity patterns
+- Linguistic features:
+  - Average LIWC scores per subreddit
+  - Identify correlations between linguistic features and subreddit categories
+- Visualizations:
+  - Subreddit-level network graphs
+  - Sentiment vs. link density scatter plots | scatter emotion vs connectivity
+  - Heatmap of LIWC correlations
+
+Main outcome:
+A comprehensive EDA report with visualizations and insights into the dataset.
+This allows validation and reveals initial patterns.
+
+#### Consumer Persona Clustering
+- Identify groups of subreddits with similar language and behavior to reveal archetypes
+- Features per subreddit:
+  - LIWC vector
+  - Network structure embeddings (Node2Vec, DeepWalk)
+  - Embeddings
+- To do:
+  - Standardize + concatenate features
+  - Dimensionality reduction (PCA, t-SNE, UMAP)
+  - Clustering algorithms (K-Means, DBSCAN, Hierarchical)
+  - Cluster validation (silhouette score, Davies-Bouldin index)
+  - Choose final persona groups
+
+Main outcome:
+Defined consumer personas with characteristic linguistic and network features.
+
 ## ⏰ Proposed Timeline
 
 #### Week 1 (Nov 6)
