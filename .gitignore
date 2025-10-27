@@ -5,4 +5,4 @@ env
 venv
 .idea
 **/*.ipynb
-!main.ipynb
+!results.ipynb
