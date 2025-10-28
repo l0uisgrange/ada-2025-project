@@ -94,6 +94,35 @@ This allows validation and reveals initial patterns.
 Main outcome:
 Defined consumer personas with characteristic linguistic and network features.
 
+#### Temporal Dynamics and event analysis
+- See how each persone behaves over time
+- Segment timeline by month/year
+- For each persona cluster: count number of links, measure emotional language trends + compare around events 
+(Black Friday, product launches)
+- Methods: time series analysis, change point detection
+
+Main outcome:
+Understanding of how personas change behavior during key commerce events. Who reacts and who is there for market insight?
+
+#### Influence and Diffusion Modeling
+- Build influence networks to see how information spreads between personas
+- Methods:
+  - Directed graphs where edges represent influence (based on link direction and sentiment)
+  - Centrality measures (PageRank, Betweenness)
+  - Cascade sizes tracking (chains of consecutive cross-links) -> viral cross-subreddit threads
+- Identify influential personas and their role in spreading sentiment
+
+Main outcome:
+Who mobilizes users + which personas are key influencers in shaping product narratives.
+
+#### Interpretation and Storytelling
+- Synthesize findings into a coherent narrative (Police Inverstigation Report style)
+- Visualizations:
+  - Persona profiles with cards with key features
+  - Visualize influence pathways between persona clusters
+  - Timeline of persona activity around key events and connect back to narrative
+- Conclude with actionable insights for marketers on targeting personas and managing online product narratives.
+
 ## ⏰ Proposed Timeline
 
 #### Week 1 (Nov 6)
