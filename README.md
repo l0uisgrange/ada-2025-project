@@ -1,4 +1,4 @@
-# `<img src="https://epfl-ada.github.io/assets/img/ada.svg" width="40" />` Consumer Personas, C.S.I
+# <img src="https://epfl-ada.github.io/assets/img/ada.svg" width="40" /> Consumer Personas, C.S.I
 
 > [!IMPORTANT]
 > README.md file containing the detailed project proposal (up to 1000 words). Your README.md should contain:
