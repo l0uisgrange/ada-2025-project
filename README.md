@@ -1,48 +1,49 @@
 # <img src="https://epfl-ada.github.io/assets/img/ada.svg" width="40" /> Consumer Personas, C.S.I
 
->[!IMPORTANT]
->README.md file containing the detailed project proposal (up to 1000 words). Your README.md should contain:
->- [ ] Title
->- [ ] Abstract: A 150 word description of the project idea and goals. What’s the motivation behind your project? What story would you like to tell, and why?
->- [ ] Research Questions: A list of research questions you would like to address during the project.
->- [ ] Proposed additional datasets (if any): List the additional dataset(s) you want to use (if any), and some ideas on how you expect to get, manage, process, and enrich it/them. Show us that you’ve read the docs and some examples, and that you have a clear idea on what to expect. Discuss data size and format if relevant. It is your responsibility to check that what you propose is feasible.
->- [ ] Methods
->- [ ] Proposed timeline
->- [ ] Organization within the team: A list of internal milestones up until project Milestone P3.
->- [ ] Questions for TAs (optional): Add here any questions you have for us related to the proposed project.
+> [!IMPORTANT]
+> README.md file containing the detailed project proposal (up to 1000 words). Your README.md should contain:
+>
+> - [ ] Title
+> - [ ] Abstract: A 150 word description of the project idea and goals. What’s the motivation behind your project? What story would you like to tell, and why?
+> - [ ] Research Questions: A list of research questions you would like to address during the project.
+> - [ ] Proposed additional datasets (if any): List the additional dataset(s) you want to use (if any), and some ideas on how you expect to get, manage, process, and enrich it/them. Show us that you’ve read the docs and some examples, and that you have a clear idea on what to expect. Discuss data size and format if relevant. It is your responsibility to check that what you propose is feasible.
+> - [ ] Methods
+> - [ ] Proposed timeline
+> - [ ] Organization within the team: A list of internal milestones up until project Milestone P3.
+> - [ ] Questions for TAs (optional): Add here any questions you have for us related to the proposed project.
 
 <!-- A 150 word description of the project idea and goals. What’s the motivation behind your project? What story would you like to tell, and why? -->
 
-This project will treat Reddit's commerce communities as a digital crime scene, where clues 
-are just waiting to be uncovered. Our primary goal is to profile the distinct consumer personas 
-(Brand Loyalists, Skeptics, Early Adopters). 
+This project will treat Reddit's commerce communities as a digital crime scene, where clues
+are just waiting to be uncovered. Our primary goal is to profile the distinct consumer personas
+(Brand Loyalists, Skeptics, Early Adopters).
 We will analyze their digital fingerprints (cross-linking patterns) and statements (linguistic features) to establish
 a clear Modus Operandi (M.O.) for each.
 
-In today's market, a product's success is often decided by anonymous online conversations. We’re motivated by a simple 
+In today's market, a product's success is often decided by anonymous online conversations. We’re motivated by a simple
 question: who really controls a product's narrative?
 
-Our story follows these "suspects" as we, the investigators, track their behavior during high-stakes "heists" like 
-Black Friday and new product launches. We'll identify the "shot-callers" that mobilize product discussions 
-and also see how intel (sentiment) gets laundered or distorted as it spreads. 
+Our story follows these "suspects" as we, the investigators, track their behavior during high-stakes "heists" like
+Black Friday and new product launches. We'll identify the "shot-callers" that mobilize product discussions
+and also see how intel (sentiment) gets laundered or distorted as it spreads.
 The final story will reveal who holds the real influence in the digital marketplace.
 
 ## ❓ Research Questions
 
 #### The Modus Operandi
-  
+
 Can we build behavioral profiles (M.O.s) for distinct consumer types based on their digital "fingerprints" (cross-linking) and recorded "statements" (linguistic features)?
 
 #### Behavior During the "Big Job"
-  
+
 How do our suspects change their M.O. during high-stakes "heists" (Black Friday, product launches, Christmas)?
 
 #### The "Shot-Callers
-  
+
 Which personas successfully "mobilize" other users into cross-community "meets" (discussions) about a product?
 
 #### The "Broken Telephone" Investigation
-  
+
 Does the "intel" (positive or negative sentiment) about a product get distorted or "laundered" as it passes between different personas?
 
 ## 📊 Additional Datasets
@@ -52,6 +53,7 @@ Does the "intel" (positive or negative sentiment) about a product get distorted 
 ## 🏗️ Methods
 
 #### Data Preprocessing and Filtering
+
 - Load Reddit Hyperlinks dataset
 - Filter for commerce-related subreddits using LIWC categories
 - Normalize subreddit names and handle missing or ambigous data
@@ -61,6 +63,7 @@ Main outcome:
 A cleaned and filtered dataset (edges_filtered.csv) focused on commerce-related subreddits with relevant linguistic features.
 
 #### Exploratory Data Analysis (EDA)
+
 - Descriptive statistics:
   - Number of nodes and edges
   - Finding which subreddits are highly connected
@@ -79,6 +82,7 @@ A comprehensive EDA report with visualizations and insights into the dataset.
 This allows validation and reveals initial patterns.
 
 #### Consumer Persona Clustering
+
 - Identify groups of subreddits with similar language and behavior to reveal archetypes
 - Features per subreddit:
   - LIWC vector
@@ -126,29 +130,35 @@ Who mobilizes users + which personas are key influencers in shaping product narr
 ## ⏰ Proposed Timeline
 
 #### Week 1 (Nov 6)
+
 - Obtain, preprocess and clean the dataset
 - Define commerce related tags to cluster subreddits (for example: `tech`, `luxury`, `services`, `goods`, etc.)
 
 #### Week 2 (Nov 13)
+
 - Exploratory Data Analysis (EDA)
 - LIWC and tags descriptive statistics
 - Initial visualizations
 
 #### Week 3 (Nov 20)
+
 - Consumer persona clustering
 - Subreddit feature engineering (LIWC + embeddings + degree stats)
 - Cluster validation
 
 #### Week 4 (Nov 27)
+
 - Temporal dynamics per persona using time-series trends around events
 - Influence network analysis
 
 #### Week 5 (Dec 4)
+
 - Integrate results and write analysis
 - Refine figures and ensure reproducible pipeline
 - Full results notebook (EDA → clustering → influence)
 
 #### Week 6 (Dec 11)
+
 - Storytelling and polishing to have an interactive data story
 - Prepare final presentation and submission
 
