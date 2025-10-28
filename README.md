@@ -62,6 +62,12 @@ Does the "intel" (positive or negative sentiment) about a product get distorted 
 Main outcome:
 A cleaned and filtered dataset (edges_filtered.csv) focused on commerce-related subreddits with relevant linguistic features.
 
+##### Daniel Proposal for Commerce-related Subreddits Filtering
+- Manually label around 100 commerce subreddits vs non commerce
+- Aggregate LIWC features per subreddit (mean scores)
+- Train a classifier (Random Forest, SVM) to predict commerce vs non-commerce subredd
+- Optional: Network analysis (find subreddits that link heavily to the manually labeled commerce subreddits)
+
 #### Exploratory Data Analysis (EDA)
 
 - Descriptive statistics:
