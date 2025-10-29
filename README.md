@@ -187,8 +187,10 @@ Who mobilizes users + which personas are key influencers in shaping product narr
 ```
 ada-2025-project
 ├── data
+│   ├── soc-redditHyperlinks-title.tsv
 │   ├── soc-redditHyperlinks-body.tsv
-│   └── soc-redditHyperlinks-title.tsv
+│   ├── web-redditEmbeddings-subreddits.csv
+│   └── web-redditEmbeddings-users.csv
 ├── src
 │   └── main.ipynb <- File for installing python dependencies
 └── README.md
