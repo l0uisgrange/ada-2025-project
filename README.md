@@ -182,14 +182,25 @@ For weeks 0 to 2, we are assigning tasks on a weekly basis. For weeks after (3 t
 ## 🗄️ Project structure
 
 ```
-ada-2025-project
-├── data
+├── data                        <- Project data files
 │   ├── soc-redditHyperlinks-title.tsv
 │   ├── soc-redditHyperlinks-body.tsv
 │   ├── web-redditEmbeddings-subreddits.csv
 │   ├── web-redditEmbeddings-users.csv
 │   └── events.csv
-├── src
-│   └── main.ipynb <- File for installing python dependencies
+├── src                         <- Source code
+│   ├── data                            <- Data directory
+│   ├── models                          <- Model directory
+│   ├── utils                           <- Utility directory
+│   ├── scripts                         <- Shell scripts
+│
+├── tests                       <- Tests of any kind
+│
+├── results.ipynb               <- a well-structured notebook showing the results
+│
+├── .gitignore                  <- List of files ignored by git
+├── requirements.txt        <- File for installing python dependencies
 └── README.md
 ```
+
+
