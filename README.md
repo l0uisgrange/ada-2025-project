@@ -1,18 +1,16 @@
 # <img src="https://epfl-ada.github.io/assets/img/ada.svg" width="40" /> Consumer Personas, C.S.I
 
-<!-- A 150 word description of the project idea and goals. What’s the motivation behind your project? What story would you like to tell, and why? -->
-
 This project will treat Reddit's commerce communities as a digital crime scene, where clues
 are just waiting to be uncovered. Our primary goal is to profile the distinct consumer personas
 (Brand Loyalists, Skeptics, Early Adopters).
 We will analyze their digital fingerprints (cross-linking patterns) and statements (linguistic features) to establish
 a clear Modus Operandi (M.O.) for each.
 
-In today's market, a product's success is often decided by anonymous online conversations. We’re motivated by a simple
+In today's market, a product's success is often decided by anonymous online conversations. We're motivated by a simple
 question: who really controls a product's narrative?
 
-Our story follows these "suspects" as we, the investigators, track their behavior during high-stakes "heists" like
-Black Friday and new product launches. We'll identify the "shot-callers" that mobilize product discussions
+Our story follows these suspects as we, the investigators, track their behavior during high-stakes heists like
+Black Friday and new product launches. We'll identify the shot-callers that mobilize product discussions
 and also see how intel (sentiment) gets laundered or distorted as it spreads.
 The final story will reveal who holds the real influence in the digital marketplace.
 
@@ -20,19 +18,19 @@ The final story will reveal who holds the real influence in the digital marketpl
 
 #### The Modus Operandi
 
-Can we build behavioral profiles (M.O.s) for distinct consumer types based on their digital "fingerprints" (cross-linking) and recorded "statements" (linguistic features)?
+Can we build behavioral profiles (M.O.s) for distinct consumer types based on their digital fingerprints (cross-linking) and recorded statements (linguistic features)?
 
 #### Behavior During the "Big Job"
 
-How do our suspects change their M.O. during high-stakes "heists" (Black Friday, product launches, Christmas)?
+How do our suspects change their M.O. during high-stakes heists (Black Friday, product launches, Christmas)?
 
-#### The "Shot-Callers
+#### The Shot-Callers
 
-Which personas successfully "mobilize" other users into cross-community "meets" (discussions) about a product?
+Which personas successfully mobilize other users into cross-community meets (discussions) about a product?
 
 #### The "Broken Telephone" Investigation
 
-Does the "intel" (positive or negative sentiment) about a product get distorted or "laundered" as it passes between different personas?
+Does the intel (positive or negative sentiment) about a product get distorted or laundered as it passes between different personas?
 
 ## 📊 Additional Datasets
 
@@ -131,7 +129,7 @@ Who mobilizes users + which personas are key influencers in shaping product narr
 
 - Obtain, preprocess and clean the dataset
 - Define commerce related starting points to cluster subreddits (for example: `tech`, `luxury`, `services`, `goods`, etc.)
-- Quick analysis of clusters and embeddings checks
+- Quick analysis of clusters and embedding checks
 
 #### Week 1 (before Nov 12)
 
@@ -174,32 +172,29 @@ For weeks 0 to 2, we are assigning tasks on a weekly basis. For weeks after (3 t
 ## ⚙️ Quickstart
 
 1. Clone the repository
-2. Download the [dataset](https://snap.stanford.edu/data/soc-RedditHyperlinks.html)
-3. Move the dataset files into the `data` folder
-4. Open a terminal and execute `python -m venv /PATH/TO/ada-2025-project/.venv` to create a virtual environment
-5. Execute `pip install -r requirements.txt` to install the project dependencies
+2. Open a terminal and execute `python -m venv /PATH/TO/ada-2025-project/.venv` to create a virtual environment
+3. Execute `pip install -r requirements.txt` to install the project dependencies
+
+_Note: the datasets will be downloaded automatically when running the first script._
 
 ## 🗄️ Project structure
 
 ```
-├── data                        <- Project data files
+├── data                  # Project data files
 │   ├── soc-redditHyperlinks-title.tsv
 │   ├── soc-redditHyperlinks-body.tsv
 │   ├── web-redditEmbeddings-subreddits.csv
 │   ├── web-redditEmbeddings-users.csv
 │   └── events.csv
-├── src                         <- Source code
-│   ├── data                            <- Data directory
-│   ├── models                          <- Model directory
-│   ├── utils                           <- Utility directory
-│   ├── scripts                         <- Shell scripts
-│
-├── tests                       <- Tests of any kind
-│
-├── results.ipynb               <- a well-structured notebook showing the results
-│
-├── .gitignore                  <- List of files ignored by git
-├── requirements.txt        <- File for installing python dependencies
+├── src                   # Source code
+│   ├── data
+│   ├── models
+│   ├── utils
+│   └── scripts
+├── tests                 # Tests of any kind
+├── results.ipynb         # Notebook showing the results
+├── .gitignore
+├── requirements.txt      # File for installing python dependencies
 └── README.md
 ```
 
