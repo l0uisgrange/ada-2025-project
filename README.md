@@ -48,6 +48,9 @@ Does the "intel" (positive or negative sentiment) about a product get distorted 
 
 ## 📊 Additional Datasets
 
+- Embedding vectors of users on Reddit. [source](https://snap.stanford.edu/data/web-RedditEmbeddings.html)
+- Embedding vectors of subreddits (communities on Reddit). [source](https://snap.stanford.edu/data/web-RedditEmbeddings.html)
+
 <!-- List the additional dataset(s) you want to use (if any), and some ideas on how you expect to get, manage, process, and enrich it/them. Show us that you’ve read the docs and some examples, and that you have a clear idea on what to expect. Discuss data size and format if relevant. It is your responsibility to check that what you propose is feasible. -->
 
 ## 🏗️ Methods
