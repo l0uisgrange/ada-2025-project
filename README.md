@@ -38,6 +38,7 @@ Does the "intel" (positive or negative sentiment) about a product get distorted 
 
 - Embedding vectors of users on Reddit. [source](https://snap.stanford.edu/data/web-RedditEmbeddings.html)
 - Embedding vectors of subreddits (communities on Reddit). [source](https://snap.stanford.edu/data/web-RedditEmbeddings.html)
+- List of global events. [source](...)
 
 <!-- List the additional dataset(s) you want to use (if any), and some ideas on how you expect to get, manage, process, and enrich it/them. Show us that you’ve read the docs and some examples, and that you have a clear idea on what to expect. Discuss data size and format if relevant. It is your responsibility to check that what you propose is feasible. -->
 
@@ -126,40 +127,43 @@ Who mobilizes users + which personas are key influencers in shaping product narr
 
 ## ⏰ Proposed Timeline and Organization
 
-#### Week 1 (Nov 6)
+#### Week 0 (before Nov 5)
 
 - Obtain, preprocess and clean the dataset
 - Define commerce related starting points to cluster subreddits (for example: `tech`, `luxury`, `services`, `goods`, etc.)
-- Quick analysis of clusters
-- Check we have embeddings
+- Quick analysis of clusters and embeddings checks
 
-#### Week 2 (Nov 13)
+#### Week 1 (before Nov 12)
 
 - Exploratory Data Analysis (EDA)
 - LIWC and tags descriptive statistics
 - Initial visualizations
 
-#### Week 3 (Nov 20)
+#### Week 2 (before Nov 19)
 
 - Consumer persona clustering
 - Subreddit feature engineering (LIWC + embeddings + degree stats)
 - Cluster validation
 
-#### Week 4 (Nov 27)
+#### Week 3 (before Nov 26)
 
 - Temporal dynamics per persona using time-series trends around events
 - Influence network analysis
 
-#### Week 5 (Dec 4)
+#### Week 4 (before Nov 3)
 
 - Integrate results and write analysis
 - Refine figures and ensure reproducible pipeline
 - Full results notebook (EDA → clustering → influence)
 
-#### Week 6 (Dec 11)
+#### Week 5 (before Dec 10)
 
 - Storytelling and polishing to have an interactive data story
 - Prepare final presentation and submission
+
+#### Week 6 (before Dec 17)
+
+_Additional margin_
 
 <!-- _Content below must be kept_ -->
 
@@ -183,7 +187,8 @@ ada-2025-project
 │   ├── soc-redditHyperlinks-title.tsv
 │   ├── soc-redditHyperlinks-body.tsv
 │   ├── web-redditEmbeddings-subreddits.csv
-│   └── web-redditEmbeddings-users.csv
+│   ├── web-redditEmbeddings-users.csv
+│   └── events.csv
 ├── src
 │   └── main.ipynb <- File for installing python dependencies
 └── README.md
