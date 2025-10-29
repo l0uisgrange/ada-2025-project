@@ -15,7 +15,7 @@ def load_data():
     """
 
     datasets_path = download_data()
-    print("Loading datasets from: ", datasets_path)
+    print("Loading datasets from", datasets_path)
 
     # Reddit body dataset
     df_body = pd.read_csv(
@@ -44,10 +44,15 @@ def load_data():
     )
 
     # Events list
-    """df_events = pd.read_csv(
-        os.path.join(path, "web-redditEmbeddings-users.csv"),
-        names=["USER"] + [f"EMBEDDING_{i}" for i in range(300)],
-    )"""
+    df_events_raw = pd.read_csv(
+        os.path.join(datasets_path, "global_holidays.csv"),
+        parse_dates=["Date"],
+    )
+
+    # Only take relevant events
+    start = "2014-01-01"
+    end = "2017-04-30"
+    df_events = df_events_raw.loc[(df_events_raw['Date'] >= start) & (df_events_raw['Date'] <= end)].copy()
 
     print("Completed")
-    return df_body, df_title, df_subreddits, df_users
+    return df_body, df_title, df_subreddits, df_users, df_events

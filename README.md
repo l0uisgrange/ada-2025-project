@@ -36,7 +36,7 @@ Does the intel (positive or negative sentiment) about a product get distorted or
 
 - Embedding vectors of users on Reddit. [source](https://snap.stanford.edu/data/web-RedditEmbeddings.html)
 - Embedding vectors of subreddits (communities on Reddit). [source](https://snap.stanford.edu/data/web-RedditEmbeddings.html)
-- List of global events. [source](...)
+- List of global events. [source](https://www.kaggle.com/datasets/umerhaddii/global-holidays-and-travel-data/data)
 
 <!-- List the additional dataset(s) you want to use (if any), and some ideas on how you expect to get, manage, process, and enrich it/them. Show us that you’ve read the docs and some examples, and that you have a clear idea on what to expect. Discuss data size and format if relevant. It is your responsibility to check that what you propose is feasible. -->
 
@@ -180,12 +180,12 @@ _Note: the datasets will be downloaded automatically when running the first scri
 ## 🗄️ Project structure
 
 ```
-├── data                  # Project data files
+├── ... cache              # Cached datasets files
 │   ├── soc-redditHyperlinks-title.tsv
 │   ├── soc-redditHyperlinks-body.tsv
 │   ├── web-redditEmbeddings-subreddits.csv
 │   ├── web-redditEmbeddings-users.csv
-│   └── events.csv
+│   └── global_holidays.csv
 ├── src                   # Source code
 │   ├── data
 │   ├── models
