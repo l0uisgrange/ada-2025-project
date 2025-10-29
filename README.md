@@ -34,11 +34,12 @@ Does the intel (positive or negative sentiment) about a product get distorted or
 
 ## 📊 Additional Datasets
 
+We needed to cluster the users and subreddits, so we used SNAP's recommended embeddings datasets.
 - Embedding vectors of users on Reddit. [source](https://snap.stanford.edu/data/web-RedditEmbeddings.html)
 - Embedding vectors of subreddits (communities on Reddit). [source](https://snap.stanford.edu/data/web-RedditEmbeddings.html)
-- List of global events. [source](https://www.kaggle.com/datasets/umerhaddii/global-holidays-and-travel-data/data)
+- List of global events with country. [source](https://www.kaggle.com/datasets/umerhaddii/global-holidays-and-travel-data/data)
 
-<!-- List the additional dataset(s) you want to use (if any), and some ideas on how you expect to get, manage, process, and enrich it/them. Show us that you’ve read the docs and some examples, and that you have a clear idea on what to expect. Discuss data size and format if relevant. It is your responsibility to check that what you propose is feasible. -->
+We manage these datasets via [Kaggle](https://www.kaggle.com/datasets/fejwiehf3928uhcwa/ada-2025-project-bald), so it's easy for everyone to install the latest version, without having it on GitHub as it is very large (> 1GB).
 
 ## 🏗️ Methods
 
@@ -172,10 +173,10 @@ For weeks 0 to 2, we are assigning tasks on a weekly basis. For weeks after (3 t
 ## ⚙️ Quickstart
 
 1. Clone the repository
-2. Open a terminal and execute `python -m venv /PATH/TO/ada-2025-project/.venv` to create a virtual environment
+2. Open a terminal and execute `python -m venv /PATH/TO/PROJECT/.venv` to create a virtual environment
 3. Execute `pip install -r requirements.txt` to install the project dependencies
 
-_Note: the datasets will be downloaded automatically when running the first script._
+_Note: the datasets will be downloaded automatically from [Kabble](https://www.kaggle.com/datasets/fejwiehf3928uhcwa/ada-2025-project-bald) when running the Notebook._
 
 ## 🗄️ Project structure
 
