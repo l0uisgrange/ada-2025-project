@@ -169,7 +169,7 @@ _Additional margin_
 
 ## 🤝 Team Organization
 
-For weeks 1 to 3, we are assigning tasks on a weekly basis. For weeks after (4 to 6), we will do the tasks together with meetings each week.
+For weeks 0 to 2, we are assigning tasks on a weekly basis. For weeks after (3 to 6), we will do the tasks together with meetings each week.
 
 ## ⚙️ Quickstart
 
