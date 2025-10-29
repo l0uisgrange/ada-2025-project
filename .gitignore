@@ -6,3 +6,7 @@ venv
 .idea
 **/*.ipynb
 !results.ipynb
+**/*.png
+**/*.jpg
+**/*.jpeg
+**/*.pdf
