@@ -125,7 +125,7 @@ Who mobilizes users + which personas are key influencers in shaping product narr
   - Timeline of persona activity around key events and connect back to narrative
 - Conclude with actionable insights for marketers on targeting personas and managing online product narratives.
 
-## ⏰ Proposed Timeline and Organization
+## ⏰ Proposed Timeline
 
 #### Week 0 (before Nov 5)
 
