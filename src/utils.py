@@ -26,7 +26,7 @@ def load_data(
     """
     body_data = pd.read_csv(body_path, sep='\t', parse_dates=['TIMESTAMP'])
     title_data = pd.read_csv(title_path, sep='\t', parse_dates=['TIMESTAMP'])
-    subreddits_data = pd.read_csv(subreddits_path)
-    users_data = pd.read_csv(users_path)
+    subreddits_data = pd.read_csv(subreddits_path, names=['SUBREDDIT'] + [f'EMBEDDING_{i}' for i in range(300)])
+    users_data = pd.read_csv(users_path, names=['USER'] + [f'EMBEDDING_{i}' for i in range(300)])
 
     return body_data, title_data, subreddits_data, users_data
