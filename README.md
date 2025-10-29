@@ -136,12 +136,14 @@ Who mobilizes users + which personas are key influencers in shaping product narr
   - Timeline of persona activity around key events and connect back to narrative
 - Conclude with actionable insights for marketers on targeting personas and managing online product narratives.
 
-## ⏰ Proposed Timeline
+## ⏰ Proposed Timeline and Organization
 
 #### Week 1 (Nov 6)
 
 - Obtain, preprocess and clean the dataset
-- Define commerce related tags to cluster subreddits (for example: `tech`, `luxury`, `services`, `goods`, etc.)
+- Define commerce related starting points to cluster subreddits (for example: `tech`, `luxury`, `services`, `goods`, etc.)
+- Quick analysis of clusters
+- Check we have embeddings
 
 #### Week 2 (Nov 13)
 
@@ -170,10 +172,6 @@ Who mobilizes users + which personas are key influencers in shaping product narr
 
 - Storytelling and polishing to have an interactive data story
 - Prepare final presentation and submission
-
-## 🤝 Team Organization
-
-<!-- A list of internal milestones up until project Milestone P3. -->
 
 <!-- _Content below must be kept_ -->
 
