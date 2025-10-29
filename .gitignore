@@ -10,3 +10,4 @@ venv
 **/*.jpg
 **/*.jpeg
 **/*.pdf
+**/__pycache__
