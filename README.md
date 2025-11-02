@@ -43,15 +43,14 @@ How do major sports events (e.g., the English Premier League and the Super Bowl)
 
 ## 📊 Additional Datasets
 
-We needed to cluster the users and subreddits, so we used SNAP's recommended embeddings datasets.
-- Embedding vectors of users on Reddit. [source](https://snap.stanford.edu/data/web-RedditEmbeddings.html)
-- Embedding vectors of subreddits (communities on Reddit). [source](https://snap.stanford.edu/data/web-RedditEmbeddings.html)
-- List of global events with country. [source](https://www.kaggle.com/datasets/umerhaddii/global-holidays-and-travel-data/data)
+For our project, we searched online a few datasets that would allow us to create more interesting statistics
+- Embedding vectors of subreddits (communities on Reddit) [source](https://snap.stanford.edu/data/web-RedditEmbeddings.html)
+- List of global holidays by country [source](https://www.kaggle.com/datasets/umerhaddii/global-holidays-and-travel-data/data)
 - Esport tournaments with start, end times, and city where each event took place [source](https://www.kaggle.com/datasets/hbakker/esports-200-tournaments)
 - English Premier League (EPL) results with match dates, home teams, and away teams [source](https://www.kaggle.com/datasets/irkaal/english-premier-league-results)
 - Super bowl matches [source](https://www.kaggle.com/datasets/timoboz/superbowl-history-1967-2020)
 
-We manage these datasets via [Kaggle](https://www.kaggle.com/datasets/fejwiehf3928uhcwa/ada-2025-project-bald), so it's easy for everyone to install the latest version, without having it on GitHub as it is very large (> 1GB).
+As we had a lot of datasets, we used [Kaggle](https://www.kaggle.com/datasets/fejwiehf3928uhcwa/ada-2025-project-bald) so it's easier for everyone to install automatically. It was not possible to put it on GitHub as some datasets were very large (> 200MB).
 
 ## 🏗️ Methods
 
