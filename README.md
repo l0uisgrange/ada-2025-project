@@ -1,6 +1,6 @@
 # <img src="https://epfl-ada.github.io/assets/img/ada.svg" width="40" /> The Social Fabric They Weave
 
-Reddit is structured in subcommunities called _subreddits_, each having its own culture. Our main datasets focuses on interactions between these communities from 2014 to 2017, from which we wonder: what happened when the real world crashed the party?
+Our dataset focuses on interactions from 2014 to 2017 on Reddit, which is structured in subcommunities called _subreddits_, each with its own culture. But what happened when the real world crashed the party?
 
 This project consists of a statistical analysis to map users behavior across different key communities, specifically focusing on sports, politics, and holiday related subreddits. Our main goal is to **find and demonstrate measurable links between major world events** (like a football match or an election) **and immediate behavioral shifts** inside subreddits.
 
