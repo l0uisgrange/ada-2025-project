@@ -8,9 +8,14 @@ We investigate how users' actions change (participation, cooperation, conflict, 
 
 ## ❓ Research Questions
 
-1. How do **holidays** (e.g., Christmas, New Year's Day, or Mother's day) affect subreddits activity?
-2. How do major **political events**, such as the 2016 U.S. presidential election, affect interaction patterns and topic trends on Reddit?
-3. How do major **sports events** (e.g., the English Premier League and the Super Bowl) and e-sports tournaments reflect in Reddit activity and community interactions?
+Our research questions are split into 3 parts:
+
+1. **Political events** (e.g. 2016 U.S. presidential election)
+- How do major political events affect interaction patterns and topic trends on Reddit?
+2. **Sports events** (e.g. English Premier League, the Super Bowl)
+- How do major sports events and e-sports tournaments reflect in Reddit activity and community interactions?
+3. **Holidays** (e.g. Christmas, New Year's Day, or Mother's day)
+- How do holidays affect subreddits activity?
 
 ## 📊 Additional Datasets
 
@@ -99,6 +104,7 @@ Main outcome:
 Who mobilizes users + which personas are key influencers in shaping product narratives.
 
 #### Interpretation and Storytelling
+
 - Synthesize findings into a coherent narrative (Police Inverstigation Report style)
 - Visualizations:
   - Persona profiles with cards with key features
@@ -158,23 +164,18 @@ For weeks 0 to 2, we are assigning tasks on a weekly basis. For weeks after (3 t
 2. Open a terminal and execute `python -m venv /PATH/TO/PROJECT/.venv` to create a virtual environment
 3. Execute `pip install -r requirements.txt` to install the project dependencies
 
-_Note: the datasets will be downloaded automatically from [Kabble](https://www.kaggle.com/datasets/fejwiehf3928uhcwa/ada-2025-project-bald) when running the Notebook._
+_Note: the datasets will be downloaded automatically from [Kaggle](https://www.kaggle.com/datasets/fejwiehf3928uhcwa/ada-2025-project-bald) when running the Notebook._
 
 ## 🗄️ Project structure
 
 ```
-├── ... cache              # Cached datasets files
-│   ├── soc-redditHyperlinks-title.tsv
-│   ├── soc-redditHyperlinks-body.tsv
-│   ├── web-redditEmbeddings-subreddits.csv
-│   ├── web-redditEmbeddings-users.csv
-│   └── global_holidays.csv
+├── ... cache             # Cached datasets files
+├── archive               # Archive files 
 ├── src                   # Source code
 │   ├── data
 │   ├── models
 │   ├── utils
 │   └── scripts
-├── tests                 # Tests of any kind
 ├── results.ipynb         # Notebook showing the results
 ├── .gitignore
 ├── requirements.txt      # File for installing python dependencies
