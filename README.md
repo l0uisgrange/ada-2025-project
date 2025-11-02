@@ -1,6 +1,6 @@
 # <img src="https://epfl-ada.github.io/assets/img/ada.svg" width="40" /> The Social Fabric They Weave
 
-Reddit is structured in subcommunities called _subreddits_, each having its own culture. But what happens when the real world crashes the party?
+Reddit is structured in subcommunities called _subreddits_, each having its own culture. Our main datasets focuses on interactions between these communities from 2014 to 2017, from which we wonder: what happened when the real world crashed the party?
 
 This project consists of a statistical analysis to map users behavior across different key communities, specifically focusing on sports, politics, and holiday related subreddits. Our main goal is to **find and demonstrate measurable links between major world events** (like a football match or an election) **and immediate behavioral shifts** inside subreddits.
 
@@ -22,7 +22,7 @@ Our research questions are split into 3 parts:
 For our project, we searched online a few datasets that would allow us to create more interesting statistics
 - Embedding vectors of subreddits (communities on Reddit) [source](https://snap.stanford.edu/data/web-RedditEmbeddings.html)
 - List of global holidays by country [source](https://www.kaggle.com/datasets/umerhaddii/global-holidays-and-travel-data/data)
-- Esport tournaments with start, end times, and city where each event took place [source](https://www.kaggle.com/datasets/hbakker/esports-200-tournaments)
+- E-Sport tournaments with start, end times, and city where each event took place [source](https://www.kaggle.com/datasets/hbakker/esports-200-tournaments)
 - English Premier League (EPL) results with match dates, home teams, and away teams [source](https://www.kaggle.com/datasets/irkaal/english-premier-league-results)
 - Super bowl matches [source](https://www.kaggle.com/datasets/timoboz/superbowl-history-1967-2020)
 
@@ -152,11 +152,9 @@ Who mobilizes users + which personas are key influencers in shaping product narr
 
 _Additional margin_
 
-<!-- _Content below must be kept_ -->
-
 ## 🤝 Team Organization
 
-For weeks 0 to 2, we are assigning tasks on a weekly basis. For weeks after (3 to 6), we will do the tasks together with meetings each week.
+For weeks 0 to 2, we are assigning tasks on a weekly basis and update the timeline above accordingly. For weeks after (3 to 6), we will do the tasks together with meetings each week.
 
 ## ⚙️ Quickstart
 
