@@ -2,36 +2,15 @@
 
 Reddit is structured in subcommunities called _subreddits_, each having its own culture. But what happens when the real world crashes the party?.
 
-This project consists of a statistical analysis to map users behavior across different key communities, specifically focusing on sports, politics, and gaming related subreddits. Our main goal is to find and demonstrate measurable links between major world events (like a football match or an election) and immediate behavioral shifts inside subreddits.
+This project consists of a statistical analysis to map users behavior across different key communities, specifically focusing on sports, politics, and holiday related subreddits. Our main goal is to find and demonstrate measurable links between major world events (like a football match or an election) and immediate behavioral shifts inside subreddits.
 
 We investigate how users' actions change (participation, cooperation, conflict, ...) and how these events influence linguistic patterns (like the use of punctuation or specific casing). Finally, we explore how these fluctuations affect community dynamics: do some subreddits boom in popularity, become aggressive targets, or otherwise act as supportive allies to others? This project uncovers the hidden statistical patterns that weaves online social behavior to global events.
 
 ## ❓ Research Questions
 
-#### The Modus Operandi
-
-Can we build behavioral profiles (M.O.s) for distinct consumer types based on their digital fingerprints (cross-linking) and recorded statements (linguistic features)?
-
-#### Behavior During the "Big Job"
-
-How do our suspects change their M.O. during high-stakes heists (Black Friday, product launches, Christmas)?
-
-#### The Shot-Callers
-
-Which personas successfully mobilize other users into cross-community meets (discussions) about a product?
-
-#### The "Broken Telephone" Investigation
-
-Does the intel (positive or negative sentiment) about a product get distorted or laundered as it passes between different personas?
-
-#### Annual holidays
-How do annual holidays (e.g., Christmas, New Year's Day, or Mother's day) affect subreddit activity?
-
-#### Political events
-How do major political events, such as the 2016 U.S. presidential election, affect interaction patterns and topic trends on Reddit?
-
-#### (e)Sports events
-How do major sports events (e.g., the English Premier League and the Super Bowl) and esports tournaments reflect in Reddit activity and community interactions?
+1. How do **holidays** (e.g., Christmas, New Year's Day, or Mother's day) affect subreddits activity?
+2. How do major **political events**, such as the 2016 U.S. presidential election, affect interaction patterns and topic trends on Reddit?
+3. How do major **sports events** (e.g., the English Premier League and the Super Bowl) and e-sports tournaments reflect in Reddit activity and community interactions?
 
 ## 📊 Additional Datasets
 
