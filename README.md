@@ -1,8 +1,8 @@
 # <img src="https://epfl-ada.github.io/assets/img/ada.svg" width="40" /> The Social Fabric They Weave
 
-Reddit is structured in subcommunities called _subreddits_, each having its own culture. But what happens when the real world crashes the party?.
+Reddit is structured in subcommunities called _subreddits_, each having its own culture. But what happens when the real world crashes the party?
 
-This project consists of a statistical analysis to map users behavior across different key communities, specifically focusing on sports, politics, and holiday related subreddits. Our main goal is to find and demonstrate measurable links between major world events (like a football match or an election) and immediate behavioral shifts inside subreddits.
+This project consists of a statistical analysis to map users behavior across different key communities, specifically focusing on sports, politics, and holiday related subreddits. Our main goal is to **find and demonstrate measurable links between major world events** (like a football match or an election) **and immediate behavioral shifts** inside subreddits.
 
 We investigate how users' actions change (participation, cooperation, conflict, ...) and how these events influence linguistic patterns (like the use of punctuation or specific casing). Finally, we explore how these fluctuations affect community dynamics: do some subreddits boom in popularity, become aggressive targets, or otherwise act as supportive allies to others? This project uncovers the hidden statistical patterns that weaves online social behavior to global events.
 
