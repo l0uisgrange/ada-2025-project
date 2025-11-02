@@ -1,18 +1,10 @@
-# <img src="https://epfl-ada.github.io/assets/img/ada.svg" width="40" /> Consumer Personas, C.S.I
+# <img src="https://epfl-ada.github.io/assets/img/ada.svg" width="40" /> The Social Fabric They Weave
 
-This project will treat Reddit's commerce communities as a digital crime scene, where clues
-are just waiting to be uncovered. Our primary goal is to profile the distinct consumer personas
-(Brand Loyalists, Skeptics, Early Adopters).
-We will analyze their digital fingerprints (cross-linking patterns) and statements (linguistic features) to establish
-a clear Modus Operandi (M.O.) for each.
+Reddit is structured in subcommunities called _subreddits_, each having its own culture. But what happens when the real world crashes the party?.
 
-In today's market, a product's success is often decided by anonymous online conversations. We're motivated by a simple
-question: who really controls a product's narrative?
+This project consists of a statistical analysis to map users behavior across different key communities, specifically focusing on sports, politics, and gaming related subreddits. Our main goal is to find and demonstrate measurable links between major world events (like a football match or an election) and immediate behavioral shifts inside subreddits.
 
-Our story follows these suspects as we, the investigators, track their behavior during high-stakes heists like
-Black Friday and new product launches. We'll identify the shot-callers that mobilize product discussions
-and also see how intel (sentiment) gets laundered or distorted as it spreads.
-The final story will reveal who holds the real influence in the digital marketplace.
+We investigate how users' actions change (participation, cooperation, conflict, ...) and how these events influence linguistic patterns (like the use of punctuation or specific casing). Finally, we explore how these fluctuations affect community dynamics: do some subreddits boom in popularity, become aggressive targets, or otherwise act as supportive allies to others? This project uncovers the hidden statistical patterns that weaves online social behavior to global events.
 
 ## ❓ Research Questions
 
