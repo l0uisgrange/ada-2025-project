@@ -1,6 +1,6 @@
 # <img src="https://epfl-ada.github.io/assets/img/ada.svg" width="40" /> The Social Fabric They Weave
 
-Reddit is one of the largest social networks in the world, making it a very good place to analyze people's behavior towards real world events.
+Reddit is one of the largest social networks in the world, and its vast and diverse communities make it the perfect environment to analyze people's behavior in relation to real world events.
 
 This project consists of a statistical analysis to map users behavior across different key communities, specifically focusing on sports, politics, and holiday related subreddits. Our main goal is to **find and demonstrate measurable links between major world events** (like a football match or an election) **and immediate behavioral shifts** inside subreddits.
 
