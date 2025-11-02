@@ -32,12 +32,24 @@ Which personas successfully mobilize other users into cross-community meets (dis
 
 Does the intel (positive or negative sentiment) about a product get distorted or laundered as it passes between different personas?
 
+#### Annual holidays
+How do annual holidays (e.g., Christmas, New Year's Day, or Mother's day) affect subreddit activity?
+
+#### Political events
+How do major political events, such as the 2016 U.S. presidential election, affect interaction patterns and topic trends on Reddit?
+
+#### (e)Sports events
+How do major sports events (e.g., the English Premier League and the Super Bowl) and esports tournaments reflect in Reddit activity and community interactions?
+
 ## 📊 Additional Datasets
 
 We needed to cluster the users and subreddits, so we used SNAP's recommended embeddings datasets.
 - Embedding vectors of users on Reddit. [source](https://snap.stanford.edu/data/web-RedditEmbeddings.html)
 - Embedding vectors of subreddits (communities on Reddit). [source](https://snap.stanford.edu/data/web-RedditEmbeddings.html)
 - List of global events with country. [source](https://www.kaggle.com/datasets/umerhaddii/global-holidays-and-travel-data/data)
+- Esport tournaments with start, end times, and city where each event took place [source](https://www.kaggle.com/datasets/hbakker/esports-200-tournaments)
+- English Premier League (EPL) results with match dates, home teams, and away teams [source](https://www.kaggle.com/datasets/irkaal/english-premier-league-results)
+- Super bowl matches [source](https://www.kaggle.com/datasets/timoboz/superbowl-history-1967-2020)
 
 We manage these datasets via [Kaggle](https://www.kaggle.com/datasets/fejwiehf3928uhcwa/ada-2025-project-bald), so it's easy for everyone to install the latest version, without having it on GitHub as it is very large (> 1GB).
 
