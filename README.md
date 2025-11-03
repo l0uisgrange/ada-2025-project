@@ -104,41 +104,52 @@ A clear, engaging, and data-driven story showing how global events ripple throug
 
 #### Week 0 (before Nov 5)
 
-- Obtain, preprocess and clean the dataset
-- Define commerce related starting points to cluster subreddits (for example: `tech`, `luxury`, `services`, `goods`, etc.)
-- Quick analysis of clusters and embedding checks
+- Obtain, preprocess, and clean the Reddit Hyperlink datasets (title + body).
+- Integrate subreddit embeddings and external event datasets (political elections, sports tournaments, holidays).
+- Quick exploration of network structure and embeddings to validate data.
 
 #### Week 1 (before Nov 12)
 
-- Exploratory Data Analysis (EDA)
-- LIWC and tags descriptive statistics
-- Initial visualizations
+- Perform Exploratory Data Analysis (EDA):
+  - Network descriptives: nodes, edges, degree distributions, sentiment ratios, community structure.
+  - Temporal dynamics: subreddit activity and sentiment over time.
+  - Linguistic analysis: aggregate LIWC features per subreddit and time window.
+- Generate initial visualizations for network, temporal, and linguistic patterns.
 
 #### Week 2 (before Nov 19)
 
-- Consumer persona clustering
-- Subreddit feature engineering (LIWC + embeddings + degree stats)
-- Cluster validation
+- Event-Based Behavioral Analysis:
+  - Segment activity around political, sports, and holiday events.
+  - Compute metrics: subreddit activity, cross-links, sentiment shifts, linguistic changes.
+  - Conduct statistical testing to detect significant pre-event vs. post-event changes.
+- Document insights and patterns identified for each event category.
 
 #### Week 3 (before Nov 26)
 
-- Temporal dynamics per persona using time-series trends around events
-- Influence network analysis
+- Community & Influence Analysis:
+  - Detect subreddit communities/clusters using network structure and embeddings.
+  - Compute centrality metrics (Betweenness, PageRank, Eigenvector) to identify hubs and bridges.
+  - Track information and sentiment cascades across communities over time.
 
 #### Week 4 (before Nov 3)
 
-- Integrate results and write analysis
-- Refine figures and ensure reproducible pipeline
-- Full results notebook (EDA → clustering → influence)
+- Integrate results from EDA, event analysis, and community/influence analysis.
+- Finalize results notebook with figures, tables, and summaries.
+- Refine visualizations and ensure reproducibility of the analysis pipeline.
 
 #### Week 5 (before Dec 10)
 
-- Storytelling and polishing to have an interactive data story
-- Prepare final presentation and submission
+- Interpretation & Storytelling:
+  - Combine quantitative results into a coherent narrative.
+  - Prepare visualizations for the story: temporal sentiment timelines, network maps, event impact comparisons.
+  - Prepare interactive dashboards or notebooks for the final data story.
 
 #### Week 6 (before Dec 17)
 
-_Additional margin_
+- Final polishing of notebooks, README, and visualizations.
+- Ensure GitHub repository is complete, organized, and fully reproducible.
+- Make final adjustments to figures, text, or additional analyses as needed before submission.
+
 
 ## 🤝 Team Organization
 
