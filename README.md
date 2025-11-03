@@ -45,7 +45,7 @@ As we had a lot of datasets, we used [Kaggle](https://www.kaggle.com/datasets/fe
 Outcome:
 A clean, enriched, temporal Reddit graph ready for event-based and linguistic analysis.
 
-Exploratory Data Analysis (EDA)
+#### Exploratory Data Analysis (EDA)
 - Network Descriptives:
   - Compute number of active subreddits, degree distributions, edge polarity ratios, and community structure using Louvain modularity.
   - Identify the most connected and influential subreddits (in-degree/out-degree centrality).
@@ -59,26 +59,7 @@ Exploratory Data Analysis (EDA)
 Outcome:
 Understanding of the overall Reddit hyperlink network structure, its evolution, and the basic linguistic and emotional characteristics of interactions.
 
-#### Exploratory Data Analysis (EDA)
-
-- Descriptive statistics:
-  - Number of nodes and edges
-  - Finding which subreddits are highly connected
-  - Polarity and sentiment distributions
-  - Temporal activity patterns
-- Linguistic features:
-  - Average LIWC scores per subreddit
-  - Identify correlations between linguistic features and subreddit categories
-- Visualizations:
-  - Subreddit-level network graphs
-  - Sentiment vs. link density scatter plots | scatter emotion vs connectivity
-  - Heatmap of LIWC correlations
-
-Main outcome:
-A comprehensive EDA report with visualizations and insights into the dataset.
-This allows validation and reveals initial patterns.
-
-Event-Based Behavioral Analysis
+#### Event-Based Behavioral Analysis
 For each major event category (politics, sports, holidays):
 1.	Temporal Alignment:
   - Segment the network into time slices around the event (e.g., ±7 days).
@@ -93,7 +74,7 @@ For each major event category (politics, sports, holidays):
 Outcome:
 Quantitative evidence of behavioral fluctuations in Reddit communities tied to real-world events.
 
-Community and Influence Analysis
+#### Community and Influence Analysis
 - Graph Modeling:
   - Represent subreddit interactions as temporal signed graphs (positive vs. negative sentiment).
   - Compute centrality metrics (Betweenness, PageRank, Eigenvector) to identify “bridge” or “hub” subreddits that connect topic clusters.
@@ -107,7 +88,7 @@ Community and Influence Analysis
 Outcome:
 Insight into how influence, sentiment, and participation propagate through Reddit communities during key real-world events.
 
-Interpretation and Storytelling
+#### Interpretation and Storytelling
 - Combine quantitative results (EDA, event analysis, diffusion modeling) into a cohesive narrative about collective online behavior.
 - Use visualizations such as:
   - Temporal sentiment timelines
