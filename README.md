@@ -103,60 +103,21 @@ Community and Influence Analysis
 - Community Dynamics:
   - Detect emerging or dissolving clusters using dynamic community detection methods.
   - Compare linguistic similarity within vs. between clusters.
-  
+
 Outcome:
 Insight into how influence, sentiment, and participation propagate through Reddit communities during key real-world events.
 
+Interpretation and Storytelling
+- Combine quantitative results (EDA, event analysis, diffusion modeling) into a cohesive narrative about collective online behavior.
+- Use visualizations such as:
+  - Temporal sentiment timelines
+  - Interactive network maps of subreddit interactions
+  - Event impact comparison dashboards
+- Summarize findings in a storytelling format that highlights how Reddit’s social fabric mirrors real-world dynamics.
 
+Outcome:
+A clear, engaging, and data-driven story showing how global events ripple through Reddit’s interconnected communities.
 
-
-
-#### Consumer Persona Clustering
-
-- Identify groups of subreddits with similar language and behavior to reveal archetypes
-- Features per subreddit:
-  - LIWC vector
-  - Network structure embeddings (Node2Vec, DeepWalk)
-  - Embeddings
-- To do:
-  - Standardize + concatenate features
-  - Dimensionality reduction (PCA, t-SNE, UMAP)
-  - Clustering algorithms (K-Means, DBSCAN, Hierarchical)
-  - Cluster validation (silhouette score, Davies-Bouldin index)
-  - Choose final persona groups
-
-Main outcome:
-Defined consumer personas with characteristic linguistic and network features.
-
-#### Temporal Dynamics and event analysis
-- See how each persone behaves over time
-- Segment timeline by month/year
-- For each persona cluster: count number of links, measure emotional language trends + compare around events 
-(Black Friday, product launches)
-- Methods: time series analysis, change point detection
-
-Main outcome:
-Understanding of how personas change behavior during key commerce events. Who reacts and who is there for market insight?
-
-#### Influence and Diffusion Modeling
-- Build influence networks to see how information spreads between personas
-- Methods:
-  - Directed graphs where edges represent influence (based on link direction and sentiment)
-  - Centrality measures (PageRank, Betweenness)
-  - Cascade sizes tracking (chains of consecutive cross-links) -> viral cross-subreddit threads
-- Identify influential personas and their role in spreading sentiment
-
-Main outcome:
-Who mobilizes users + which personas are key influencers in shaping product narratives.
-
-#### Interpretation and Storytelling
-
-- Synthesize findings into a coherent narrative (Police Inverstigation Report style)
-- Visualizations:
-  - Persona profiles with cards with key features
-  - Visualize influence pathways between persona clusters
-  - Timeline of persona activity around key events and connect back to narrative
-- Conclude with actionable insights for marketers on targeting personas and managing online product narratives.
 
 ## ⏰ Proposed Timeline
 
