@@ -32,13 +32,18 @@ As we had a lot of datasets, we used [Kaggle](https://www.kaggle.com/datasets/fe
 
 #### Data Preprocessing and Filtering
 
-- Load Reddit Hyperlinks dataset
-- Filter for commerce-related subreddits using LIWC categories
-- Normalize subreddit names and handle missing or ambigous data
-- Retain edges with valid linguistic features
+•	Reddit Hyperlink Network: Load both the title and body hyperlink datasets (TSV format). Combine them into a unified directed, temporal, signed graph where nodes represent subreddits and edges represent cross-subreddit hyperlinks.
+•	Filtering and Normalization:
+o	Normalize subreddit names (lowercase, remove “r/”).
+o	Remove self-links and low-frequency subreddits.
+o	Retain only edges that include valid sentiment annotations and LIWC features.
+•	External Datasets Integration:
+o	Map external event datasets (political elections, major sports tournaments, and holidays) into a timeline of world events.
+o	Align Reddit timestamps with these events (+/- few days/weeks) to measure pre- and post-event behavioral changes.
+o	Merge embedding vectors for subreddits (from SNAP embeddings dataset) to enrich graph nodes with semantic features.
 
-Main outcome:
-A cleaned and filtered dataset (edges_filtered.csv) focused on commerce-related subreddits with relevant linguistic features.
+Outcome:
+A clean, enriched, temporal Reddit graph ready for event-based and linguistic analysis.
 
 ##### Daniel Proposal for Commerce-related Subreddits Filtering
 - Manually label around 100 commerce subreddits vs non commerce
