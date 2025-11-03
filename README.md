@@ -53,7 +53,7 @@ A clean, enriched, temporal Reddit graph ready for event-based and linguistic an
   - Visualize subreddit activity and sentiment distributions over time.
   - Identify spikes or anomalies aligned with major world events.
 - Linguistic Analysis:
-  - Aggregate LIWC features (e.g., affect, social, cognitive, punctuation) per subreddit and time window.
+  - Aggregate LIWC features (affect, social, cognitive, punctuation, ...) per subreddit and time window.
   - Compare distributions across event types (politics, sports, holidays).
 
 Outcome:
@@ -62,14 +62,14 @@ Understanding of the overall Reddit hyperlink network structure, its evolution, 
 #### Event-Based Behavioral Analysis
 For each major event category (politics, sports, holidays):
 1.	Temporal Alignment:
-  - Segment the network into time slices around the event (e.g., ±7 days).
-  - Compare subreddit-level features before, during, and after the event.
+    - Segment the network into time slices around the event.
+    - Compare subreddit-level features before, during, and after the event.
 2.	Behavioral Metrics:
-  - Volume of cross-links, sentiment shifts, and linguistic tone (via LIWC).
-  - Community-level participation changes (number of active edges/nodes).
+    - Volume of cross-links, sentiment shifts, and linguistic tone (via LIWC).
+    - Community-level participation changes (number of active edges/nodes).
 3.	Statistical Testing:
-  - Use paired tests or bootstrapping to detect significant changes in sentiment and connectivity.
-  - Evaluate whether behavioral shifts are unique to specific event categories.
+    - Use paired tests or bootstrapping to detect significant changes in sentiment and connectivity.
+    - Evaluate whether behavioral shifts are unique to specific event categories.
 
 Outcome:
 Quantitative evidence of behavioral fluctuations in Reddit communities tied to real-world events.
