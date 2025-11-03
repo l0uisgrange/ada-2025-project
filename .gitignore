@@ -4,10 +4,13 @@ data/*
 env
 venv
 .idea
+
 **/*.ipynb
 !results.ipynb
+
 **/*.png
 **/*.jpg
 **/*.jpeg
 **/*.pdf
 **/__pycache__
+**/*.csv

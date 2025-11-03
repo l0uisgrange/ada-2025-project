@@ -2,12 +2,13 @@ import pandas as pd
 import kagglehub
 import os
 
+
 def download_data():
     """
     Downloads all required datasets from Kaggle and returns the path to the downloaded files.
     """
-
     return kagglehub.dataset_download("fejwiehf3928uhcwa/ada-2025-project-bald")
+
 
 def load_data():
     """
