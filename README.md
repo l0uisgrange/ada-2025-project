@@ -93,6 +93,21 @@ For each major event category (politics, sports, holidays):
 Outcome:
 Quantitative evidence of behavioral fluctuations in Reddit communities tied to real-world events.
 
+Community and Influence Analysis
+- Graph Modeling:
+  - Represent subreddit interactions as temporal signed graphs (positive vs. negative sentiment).
+  - Compute centrality metrics (Betweenness, PageRank, Eigenvector) to identify “bridge” or “hub” subreddits that connect topic clusters.
+- Diffusion Patterns:
+  - Analyze information or sentiment “flows” between subreddits surrounding events.
+  - Track cascades of hyperlinks over time (chains of consecutive links or mentions).
+- Community Dynamics:
+  - Detect emerging or dissolving clusters using dynamic community detection methods.
+  - Compare linguistic similarity within vs. between clusters.
+  
+Outcome:
+Insight into how influence, sentiment, and participation propagate through Reddit communities during key real-world events.
+
+
 
 
 
