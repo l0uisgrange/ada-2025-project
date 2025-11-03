@@ -34,28 +34,28 @@ As we had a lot of datasets, we used [Kaggle](https://www.kaggle.com/datasets/fe
 
 - Reddit Hyperlink Network: Load both the title and body hyperlink datasets (TSV format). Combine them into a unified directed, temporal, signed graph where nodes represent subreddits and edges represent cross-subreddit hyperlinks.
 - Filtering and Normalization:
- - Normalize subreddit names (lowercase, remove “r/”).
- - Remove self-links and low-frequency subreddits.
- - Retain only edges that include valid sentiment annotations and LIWC features.
+  - Normalize subreddit names (lowercase, remove “r/”).
+  - Remove self-links and low-frequency subreddits.
+  - Retain only edges that include valid sentiment annotations and LIWC features.
 - External Datasets Integration:
- - Map external event datasets (political elections, major sports tournaments, and holidays) into a timeline of world events.
- - Align Reddit timestamps with these events (+/- few days/weeks) to measure pre- and post-event behavioral changes.
- - Merge embedding vectors for subreddits (from SNAP embeddings dataset) to enrich graph nodes with semantic features.
+  - Map external event datasets (political elections, major sports tournaments, and holidays) into a timeline of world events.
+  - Align Reddit timestamps with these events (+/- few days/weeks) to measure pre- and post-event behavioral changes.
+  - Merge embedding vectors for subreddits (from SNAP embeddings dataset) to enrich graph nodes with semantic features.
 
 Outcome:
 A clean, enriched, temporal Reddit graph ready for event-based and linguistic analysis.
 
 Exploratory Data Analysis (EDA)
 - Network Descriptives:
- - Compute number of active subreddits, degree distributions, edge polarity ratios, and community structure using Louvain modularity.
- - Identify the most connected and influential subreddits (in-degree/out-degree centrality).
+  - Compute number of active subreddits, degree distributions, edge polarity ratios, and community structure using Louvain modularity.
+  - Identify the most connected and influential subreddits (in-degree/out-degree centrality).
 - Temporal Dynamics:
- - Visualize subreddit activity and sentiment distributions over time.
- - Identify spikes or anomalies aligned with major world events.
+  - Visualize subreddit activity and sentiment distributions over time.
+  - Identify spikes or anomalies aligned with major world events.
 - Linguistic Analysis:
- - Aggregate LIWC features (e.g., affect, social, cognitive, punctuation) per subreddit and time window.
- - Compare distributions across event types (politics, sports, holidays).
- 
+  - Aggregate LIWC features (e.g., affect, social, cognitive, punctuation) per subreddit and time window.
+  - Compare distributions across event types (politics, sports, holidays).
+
 Outcome:
 Understanding of the overall Reddit hyperlink network structure, its evolution, and the basic linguistic and emotional characteristics of interactions.
 
@@ -77,6 +77,24 @@ Understanding of the overall Reddit hyperlink network structure, its evolution, 
 Main outcome:
 A comprehensive EDA report with visualizations and insights into the dataset.
 This allows validation and reveals initial patterns.
+
+Event-Based Behavioral Analysis
+For each major event category (politics, sports, holidays):
+1.	Temporal Alignment:
+  - Segment the network into time slices around the event (e.g., ±7 days).
+  - Compare subreddit-level features before, during, and after the event.
+2.	Behavioral Metrics:
+  - Volume of cross-links, sentiment shifts, and linguistic tone (via LIWC).
+  - Community-level participation changes (number of active edges/nodes).
+3.	Statistical Testing:
+  - Use paired tests or bootstrapping to detect significant changes in sentiment and connectivity.
+  - Evaluate whether behavioral shifts are unique to specific event categories.
+
+Outcome:
+Quantitative evidence of behavioral fluctuations in Reddit communities tied to real-world events.
+
+
+
 
 #### Consumer Persona Clustering
 
