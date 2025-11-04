@@ -58,7 +58,7 @@ huge (> 200MB).
 - Plot each external event dataset (political elections, major sports tournaments, and holidays) on a timeline of world
   events.
 
-**Outcome**: clean list of subreddit considered per part and filtered datasets
+_Outcome: clean list of subreddit considered per part and filtered datasets._
 
 #### Exploratory Data Analysis (EDA)
 
@@ -68,33 +68,18 @@ huge (> 200MB).
 - Aggregate LIWC features (affect, social, cognitive, punctuation, ...) per subreddit and time window.
 - Compare distributions across event types (politics, sports, holidays).
 
-**Outcome**: understanding of the basic linguistic and emotional characteristics of interactions.
+_Outcome: understanding of the basic linguistic and emotional characteristics of interactions._
 
-#### Source to Target Analysis
+#### Community Interactions and Linguistic Analysis
 
 For each major event category (politics, sports, holidays)
 - Identify the most active source subreddits
-- Analyze interactions by using LIWC features, sentiment, and linguistic properties before, during and after events
-- Identify the targets for massive interactions
-
-**Outcome**: quantitative evidence of behavioral fluctuations in Reddit communities tied to real-world events for each
-category.
-
-#### Target to Source Analysis
-
-For each major event category (politics, sports, holidays)
 - Identify the most targeted subreddits
 - Analyze interactions by using LIWC features, sentiment, and linguistic properties before, during and after events
-- Identify the sources for massive interactions
-- Plot visually appealing graphs
+- Identify massive interactions
+- Plot graphs to highlight different behaviors
 
-#### Community and Linguistic Analysis
-
-- Isolate subreddits that attack and defend to analyze their interactions.
-- Isolate the most active subreddits per category and analyze inter and intra community interactions.
-- Analyze linguistic similarity between and within clusters.
-
-**Outcome**: 
+_Outcome: quantitative evidence of behavioral fluctuations in Reddit communities tied to real-world events for each category._
 
 #### Interpretation and Storytelling
 
