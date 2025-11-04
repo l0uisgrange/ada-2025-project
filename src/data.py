@@ -59,20 +59,17 @@ def load_data():
 
     # Premier League dataset
     df_english_pl = pd.read_csv(
-        os.path.join(datasets_path, "english-premier-league-results_2014-01-2017-04.csv"),
-        parse_dates=["Date"],
+        os.path.join(datasets_path, "english-premier-league-results_2014-01-2017-04.csv")
     )
 
     # E-Sports tournaments dataset
     df_esports = pd.read_csv(
-        os.path.join(datasets_path, "esports_tournaments_2014_2017.csv"),
-        parse_dates=["Date"],
+        os.path.join(datasets_path, "esports_tournaments_2014_2017.csv")
     )
 
     # Superbowl dataset
     df_superbowl = pd.read_csv(
-        os.path.join(datasets_path, "superbowl_2014_2017.csv.csv"),
-        parse_dates=["Date"],
+        os.path.join(datasets_path, "superbowl_2014_2017.csv")
     )
 
     # Only take relevant events
