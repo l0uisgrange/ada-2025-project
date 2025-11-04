@@ -2,9 +2,8 @@ import pandas as pd
 import kagglehub
 import os
 
-EMBEDDING_DIM = 300
-START_DATE = "2014-01-01"
-END_DATE = "2017-04-30"
+from src.consts import *
+
 
 def download_data():
     """
@@ -49,23 +48,35 @@ def load_data():
     # Reddit subreddits embeddings
     df_subreddits = pd.read_csv(
         os.path.join(datasets_path, "web-redditEmbeddings-subreddits.csv"),
-        names=["SUBREDDIT"] + [f"EMBEDDING_{i}" for i in range(EMBEDDING_DIM)],
-    )
-
-    # Reddit users embeddings
-    df_users = pd.read_csv(
-        os.path.join(datasets_path, "web-redditEmbeddings-users.csv"),
-        names=["USER"] + [f"EMBEDDING_{i}" for i in range(EMBEDDING_DIM)],
+        names=["SUBREDDIT"] + [f"EMBEDDING_{i}" for i in range(EMBEDDING_DIMENSIONS)],
     )
 
     # Events list
-    df_events_raw = pd.read_csv(
+    df_holidays_raw = pd.read_csv(
         os.path.join(datasets_path, "global_holidays.csv"),
         parse_dates=["Date"],
     )
 
+    # Premier League dataset
+    df_english_pl = pd.read_csv(
+        os.path.join(datasets_path, "english-premier-league-results_2014-01-2017-04.csv"),
+        parse_dates=["Date"],
+    )
+
+    # E-Sports tournaments dataset
+    df_esports = pd.read_csv(
+        os.path.join(datasets_path, "esports_tournaments_2014_2017.csv"),
+        parse_dates=["Date"],
+    )
+
+    # Superbowl dataset
+    df_superbowl = pd.read_csv(
+        os.path.join(datasets_path, "superbowl_2014_2017.csv.csv"),
+        parse_dates=["Date"],
+    )
+
     # Only take relevant events
-    df_events = df_events_raw.loc[(df_events_raw['Date'] >= START_DATE) & (df_events_raw['Date'] <= END_DATE)].copy()
+    df_holidays = df_holidays_raw.loc[(df_holidays_raw['Date'] >= DATA_START_DATE) & (df_holidays_raw['Date'] <= DATA_END_DATE)].copy()
 
     print("Completed")
-    return df_body, df_title, df_subreddits, df_users, df_events
+    return df_body, df_title, df_subreddits, df_english_pl, df_esports, df_superbowl, df_holidays
