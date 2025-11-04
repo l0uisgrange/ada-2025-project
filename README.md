@@ -44,79 +44,51 @@ For our project, we searched online a few datasets that would allow us to create
   teams [source](https://www.kaggle.com/datasets/irkaal/english-premier-league-results)
 - Super bowl matches [source](https://www.kaggle.com/datasets/timoboz/superbowl-history-1967-2020)
 
-As we had a lot of datasets, we used [Kaggle](https://www.kaggle.com/datasets/fejwiehf3928uhcwa/ada-2025-project-bald)
-so it's easier for everyone to install automatically. It was not possible to put it on GitHub as some datasets were very
-large (> 200MB).
+As we had a lot of datasets, we used [Kaggle](https://www.kaggle.com/datasets/fejwiehf3928uhcwa/ada-2025-project-bald) so it's easier for everyone to install automatically. It was not possible to put it on GitHub as some datasets were huge (> 200MB).
 
 ## 🏗️ Methods
 
 #### Data Preprocessing and Filtering
 
-- Reddit Hyperlink Network: Load both the title and body hyperlink datasets (TSV format). Combine them into a unified
-  directed, temporal, signed graph where nodes represent subreddits and edges represent cross-subreddit hyperlinks.
-- Filtering and Normalization:
-    - Normalize subreddit names (lowercase, remove “r/”).
-    - Remove self-links and low-frequency subreddits.
-    - Retain only edges that include valid sentiment annotations and LIWC features.
-- External Datasets Integration:
-    - Map external event datasets (political elections, major sports tournaments, and holidays) into a timeline of world
-      events.
-    - Align Reddit timestamps with these events (+/- few days/weeks) to measure pre- and post-event behavioral changes.
-    - Merge embedding vectors for subreddits (from SNAP embeddings dataset) to enrich graph nodes with semantic
-      features.
+- Load all datasets into clean Pandas DataFrames. 
+- Filter the date period into the main dataset period (Jan 2014 to Jul 2017)
+- Group the subreddits using clustering methods to prepare the analysis using the events datasets.
+- Plot each external event dataset (political elections, major sports tournaments, and holidays) on a timeline of world events.
 
-Outcome:
-A clean, enriched, temporal Reddit graph ready for event-based and linguistic analysis.
+**Outcome**: clean list of subreddit considered per part and filtered datasets
 
 #### Exploratory Data Analysis (EDA)
 
-- Network Descriptives:
-    - Compute the number of active subreddits, degree distributions, edge polarity ratios, and community structure using
-      Louvain modularity.
-    - Identify the most connected and influential subreddits (in-degree/out-degree centrality).
-- Temporal Dynamics:
-    - Visualize subreddit activity and sentiment distributions over time.
-    - Identify spikes or anomalies aligned with major world events.
-- Linguistic Analysis:
-    - Aggregate LIWC features (affect, social, cognitive, punctuation, ...) per subreddit and time window.
-    - Compare distributions across event types (politics, sports, holidays).
+- Compute different LIWC attributes for each group to discover the most interesting ones.
+- Visualize subreddit activity and sentiment distributions over time.
+- Identify spikes or anomalies aligned with major world events.
+- Aggregate LIWC features (affect, social, cognitive, punctuation, ...) per subreddit and time window.
+- Compare distributions across event types (politics, sports, holidays).
 
-Outcome:
-Understanding of the overall Reddit hyperlink network structure, its evolution, and the basic linguistic and emotional
-characteristics of interactions.
+**Outcome**: understanding of the basic linguistic and emotional characteristics of interactions.
 
 #### Event-Based Behavioral Analysis
 
-For each major event category (politics, sports, holidays):
+For each major event category (politics, sports, holidays)
 
 1. Temporal Alignment:
    - Segment the network into time slices around the event.
    - Compare subreddit-level features before, during, and after the event.
 2. Behavioral Metrics:
    - Volume of cross-links, sentiment shifts, and linguistic tone (via LIWC).
-   - Community-level participation changes (number of active edges/nodes).
+   - Community-level participation changes.
 3. Statistical Testing:
    - Use paired tests or bootstrapping to detect significant changes in sentiment and connectivity.
    - Evaluate whether behavioral shifts are unique to specific event categories.
 
-Outcome:
-Quantitative evidence of behavioral fluctuations in Reddit communities tied to real-world events.
+**Outcome**: quantitative evidence of behavioral fluctuations in Reddit communities tied to real-world events for each category.
 
-#### Community and Influence Analysis
+#### Community and Linguistic Analysis
 
-- Graph Modeling:
-    - Represent subreddit interactions as temporal signed graphs (positive vs. negative sentiment).
-    - Compute centrality metrics (Betweenness, PageRank, Eigenvector) to identify “bridge” or “hub” subreddits that
-      connect topic clusters.
-- Diffusion Patterns:
-    - Analyze information or sentiment “flows” between subreddits surrounding events.
-    - Track cascades of hyperlinks over time (chains of consecutive links or mentions).
-- Community Dynamics:
-    - Detect emerging or dissolving clusters using dynamic community detection methods.
-    - Compare linguistic similarity within vs. between clusters.
+- Isolate subreddits that attack and defend to analyze their interactions.
+- Analyze linguistic similarity between and within clusters.
 
-Outcome:
-Insight into how influence, sentiment, and participation propagate through Reddit communities during key real-world
+**Outcome**: insight into how influence, sentiment, and participation propagate through Reddit communities during key real-world
 events.
 
 #### Interpretation and Storytelling
