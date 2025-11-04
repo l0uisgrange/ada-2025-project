@@ -102,7 +102,7 @@ _Outcome: identify behavioral shifts based on events_
 
 #### Week 3 (before Nov 26)
 
-- [ ] Analyze interactions by using LIWC features, sentiment, and linguistic properties before, during, and after events.
+- [ ] Analyze interactions by using LIWC features, sentiment, and linguistic properties using events.
 - [ ] Plot graphs to highlight different behaviors.
 
 #### Week 4 (before Dec 3)
