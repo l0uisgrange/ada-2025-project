@@ -85,9 +85,9 @@ _Outcome: identify behavioral shifts based on events_
 
 #### Week 0 (before Nov 5)
 
-- Obtain, preprocess, and clean the Reddit Hyperlink datasets (title + body).
-- Integrate subreddit embeddings and external event datasets (political elections, sports tournaments, holidays).
-- Quick exploration of network structure and embeddings to validate data.
+- [x] Obtain, preprocess, and clean the main Reddit datasets (title and body).
+- [x] Find and integrate subreddit embeddings and external event datasets (political elections, sports tournaments, holidays).
+- [x] Clustering of the subreddits to identify the main groups for each category (political, sportive, and holidays)
 
 #### Week 1 (before Nov 12)
 
@@ -112,7 +112,7 @@ _Outcome: identify behavioral shifts based on events_
     - Compute centrality metrics (Betweenness, PageRank, Eigenvector) to identify hubs and bridges.
     - Track information and sentiment cascades across communities over time.
 
-#### Week 4 (before Nov 3)
+#### Week 4 (before Dec 3)
 
 - Integrate results from EDA, event analysis, and community/influence analysis.
 - Finalize the results notebook with figures, tables, and summaries.
@@ -120,16 +120,13 @@ _Outcome: identify behavioral shifts based on events_
 
 #### Week 5 (before Dec 10)
 
-- Interpretation & Storytelling:
-    - Combine quantitative results into a coherent narrative.
-    - Prepare visualizations for the story: temporal sentiment timelines, network maps, event impact comparisons.
-    - Prepare interactive dashboards or notebooks for the final data story.
+- [ ] Final polishing of notebooks, README.md, and visualizations.
+- [ ] Ensure the GitHub repository is complete and organized.
+- [ ] Make final adjustments to figures, text, or additional analyses as needed before submission.
 
 #### Week 6 (before Dec 17)
 
-- Final polishing of notebooks, README, and visualizations.
-- Ensure GitHub repository is complete, organized, and fully reproducible.
-- Make final adjustments to figures, text, or additional analyses as needed before submission.
+_Margin week_
 
 ## 🤝 Team Organization
 
