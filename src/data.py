@@ -29,7 +29,6 @@ def load_data():
     """
 
     datasets_path = download_data()
-    print("Loading datasets from", datasets_path)
 
     # Reddit body dataset
     df_body = pd.read_csv(
@@ -75,5 +74,4 @@ def load_data():
     # Only take relevant events
     df_holidays = df_holidays_raw.loc[(df_holidays_raw['Date'] >= DATA_START_DATE) & (df_holidays_raw['Date'] <= DATA_END_DATE)].copy()
 
-    print("Completed")
     return df_body, df_title, df_subreddits, df_english_pl, df_esports, df_superbowl, df_holidays
