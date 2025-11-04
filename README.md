@@ -68,7 +68,7 @@ _Outcome: clean list of subreddit considered per part and filtered datasets._
 - Aggregate LIWC features (affect, social, cognitive, punctuation, ...) per subreddit and time window.
 - Compare distributions across event types (politics, sports, holidays).
 
-_Outcome: understanding of the basic linguistic and emotional characteristics of interactions._
+_Outcome: understanding of the basic linguistic and properties around events._
 
 #### Community Interactions and Linguistic Analysis
 
@@ -79,20 +79,7 @@ For each major event category (politics, sports, holidays)
 - Identify massive interactions
 - Plot graphs to highlight different behaviors
 
-_Outcome: quantitative evidence of behavioral fluctuations in Reddit communities tied to real-world events for each category._
-
-#### Interpretation and Storytelling
-
-- Combine quantitative results (EDA, event analysis, diffusion modeling) into a cohesive narrative about collective
-  online behavior.
-- Use visualizations such as:
-    - Temporal sentiment timelines
-    - Interactive network maps of subreddit interactions
-    - Event impact comparison dashboards
-- Summarize findings in a storytelling format that highlights how Reddit’s social fabric mirrors real-world dynamics.
-
-Outcome:
-A clear, engaging, and data-driven story showing how global events ripple through Reddit’s interconnected communities.
+_Outcome: identify behavioral shifts based on events_
 
 ## ⏰ Proposed Timeline
 
@@ -128,7 +115,7 @@ A clear, engaging, and data-driven story showing how global events ripple throug
 #### Week 4 (before Nov 3)
 
 - Integrate results from EDA, event analysis, and community/influence analysis.
-- Finalize results notebook with figures, tables, and summaries.
+- Finalize the results notebook with figures, tables, and summaries.
 - Refine visualizations and ensure reproducibility of the analysis pipeline.
 
 #### Week 5 (before Dec 10)
