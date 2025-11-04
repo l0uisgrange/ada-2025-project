@@ -6,7 +6,7 @@ Reddit hyperlink and subreddit data for analysis.
 """
 
 import pandas as pd
-from consts import MIN_ACTIVE_POSTS, DATA_START_DATE, DATA_END_DATE
+from .consts import MIN_ACTIVE_POSTS, DATA_START_DATE, DATA_END_DATE
 
 
 def count_subreddit_activity(body_data, title_data, subreddits_data):

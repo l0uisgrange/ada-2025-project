@@ -15,7 +15,7 @@ from .clustering import get_cluster_colors
 from .consts import OPTIMAL_K
 
 
-def plot_mentions_over_time(counts_df, pattern, period='M', save_path=None, figsize=None):
+def plot_mentions_over_time(counts_df, pattern, period='M', figsize=None):
     """
     Plot stacked bar chart of subreddit mentions over time.
     
@@ -39,15 +39,6 @@ def plot_mentions_over_time(counts_df, pattern, period='M', save_path=None, figs
     if figsize is None:
         figsize = (14, 6) if period == 'M' else (24, 8)
     
-    # Create plot
-    ax = counts_df.plot(
-        kind='bar',
-        stacked=True,
-        figsize=figsize,
-        color=['#66c2a5', '#fc8d62'],
-        alpha=0.85
-    )
-    
     plt.title(f"Stacked Mentions of '{pattern}' Over Time", 
              fontsize=14, fontweight='bold')
     plt.xlabel('Time Period')
@@ -55,9 +46,6 @@ def plot_mentions_over_time(counts_df, pattern, period='M', save_path=None, figs
     plt.xticks(rotation=90)
     plt.grid(axis='y', linestyle='--', alpha=0.4)
     plt.tight_layout()
-    
-    if save_path:
-        plt.savefig(save_path, dpi=300, bbox_inches='tight')
     
     return plt.gcf()
 
