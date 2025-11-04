@@ -89,3 +89,18 @@ LIWC_ASSENT = 82
 LIWC_DISSENT = 83
 LIWC_NONFLU = 84
 LIWC_FILLER = 85
+
+# Embedding dimensions
+EMBEDDING_DIMENSIONS = 300
+
+# Clustering parameters
+OPTIMAL_K = 30
+MIN_ACTIVE_POSTS = 100
+
+# Date ranges for analysis
+DATA_START_DATE = "2014-01-01"
+DATA_END_DATE = "2017-04-30"
+
+# Visualization parameters
+PLOT_FIGSIZE_MONTHLY = (14, 6)
+PLOT_FIGSIZE_WEEKLY = (24, 8)
