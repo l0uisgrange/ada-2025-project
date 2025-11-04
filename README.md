@@ -86,37 +86,31 @@ _Outcome: identify behavioral shifts based on events_
 #### Week 0 (before Nov 5)
 
 - [x] Obtain, preprocess, and clean the main Reddit datasets (title and body).
-- [x] Find and integrate subreddit embeddings and external event datasets (political elections, sports tournaments, holidays).
+- [x] Find, filter, and integrate subreddit embeddings and external event datasets (political elections, sports tournaments, holidays).
 - [x] Clustering of the subreddits to identify the main groups for each category (political, sportive, and holidays)
+- [ ] Plot each external event dataset on a timeline
 
 #### Week 1 (before Nov 12)
 
-- Perform Exploratory Data Analysis (EDA):
-    - Network descriptives: nodes, edges, degree distributions, sentiment ratios, community structure.
-    - Temporal dynamics: subreddit activity and sentiment over time.
-    - Linguistic analysis: aggregate LIWC features per subreddit and time window.
-- Generate initial visualizations for network, temporal, and linguistic patterns.
+- [ ] Perform Exploratory Data Analysis EDA (see Methods section above)
 
 #### Week 2 (before Nov 19)
 
-- Event-Based Behavioral Analysis:
-    - Segment activity around political, sports, and holiday events.
-    - Compute metrics: subreddit activity, cross-links, sentiment shifts, linguistic changes.
-    - Conduct statistical testing to detect significant pre-event vs. post-event changes.
-- Document insights and patterns identified for each event category.
+- [ ] Finish EDA (only if needed) and generate additional visualizations.
+- [ ] Identify massive interactions.
+- [ ] Identify the most active / targeted subreddits and quickly analyze interactions.
 
 #### Week 3 (before Nov 26)
 
-- Community & Influence Analysis:
-    - Detect subreddit communities/clusters using network structure and embeddings.
-    - Compute centrality metrics (Betweenness, PageRank, Eigenvector) to identify hubs and bridges.
-    - Track information and sentiment cascades across communities over time.
+- [ ] Analyze interactions by using LIWC features, sentiment, and linguistic properties before, during, and after events.
+- [ ] Plot graphs to highlight different behaviors.
 
 #### Week 4 (before Dec 3)
 
-- Integrate results from EDA, event analysis, and community/influence analysis.
-- Finalize the results notebook with figures, tables, and summaries.
-- Refine visualizations and ensure reproducibility of the analysis pipeline.
+- [ ] Clean code from the notebook and python files.
+- [ ] Finalize the `result.ipynb` notebook with explanations, figures, tables, and summaries.
+- [ ] Refine visualizations and structure to ensure readability.
+- [ ] Make the notebook interesting and easy to follow.
 
 #### Week 5 (before Dec 10)
 
