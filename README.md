@@ -73,23 +73,20 @@ huge (> 200MB).
 #### Source to Target Analysis
 
 For each major event category (politics, sports, holidays)
-
-1. Temporal Alignment:
-    - Segment the network into time slices around the event.
-    - Compare subreddit-level features before, during, and after the event.
-2. Behavioral Metrics:
-    - Volume of cross-links, sentiment shifts, and linguistic tone (via LIWC).
-    - Community-level participation changes.
-3. Statistical Testing:
-    - Use paired tests or bootstrapping to detect significant changes in sentiment and connectivity.
-    - Evaluate whether behavioral shifts are unique to specific event categories.
+- Identify the most active source subreddits
+- Analyze interactions by using LIWC features, sentiment, and linguistic properties before, during and after events
+- Identify the targets for massive interactions
 
 **Outcome**: quantitative evidence of behavioral fluctuations in Reddit communities tied to real-world events for each
 category.
 
 #### Target to Source Analysis
 
-
+For each major event category (politics, sports, holidays)
+- Identify the most targeted subreddits
+- Analyze interactions by using LIWC features, sentiment, and linguistic properties before, during and after events
+- Identify the sources for massive interactions
+- Plot visually appealing graphs
 
 #### Community and Linguistic Analysis
 
