@@ -44,16 +44,19 @@ For our project, we searched online a few datasets that would allow us to create
   teams [source](https://www.kaggle.com/datasets/irkaal/english-premier-league-results)
 - Super bowl matches [source](https://www.kaggle.com/datasets/timoboz/superbowl-history-1967-2020)
 
-As we had a lot of datasets, we used [Kaggle](https://www.kaggle.com/datasets/fejwiehf3928uhcwa/ada-2025-project-bald) so it's easier for everyone to install automatically. It was not possible to put it on GitHub as some datasets were huge (> 200MB).
+As we had a lot of datasets, we used [Kaggle](https://www.kaggle.com/datasets/fejwiehf3928uhcwa/ada-2025-project-bald)
+so it's easier for everyone to install automatically. It was not possible to put it on GitHub as some datasets were
+huge (> 200MB).
 
 ## 🏗️ Methods
 
 #### Data Preprocessing and Filtering
 
-- Load all datasets into clean Pandas DataFrames. 
+- Load all datasets into clean Pandas DataFrames.
 - Filter the date period into the main dataset period (Jan 2014 to Jul 2017)
 - Group the subreddits using clustering methods to prepare the analysis using the events datasets.
-- Plot each external event dataset (political elections, major sports tournaments, and holidays) on a timeline of world events.
+- Plot each external event dataset (political elections, major sports tournaments, and holidays) on a timeline of world
+  events.
 
 **Outcome**: clean list of subreddit considered per part and filtered datasets
 
@@ -67,29 +70,34 @@ As we had a lot of datasets, we used [Kaggle](https://www.kaggle.com/datasets/fe
 
 **Outcome**: understanding of the basic linguistic and emotional characteristics of interactions.
 
-#### Event-Based Behavioral Analysis
+#### Source to Target Analysis
 
 For each major event category (politics, sports, holidays)
 
 1. Temporal Alignment:
-   - Segment the network into time slices around the event.
-   - Compare subreddit-level features before, during, and after the event.
+    - Segment the network into time slices around the event.
+    - Compare subreddit-level features before, during, and after the event.
 2. Behavioral Metrics:
-   - Volume of cross-links, sentiment shifts, and linguistic tone (via LIWC).
-   - Community-level participation changes.
+    - Volume of cross-links, sentiment shifts, and linguistic tone (via LIWC).
+    - Community-level participation changes.
 3. Statistical Testing:
-   - Use paired tests or bootstrapping to detect significant changes in sentiment and connectivity.
-   - Evaluate whether behavioral shifts are unique to specific event categories.
+    - Use paired tests or bootstrapping to detect significant changes in sentiment and connectivity.
+    - Evaluate whether behavioral shifts are unique to specific event categories.
 
-**Outcome**: quantitative evidence of behavioral fluctuations in Reddit communities tied to real-world events for each category.
+**Outcome**: quantitative evidence of behavioral fluctuations in Reddit communities tied to real-world events for each
+category.
+
+#### Target to Source Analysis
+
+
 
 #### Community and Linguistic Analysis
 
 - Isolate subreddits that attack and defend to analyze their interactions.
+- Isolate the most active subreddits per category and analyze inter and intra community interactions.
 - Analyze linguistic similarity between and within clusters.
 
-**Outcome**: insight into how influence, sentiment, and participation propagate through Reddit communities during key real-world
-events.
+**Outcome**: 
 
 #### Interpretation and Storytelling
 
