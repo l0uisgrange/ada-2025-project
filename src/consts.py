@@ -94,7 +94,7 @@ LIWC_FILLER = 85
 EMBEDDING_DIMENSIONS = 300
 
 # Clustering parameters
-OPTIMAL_K = 30
+OPTIMAL_K = 20
 MIN_ACTIVE_POSTS = 100
 
 # Date ranges for analysis
