@@ -10,6 +10,7 @@ import matplotlib.patches as mpatches
 import seaborn as sns
 import numpy as np
 from scipy.spatial import ConvexHull
+from sklearn.manifold import TSNE
 
 from .clustering import get_cluster_colors
 from .consts import OPTIMAL_K
@@ -253,3 +254,39 @@ def active_subreddit_counts(df_body, df_title, df_subreddits):
     plt.tight_layout()
     plt.show()
     return
+
+
+def plot_neighbors_2d(seed_subreddits, neighbors_df, df_subreddits, top_n=20, theme='sports'):
+    """Displays picked subreddits and their nearest neighbors in 2D space."""
+
+    # Prepare data
+    all_subs = seed_subreddits + list(neighbors_df.head(top_n)['SUBREDDIT'])
+    viz_data = df_subreddits[df_subreddits['SUBREDDIT'].isin(all_subs)].copy()
+    embeddings = viz_data.drop(columns=['SUBREDDIT']).values
+
+    # TSNE
+    tsne = TSNE(n_components=2, random_state=42, perplexity=min(15, len(all_subs)-1))
+    coords_2d = tsne.fit_transform(embeddings)
+
+    # Plot
+    plt.figure(figsize=(12, 8))
+
+    # Separate seed and neighbor points
+    mask = viz_data['SUBREDDIT'].isin(seed_subreddits)
+
+    plt.scatter(coords_2d[~mask, 0], coords_2d[~mask, 1],
+               c='lightblue', s=100, alpha=0.6, label='Neighbors', edgecolors='black')
+    plt.scatter(coords_2d[mask, 0], coords_2d[mask, 1],
+               c='red', s=300, alpha=0.9, label='Seeds', edgecolors='black', marker='*')
+
+    # Annotations
+    for i, subreddit in enumerate(viz_data['SUBREDDIT']):
+        plt.annotate(subreddit, (coords_2d[i, 0], coords_2d[i, 1]),
+                    fontsize=12, alpha=0.8, ha='center')
+
+    plt.title(f'Embedding Space: {theme.upper()}', fontsize=16, fontweight='bold')
+    plt.xlabel('t-SNE Dimension 1')
+    plt.ylabel('t-SNE Dimension 2')
+    plt.legend(fontsize=12)
+    plt.tight_layout()
+    plt.show()
