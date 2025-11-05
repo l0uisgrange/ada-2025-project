@@ -142,10 +142,13 @@ from [Kaggle](https://www.kaggle.com/datasets/fejwiehf3928uhcwa/ada-2025-project
 ├── ... cache             # Cached datasets files
 ├── archive               # Archive files 
 ├── src                   # Source code
-│   ├── data
-│   ├── models
-│   ├── utils
-│   └── scripts
+│   ├── clustering.py
+│   ├── consts.py
+│   ├── data.py
+│   ├── preprocessing.py
+│   ├── similarity.py
+│   ├── utils.py
+│   └── visualization.py
 ├── results.ipynb         # Notebook showing the results
 ├── .gitignore
 ├── requirements.txt      # File for installing python dependencies
