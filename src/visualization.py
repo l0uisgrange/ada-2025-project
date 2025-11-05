@@ -38,7 +38,14 @@ def plot_mentions_over_time(counts_df, pattern, period='M', figsize=None):
     # Auto-detect figure size
     if figsize is None:
         figsize = (14, 6) if period == 'M' else (24, 8)
-    
+
+    counts_df.plot(
+        kind="bar",
+        stacked=True,
+        figsize=figsize,
+        color=["#66c2a5", "#fc8d62"],
+        alpha=0.85
+    )    
     plt.title(f"Stacked Mentions of '{pattern}' Over Time", 
              fontsize=14, fontweight='bold')
     plt.xlabel('Time Period')
@@ -46,9 +53,8 @@ def plot_mentions_over_time(counts_df, pattern, period='M', figsize=None):
     plt.xticks(rotation=90)
     plt.grid(axis='y', linestyle='--', alpha=0.4)
     plt.tight_layout()
-    
-    return plt.gcf()
-
+    plt.show()
+    return 
 
 def plot_cluster_overview(viz_df, n_clusters=OPTIMAL_K, save_path=None):
     """
@@ -196,3 +202,54 @@ def _add_hull_boundary(ax, cluster_data, color):
         ax.plot(points[simplex, 0], points[simplex, 1],
                color=color, alpha=0.8, linewidth=1.2)
 
+
+
+def active_subreddit_counts(df_body, df_title, df_subreddits):
+    """Plot active subreddit counts vs. activity thresholds."""
+    from src.preprocessing import filter_active_subreddits
+    active_subreddits, total_counts = filter_active_subreddits(df_body, df_title, df_subreddits)
+    total = (total_counts['POST_COUNT_TOTAL'] < 20).sum()
+    print('These subreddits have less than 20 interactions:', total, 'out of', len(total_counts), 'total, but these are the top')
+
+    thresholds = list(range(10, 210, 10))
+
+    counts_source = []
+    counts_target = []
+    counts_both = []
+    counts_total = []
+
+    for threshold in thresholds:
+        # Subreddits with POST_COUNT_SOURCE >= threshold
+        count_source = len(total_counts[total_counts['POST_COUNT_SOURCE'] > threshold])
+        counts_source.append(count_source)
+        
+        # Subreddits with POST_COUNT_TARGET >= threshold
+        count_target = len(total_counts[total_counts['POST_COUNT_TARGET'] > threshold])
+        counts_target.append(count_target)
+        
+        # Subreddits meeting BOTH thresholds
+        count_both = len(total_counts[
+            (total_counts['POST_COUNT_SOURCE'] > threshold) & 
+            (total_counts['POST_COUNT_TARGET'] > threshold)
+        ])
+        counts_both.append(count_both)
+
+        # Subreddits with POST_COUNT_TOTAL >= threshold
+        count_total = len(total_counts[total_counts['POST_COUNT_TOTAL'] > threshold])
+        counts_total.append(count_total)
+
+
+    plt.figure(figsize=(10, 6))
+    plt.plot(thresholds, counts_source, marker='o', label='Source > threshold', linewidth=2)
+    plt.plot(thresholds, counts_target, marker='s', label='Target > threshold', linewidth=2)
+    plt.plot(thresholds, counts_both, marker='^', label='(Source > threshold) & (Target > treshold)', linewidth=2)
+    plt.plot(thresholds, counts_total, marker='D', label='(Source + Target) > threshold', linewidth=2)
+
+    plt.xlabel('Minimum Post Count Threshold', fontsize=12)
+    plt.ylabel('Number of Subreddits', fontsize=12)
+    plt.title('Active Subreddit Count vs. Activity Threshold', fontsize=14, fontweight='bold')
+    plt.legend(fontsize=10)
+    plt.grid(True, alpha=0.3)
+    plt.tight_layout()
+    plt.show()
+    return
