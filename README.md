@@ -88,7 +88,7 @@ _Outcome: identify behavioral shifts based on events_
 - [x] Obtain, preprocess, and clean the main Reddit datasets (title and body).
 - [x] Find, filter, and integrate subreddit embeddings and external event datasets (political elections, sports tournaments, holidays).
 - [x] Clustering of the subreddits to identify the main groups for each category (political, sportive, and holidays)
-- [ ] Plot each external event dataset on a timeline
+- [x] Clean the `results.ipynb` for P2
 
 #### Week 1 (before Nov 12)
 
