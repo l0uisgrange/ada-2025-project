@@ -107,7 +107,7 @@ def evaluate_clustering_range(embeddings, k_range=[5, 10, 15, 20, 25, 30, 35, 40
                 'labels': labels
             })
             
-            print(f"K={k:2d} | Silhouette: {sil_score:.3f} | Davies-Bouldin: {db_score:.3f}")
+            #print(f"K={k:2d} | Silhouette: {sil_score:.3f} | Davies-Bouldin: {db_score:.3f}")
     
     return pd.DataFrame(results)
 

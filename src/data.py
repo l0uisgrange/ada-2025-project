@@ -24,8 +24,10 @@ def load_data():
             - df_body: Reddit hyperlinks from post bodies
             - df_title: Reddit hyperlinks from post titles
             - df_subreddits: Subreddit embeddings (300-dimensional vectors)
-            - df_users: User embeddings (300-dimensional vectors)
-            - df_events: Global holidays filtered for 2014-2017
+            - df_english_pl
+            - df_esports
+            - df_superbowl
+            - df_holidays: Global holidays filtered for 2014-2017
     """
 
     datasets_path = download_data()
@@ -50,11 +52,6 @@ def load_data():
         names=["SUBREDDIT"] + [f"EMBEDDING_{i}" for i in range(EMBEDDING_DIMENSIONS)],
     )
 
-    # Events list
-    df_holidays_raw = pd.read_csv(
-        os.path.join(datasets_path, "global_holidays.csv"),
-        parse_dates=["Date"],
-    )
 
     # Premier League dataset
     df_english_pl = pd.read_csv(
@@ -69,6 +66,12 @@ def load_data():
     # Superbowl dataset
     df_superbowl = pd.read_csv(
         os.path.join(datasets_path, "superbowl_2014_2017.csv")
+    )
+
+    # Events list
+    df_holidays_raw = pd.read_csv(
+        os.path.join(datasets_path, "global_holidays.csv"),
+        parse_dates=["Date"],
     )
 
     # Only take relevant events
