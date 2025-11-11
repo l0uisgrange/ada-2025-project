@@ -194,3 +194,27 @@ PROPERTIES = [
     "LIWC_Nonflu",  # Non-fluencies (uh, um, repetitions)
     "LIWC_Filler"  # Filler phrases (you know, I mean)
 ]
+
+# Politics by subcategory
+RIGHT_SUBREDDITS = [
+    "conspiracy",
+    "republican",
+    "conservative",
+    "conservatives",
+    "conservatives_r_us",
+    "whitenationalism",
+    "white_pride",
+    "the_donald",
+    "hillaryforprison",
+    "asktrumpsupporters",
+    "mr_trump",
+    "mensrights",
+    "conservativesonly"
+]
+LEFT_SUBREDDITS = [
+    "european",
+    "antiwar",
+    "askhillarysupporters",
+    "governmentoppression",
+    "conflictofinterest",
+]
