@@ -128,69 +128,69 @@ PROPERTIES = [
     "Positive sentiment (VADER)",
     "Negative sentiment (VADER)",
     "Compound sentiment (VADER)",
-    "LIWC_Funct",
-    "LIWC_Pronoun",
-    "LIWC_Ppron",
-    "LIWC_I",
-    "LIWC_We",
-    "LIWC_You",
-    "LIWC_SheHe",
-    "LIWC_They",
-    "LIWC_Ipron",
-    "LIWC_Article",
-    "LIWC_Verbs",
-    "LIWC_AuxVb",
-    "LIWC_Past",
-    "LIWC_Present",
-    "LIWC_Future",
-    "LIWC_Adverbs",
-    "LIWC_Prep",
-    "LIWC_Conj",
-    "LIWC_Negate",
-    "LIWC_Quant",
-    "LIWC_Numbers",
-    "LIWC_Swear",
-    "LIWC_Social",
-    "LIWC_Family",
-    "LIWC_Friends",
-    "LIWC_Humans",
-    "LIWC_Affect",
-    "LIWC_Posemo",
-    "LIWC_Negemo",
-    "LIWC_Anx",
-    "LIWC_Anger",
-    "LIWC_Sad",
-    "LIWC_CogMech",
-    "LIWC_Insight",
-    "LIWC_Cause",
-    "LIWC_Discrep",
-    "LIWC_Tentat",
-    "LIWC_Certain",
-    "LIWC_Inhib",
-    "LIWC_Incl",
-    "LIWC_Excl",
-    "LIWC_Percept",
-    "LIWC_See",
-    "LIWC_Hear",
-    "LIWC_Feel",
-    "LIWC_Bio",
-    "LIWC_Body",
-    "LIWC_Health",
-    "LIWC_Sexual",
-    "LIWC_Ingest",
-    "LIWC_Relativ",
-    "LIWC_Motion",
-    "LIWC_Space",
-    "LIWC_Time",
-    "LIWC_Work",
-    "LIWC_Achiev",
-    "LIWC_Leisure",
-    "LIWC_Home",
-    "LIWC_Money",
-    "LIWC_Relig",
-    "LIWC_Death",
-    "LIWC_Assent",
-    "LIWC_Dissent",
-    "LIWC_Nonflu",
-    "LIWC_Filler"
+    "LIWC_Funct",  # Function words (articles, prepositions, conjunctions)
+    "LIWC_Pronoun",  # All pronouns
+    "LIWC_Ppron",  # Personal pronouns (I, you, he, she, we, they)
+    "LIWC_I",  # First-person singular "I"
+    "LIWC_We",  # First-person plural "we"
+    "LIWC_You",  # Second-person "you"
+    "LIWC_SheHe",  # Third-person singular (she, he)
+    "LIWC_They",  # Third-person plural "they"
+    "LIWC_Ipron",  # Impersonal/indefinite pronouns (it, one)
+    "LIWC_Article",  # Articles (a, an, the)
+    "LIWC_Verbs",  # All verb forms
+    "LIWC_AuxVb",  # Auxiliary verbs (be, have, do, modals)
+    "LIWC_Past",  # Past tense verbs
+    "LIWC_Present",  # Present tense verbs
+    "LIWC_Future",  # Future markers (will, gonna)
+    "LIWC_Adverbs",  # Adverbs
+    "LIWC_Prep",  # Prepositions
+    "LIWC_Conj",  # Conjunctions
+    "LIWC_Negate",  # Negations (not, no, never)
+    "LIWC_Quant",  # Quantifiers (many, few, much)
+    "LIWC_Numbers",  # Numerals and number words
+    "LIWC_Swear",  # Profanity/swear words
+    "LIWC_Social",  # Social process words (talk, friend, share)
+    "LIWC_Family",  # Family-related words
+    "LIWC_Friends",  # Friends/peer-related words
+    "LIWC_Humans",  # References to people/humans
+    "LIWC_Affect",  # Emotion words
+    "LIWC_Posemo",  # Positive emotion words
+    "LIWC_Negemo",  # Negative emotion words
+    "LIWC_Anx",  # Anxiety-related words
+    "LIWC_Anger",  # Anger-related words
+    "LIWC_Sad",  # Sadness-related words
+    "LIWC_CogMech",  # Cognitive process words (think, know)
+    "LIWC_Insight",  # Insight words (realize, understand)
+    "LIWC_Cause",  # Causal words (because, therefore)
+    "LIWC_Discrep",  # Discrepancy words (should, would, could)
+    "LIWC_Tentat",  # Tentative words (maybe, perhaps)
+    "LIWC_Certain",  # Certainty words (definitely, sure)
+    "LIWC_Inhib",  # Inhibition words (stop, prevent, avoid)
+    "LIWC_Incl",  # Inclusion words (include, with)
+    "LIWC_Excl",  # Exclusion words (exclude, without)
+    "LIWC_Percept",  # Perceptual processes (see, hear, feel)
+    "LIWC_See",  # Vision-related words
+    "LIWC_Hear",  # Hearing-related words
+    "LIWC_Feel",  # Sensation/feeling words
+    "LIWC_Bio",  # Biological process words (eat, sleep)
+    "LIWC_Body",  # Body-part words (arm, head)
+    "LIWC_Health",  # Health-related words
+    "LIWC_Sexual",  # Sexual content words
+    "LIWC_Ingest",  # Eating/drinking words (eat, drink)
+    "LIWC_Relativ",  # Relativity/relational words (near, far)
+    "LIWC_Motion",  # Motion verbs (go, move, travel)
+    "LIWC_Space",  # Spatial/location words (left, above)
+    "LIWC_Time",  # Temporal words (when, day, year)
+    "LIWC_Work",  # Work and occupational words
+    "LIWC_Achiev",  # Achievement/goal words
+    "LIWC_Leisure",  # Leisure and recreation words
+    "LIWC_Home",  # Home/domestic words
+    "LIWC_Money",  # Money/finance words
+    "LIWC_Relig",  # Religion and spirituality words
+    "LIWC_Death",  # Death-related words
+    "LIWC_Assent",  # Agreement/approval words (yes, okay)
+    "LIWC_Dissent",  # Disagreement/opposition words (no, oppose)
+    "LIWC_Nonflu",  # Non-fluencies (uh, um, repetitions)
+    "LIWC_Filler"  # Filler phrases (you know, I mean)
 ]
