@@ -1,3 +1,63 @@
+# ——————————————————————————————————————
+# Clustering
+# ——————————————————————————————————————
+
+# Parameter for clustering by similarity
+SIMILARITY_N_CLUSTERS = 10
+
+# Politics by subcategory
+RIGHT_SUBREDDITS = [
+    "conspiracy",
+    "republican",
+    "conservative",
+    "conservatives",
+    "conservatives_r_us",
+    "whitenationalism",
+    "white_pride",
+    "the_donald",
+    "hillaryforprison",
+    "asktrumpsupporters",
+    "mr_trump",
+    "mensrights",
+    "conservativesonly"
+]
+LEFT_SUBREDDITS = [
+    "european",
+    "antiwar",
+    "askhillarysupporters",
+    "governmentoppression",
+    "conflictofinterest",
+]
+
+# Seeds to use for clustering
+THEMES_SEEDS = {
+    'sports': [
+        'nba', 'nfl', 'hockey', 'fantasyfootball', 'cfb', 'maddenultimateteam', 'baseball', 'golf', 'patriots',
+        'collegebasketball', 'seahawks', 'minnesotavikings', 'madden', 'greenbaypackers', 'warriors', 'eagles',
+        'denverbroncos', 'torontobluejays', '49ers', 'lakers', 'browns', 'oaklandraiders'
+    ],
+    'politics': [
+        'the_donald', 'politic', 'conspiracy', 'conservative', 'worldpolitics', 'libertarian', 'mensrights',
+        'new_right', 'theredpill', 'anarcho_capitalism', 'whiterights', 'european', 'politicalvideo', 'metacanada',
+        'hillaryforprison', 'uncensorednews', 'asktrumpsupporters', 'altnewz', 'kossacks_for_sanders',
+        'wayofthebern', 'republican', 'conservatives'
+    ],
+    'gaming': [
+        'gaming', 'pcmasterrace', 'ps4', 'xboxone', 'games', 'rainbow6', 'minecraft', 'fo4', 'darksouls3',
+        'thedivision', 'fallout', 'dayz', 'halo', 'darksouls2', 'skyrim', 'grandtheftautov', 'oculus', 'witcher',
+        'kerbalspaceprogram', 'battlefield_one', 'battlefield_4', 'globaloffensivetrade', 'fireteams',
+        'rocketleagueexchange', 'dota2', 'leagueoflegends', 'globaloffensive', 'destinythegame', 'overwatch',
+        'hearthstone', 'wow', '2007scape', 'pokemongo', 'smite', 'runescape'
+    ],
+    'soccer': [
+        'soccer', 'football', 'premierleague', 'realmadrid', 'liverpoolfc', 'chelseafc', 'barca', 'fifa', 'coys', 'gunners', 'reddevils', 'soccerstreams', 'bayernmunich', 'fcbayern', 'juventus', 'soccerbetting', 'atletico', 'tottenham', 'epl', 'laliga'
+    ]
+}
+
+# ——————————————————————————————————————
+# LIWC Properties
+# ——————————————————————————————————————
+
 # Text statistics (0-17)
 N_CHARS = 0
 N_CHARS_NO_WS = 1
@@ -193,28 +253,4 @@ PROPERTIES = [
     "LIWC_Dissent",  # Disagreement/opposition words (no, oppose)
     "LIWC_Nonflu",  # Non-fluencies (uh, um, repetitions)
     "LIWC_Filler"  # Filler phrases (you know, I mean)
-]
-
-# Politics by subcategory
-RIGHT_SUBREDDITS = [
-    "conspiracy",
-    "republican",
-    "conservative",
-    "conservatives",
-    "conservatives_r_us",
-    "whitenationalism",
-    "white_pride",
-    "the_donald",
-    "hillaryforprison",
-    "asktrumpsupporters",
-    "mr_trump",
-    "mensrights",
-    "conservativesonly"
-]
-LEFT_SUBREDDITS = [
-    "european",
-    "antiwar",
-    "askhillarysupporters",
-    "governmentoppression",
-    "conflictofinterest",
 ]

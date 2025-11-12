@@ -1,10 +1,3 @@
-"""
-Clustering and dimensionality reduction utilities for subreddit embeddings.
-
-This module provides functions for performing K-Means clustering, dimensionality
-reduction (PCA, t-SNE), and cluster evaluation metrics.
-"""
-
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -15,7 +8,8 @@ from sklearn.cluster import KMeans
 from sklearn.manifold import TSNE
 from sklearn.metrics import silhouette_score, davies_bouldin_score
 
-from .consts import OPTIMAL_K
+from .consts import OPTIMAL_K, THEMES_SEEDS, SIMILARITY_N_CLUSTERS
+from .similarity import similar_by_max_similarity
 
 
 def reduce_dimensions_pca(embeddings, n_components=50, random_state=42):
@@ -183,3 +177,33 @@ def get_cluster_colors(n_clusters):
         colors = colors[:n_clusters]
     
     return colors
+
+def similarity_subreddits(df_subreddits, top_n = SIMILARITY_N_CLUSTERS):
+    """
+    Filters subreddits with
+
+    Args:
+        df_subreddits (DataFrame): the embeddings dataset
+        top_n (int): Similarity clustering parameter
+
+    Returns:
+        df_gaming, df_politics, df_sports
+    """
+
+    # Dictionary to hold merged dataframes
+    merged_dfs = {}
+
+    # Merge with the neighbors found (centroid)
+    for theme, seeds in THEMES_SEEDS.items():
+        max_results = similar_by_max_similarity(
+            seeds,
+            df_subreddits,
+            top_n=top_n
+        )
+
+        # Put all names in a list to filter duplicates
+        merged_list = list(set(seeds + max_results['SUBREDDIT'].tolist()))
+        merged_df = df_subreddits[df_subreddits['SUBREDDIT'].isin(merged_list)].copy()
+        merged_dfs[theme] = merged_df
+
+    return merged_dfs.get('gaming'), merged_dfs.get('politics'), merged_dfs.get('sports')
