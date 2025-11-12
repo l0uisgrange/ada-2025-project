@@ -68,13 +68,4 @@ def load_data():
         os.path.join(datasets_path, "superbowl_2014_2017.csv")
     )
 
-    # Events list
-    df_holidays_raw = pd.read_csv(
-        os.path.join(datasets_path, "global_holidays.csv"),
-        parse_dates=["Date"],
-    )
-
-    # Only take relevant events
-    df_holidays = df_holidays_raw.loc[(df_holidays_raw['Date'] >= DATA_START_DATE) & (df_holidays_raw['Date'] <= DATA_END_DATE)].copy()
-
-    return df_body, df_title, df_subreddits, df_english_pl, df_esports, df_superbowl, df_holidays
+    return df_body, df_title, df_subreddits, df_english_pl, df_esports, df_superbowl

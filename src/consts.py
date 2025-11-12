@@ -157,7 +157,7 @@ PROPERTIES = [
     "LIWC_Affect",  # Emotion words
     "LIWC_Posemo",  # Positive emotion words
     "LIWC_Negemo",  # Negative emotion words
-    "LIWC_Anx",  # Anxiety-related words
+    "LIWC_Anx",  # Anxiety-related words (nervous, afraid)
     "LIWC_Anger",  # Anger-related words
     "LIWC_Sad",  # Sadness-related words
     "LIWC_CogMech",  # Cognitive process words (think, know)
