@@ -3,7 +3,7 @@
 # ——————————————————————————————————————
 
 # Parameter for clustering by similarity
-SIMILARITY_N_CLUSTERS = 10
+SIMILARITY_N_CLUSTERS = 100
 
 # Politics by subcategory
 RIGHT_SUBREDDITS = [

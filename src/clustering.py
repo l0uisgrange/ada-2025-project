@@ -1,12 +1,11 @@
+import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
-import matplotlib.pyplot as plt
-
-from sklearn.preprocessing import normalize
-from sklearn.decomposition import PCA
 from sklearn.cluster import KMeans
+from sklearn.decomposition import PCA
 from sklearn.manifold import TSNE
 from sklearn.metrics import silhouette_score, davies_bouldin_score
+from sklearn.preprocessing import normalize
 
 from .consts import OPTIMAL_K, THEMES_SEEDS, SIMILARITY_N_CLUSTERS
 from .similarity import similar_by_max_similarity
