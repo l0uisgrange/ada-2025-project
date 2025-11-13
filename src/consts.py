@@ -21,7 +21,15 @@ RIGHT_SUBREDDITS = [
     "mensrights",
     "conservativesonly"
 ]
+
 LEFT_SUBREDDITS = [
+    "SandersForPresident",
+    "hillaryclinton",
+    "EnoughTrumpSpam",
+    "LateStageCapitalism",
+    "The_Mueller",
+    "Political_Revolution",
+    "democrats",
     "european",
     "antiwar",
     "askhillarysupporters",
