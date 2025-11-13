@@ -7,7 +7,6 @@ SIMILARITY_N_CLUSTERS = 100
 
 # Politics by subcategory
 RIGHT_SUBREDDITS = [
-    "conspiracy",
     "republican",
     "conservative",
     "conservatives",
@@ -15,20 +14,20 @@ RIGHT_SUBREDDITS = [
     "whitenationalism",
     "white_pride",
     "the_donald",
+    "askthe_donald",
     "hillaryforprison",
     "asktrumpsupporters",
     "mr_trump",
-    "mensrights",
     "conservativesonly"
 ]
 
 LEFT_SUBREDDITS = [
-    "SandersForPresident",
+    "sandersforpresident",
     "hillaryclinton",
-    "EnoughTrumpSpam",
-    "LateStageCapitalism",
-    "The_Mueller",
-    "Political_Revolution",
+    "enoughtrumpspam",
+    "latestagecapitalism",
+    "the_mueller",
+    "political_revolution",
     "democrats",
     "askhillarysupporters",
     "governmentoppression",
@@ -170,28 +169,6 @@ DATA_END_DATE = "2017-04-30"
 # Visualization parameters
 PLOT_FIGSIZE_MONTHLY = (14, 6)
 PLOT_FIGSIZE_WEEKLY = (24, 8)
-
-# Subreddit seeds for clustering
-SUBREDDITS_SEEDS = {
-    'sports': [
-        'nba', 'nfl', 'hockey', 'fantasyfootball', 'cfb', 'maddenultimateteam', 'baseball', 'golf', 'patriots',
-        'collegebasketball', 'seahawks', 'minnesotavikings', 'madden', 'greenbaypackers', 'warriors', 'eagles',
-        'denverbroncos', 'torontobluejays', '49ers', 'lakers', 'browns', 'oaklandraiders'
-    ],
-    'politics': [
-        'the_donald', 'politic', 'conspiracy', 'conservative', 'worldpolitics', 'libertarian', 'mensrights',
-        'new_right', 'theredpill', 'anarcho_capitalism', 'whiterights', 'european', 'politicalvideo', 'metacanada',
-        'hillaryforprison', 'uncensorednews', 'asktrumpsupporters', 'altnewz', 'kossacks_for_sanders', 'wayofthebern',
-        'republican', 'conservatives'
-    ],
-    'gaming': [
-        'gaming', 'pcmasterrace', 'ps4', 'xboxone', 'games', 'rainbow6', 'minecraft', 'fo4', 'darksouls3',
-        'thedivision', 'fallout', 'dayz', 'halo', 'darksouls2', 'skyrim', 'grandtheftautov', 'oculus', 'witcher',
-        'kerbalspaceprogram', 'battlefield_one', 'battlefield_4', 'globaloffensivetrade', 'fireteams',
-        'rocketleagueexchange', 'dota2', 'leagueoflegends', 'globaloffensive', 'destinythegame', 'overwatch',
-        'hearthstone', 'wow', '2007scape', 'pokemongo', 'smite', 'runescape'
-    ]
-}
 
 # Properties
 PROPERTIES = {
