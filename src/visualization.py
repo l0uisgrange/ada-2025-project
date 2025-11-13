@@ -331,3 +331,46 @@ def plot_liwc_heatmaps(
     ax.grid(False)
 
     return mat_values
+
+
+def plot_subreddits_properties_trend(ax, tf, subreddits_list, start_time, end_time, features_list, period):
+    """
+    Shows a distribution of PROPERTIES on a given period of time.
+    """
+    period_map = {"D": "DAY", "W": "WEEK", "M": "MONTH", "Q": "QUARTER", "Y": "YEAR"}
+
+    start_time = pd.Timestamp(start_time)
+    end_time = pd.Timestamp(end_time)
+
+    # apply filters
+    df = tf[
+        (
+                tf["SOURCE_SUBREDDIT"].isin(subreddits_list) |
+                tf["TARGET_SUBREDDIT"].isin(subreddits_list)
+        )
+        & (tf["TIMESTAMP"] >= start_time)
+        & (tf["TIMESTAMP"] <= end_time)
+        ]
+    df = df.assign(**{period_map[period]: df["TIMESTAMP"].dt.to_period(period)})
+
+    period_stats = (
+        df.groupby(period_map[period])[features_list]
+        .sum()
+        .assign(Count=df.groupby(period_map[period]).size())
+    )
+    period_stats.index = period_stats.index.to_timestamp()
+
+    ax.bar(period_stats.index, period_stats["Count"], color="gray", alpha=0.3)
+    ax.set_ylabel("Post Count", color="gray")
+    ax.set_xlabel(period_map[period])
+    ax.tick_params(axis="y")
+
+    ax2 = ax.twinx()
+    for f in features_list:
+        ax2.plot(period_stats.index, period_stats[f], label=f, linewidth=2)
+    ax2.set_ylabel("Sum of Feature Values")
+    ax2.tick_params(axis="y")
+
+    # Title and legend
+    plt.title(
+        f"Sentiment {features_list}\n{period_map[period]} Trends ({start_time.date()} – {end_time.date()})\nwithin {subreddits_list}")
