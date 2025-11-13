@@ -3,6 +3,7 @@ import kagglehub
 import os
 
 from src.consts import *
+from src.utils import parse_properties
 
 
 def download_data():
@@ -67,5 +68,8 @@ def load_data():
     df_superbowl = pd.read_csv(
         os.path.join(datasets_path, "superbowl_2014_2017.csv")
     )
+
+    df_body = parse_properties(df_body)
+    df_title = parse_properties(df_title)
 
     return df_body, df_title, df_subreddits, df_english_pl, df_esports, df_superbowl

@@ -47,16 +47,17 @@ def plot_mentions_over_time(counts_df, pattern, period='M', figsize=None):
         figsize=figsize,
         color=["#66c2a5", "#fc8d62"],
         alpha=0.85
-    )    
-    plt.title(f"Stacked Mentions of '{pattern}' Over Time", 
-             fontsize=14, fontweight='bold')
+    )
+    plt.title(f"Stacked Mentions of '{pattern}' Over Time",
+              fontsize=14, fontweight='bold')
     plt.xlabel('Time Period')
     plt.ylabel('Number of Mentions')
     plt.xticks(rotation=90)
     plt.grid(axis='y', linestyle='--', alpha=0.4)
     plt.tight_layout()
     plt.show()
-    return 
+    return
+
 
 def plot_cluster_overview(viz_df, n_clusters=OPTIMAL_K, save_path=None):
     """
@@ -73,16 +74,16 @@ def plot_cluster_overview(viz_df, n_clusters=OPTIMAL_K, save_path=None):
     """
     plt.figure(figsize=(12, 12))
     colors = get_cluster_colors(n_clusters)
-    
+
     # Plot each cluster
     for cluster_id in range(n_clusters):
         cluster_data = viz_df[viz_df['cluster'] == cluster_id]
         plt.scatter(cluster_data['x'], cluster_data['y'],
-                   c=[colors[cluster_id]],
-                   label=f'Cluster {cluster_id}',
-                   alpha=0.8,
-                   s=20)
-    
+                    c=[colors[cluster_id]],
+                    label=f'Cluster {cluster_id}',
+                    alpha=0.8,
+                    s=20)
+
     plt.xlabel('t-SNE Dimension 1', fontsize=12)
     plt.ylabel('t-SNE Dimension 2', fontsize=12)
     plt.title(f'Subreddit Clusters (K={n_clusters}) - t-SNE Visualization',
@@ -90,14 +91,13 @@ def plot_cluster_overview(viz_df, n_clusters=OPTIMAL_K, save_path=None):
     plt.legend(bbox_to_anchor=(1.05, 1), loc='upper left', fontsize=9, ncol=2)
     plt.grid(True, alpha=0.3)
     plt.tight_layout()
-    
+
     if save_path:
         plt.savefig(save_path, dpi=300, bbox_inches='tight')
-    
 
 
-def plot_cluster_grid(viz_df, n_clusters=OPTIMAL_K, boundary_type='ellipse', 
-                     save_path=None, figsize=(20, 24)):
+def plot_cluster_grid(viz_df, n_clusters=OPTIMAL_K, boundary_type='ellipse',
+                      save_path=None, figsize=(20, 24)):
     """
     Plot each cluster in a separate subplot grid with boundaries.
     
@@ -113,29 +113,29 @@ def plot_cluster_grid(viz_df, n_clusters=OPTIMAL_K, boundary_type='ellipse',
             The generated figure
     """
     colors = get_cluster_colors(n_clusters)
-    
+
     # Compute axis limits (consistent across all subplots)
     x_min, x_max = viz_df['x'].min(), viz_df['x'].max()
     y_min, y_max = viz_df['y'].min(), viz_df['y'].max()
-    
+
     x_padding = (x_max - x_min) * 0.05
     y_padding = (y_max - y_min) * 0.05
     x_min, x_max = x_min - x_padding, x_max + x_padding
     y_min, y_max = y_min - y_padding, y_max + y_padding
-    
+
     # Create grid (6×5 for 30 clusters, adjust as needed)
     n_rows = int(np.ceil(n_clusters / 5))
     fig, axes = plt.subplots(n_rows, 5, figsize=figsize)
     axes = axes.flatten()
-    
+
     for cluster_id in range(n_clusters):
         ax = axes[cluster_id]
         cluster_data = viz_df[viz_df['cluster'] == cluster_id]
-        
+
         # Plot cluster points
         ax.scatter(cluster_data['x'], cluster_data['y'],
-                  c=[colors[cluster_id]], alpha=0.6, s=10)
-        
+                   c=[colors[cluster_id]], alpha=0.6, s=10)
+
         # Add boundaries
         if boundary_type == 'ellipse' and len(cluster_data) > 1:
             _add_ellipse_boundary(ax, cluster_data, colors[cluster_id])
@@ -143,26 +143,26 @@ def plot_cluster_grid(viz_df, n_clusters=OPTIMAL_K, boundary_type='ellipse',
             _add_kde_boundary(ax, cluster_data, colors[cluster_id])
         elif boundary_type == 'hull' and len(cluster_data) >= 3:
             _add_hull_boundary(ax, cluster_data, colors[cluster_id])
-        
+
         # Style subplot
-        ax.set_title(f'Cluster {cluster_id} (n={len(cluster_data)})', 
-                    fontsize=10, fontweight='bold')
+        ax.set_title(f'Cluster {cluster_id} (n={len(cluster_data)})',
+                     fontsize=10, fontweight='bold')
         ax.set_xlim(x_min, x_max)
         ax.set_ylim(y_min, y_max)
         ax.grid(False)
-    
+
     # Hide extra subplots
     for idx in range(n_clusters, len(axes)):
         axes[idx].set_visible(False)
-    
+
     fig.suptitle(f't-SNE Clusters ({boundary_type.capitalize()} Boundaries)',
-                fontsize=18, fontweight='bold')
+                 fontsize=18, fontweight='bold')
     plt.tight_layout()
     plt.subplots_adjust(top=0.93)
-    
+
     if save_path:
         plt.savefig(save_path, dpi=300, bbox_inches='tight')
-    
+
     return fig
 
 
@@ -170,7 +170,7 @@ def _add_ellipse_boundary(ax, cluster_data, color):
     """Add elliptical boundary to cluster subplot."""
     x_mean, y_mean = cluster_data['x'].mean(), cluster_data['y'].mean()
     x_std, y_std = cluster_data['x'].std(), cluster_data['y'].std()
-    
+
     ellipse = mpatches.Ellipse(
         (x_mean, y_mean),
         width=3 * x_std,
@@ -202,8 +202,7 @@ def _add_hull_boundary(ax, cluster_data, color):
     hull = ConvexHull(points)
     for simplex in hull.simplices:
         ax.plot(points[simplex, 0], points[simplex, 1],
-               color=color, alpha=0.8, linewidth=1.2)
-
+                color=color, alpha=0.8, linewidth=1.2)
 
 
 def active_subreddit_counts(df_body, df_title, df_subreddits):
@@ -211,7 +210,8 @@ def active_subreddit_counts(df_body, df_title, df_subreddits):
     from src.preprocessing import filter_active_subreddits
     active_subreddits, total_counts = filter_active_subreddits(df_body, df_title, df_subreddits)
     total = (total_counts['POST_COUNT_TOTAL'] < 20).sum()
-    print('These subreddits have less than 20 interactions:', total, 'out of', len(total_counts), 'total, but these are the top')
+    print('These subreddits have less than 20 interactions:', total, 'out of', len(total_counts),
+          'total, but these are the top')
 
     thresholds = list(range(10, 210, 10))
 
@@ -224,22 +224,21 @@ def active_subreddit_counts(df_body, df_title, df_subreddits):
         # Subreddits with POST_COUNT_SOURCE >= threshold
         count_source = len(total_counts[total_counts['POST_COUNT_SOURCE'] > threshold])
         counts_source.append(count_source)
-        
+
         # Subreddits with POST_COUNT_TARGET >= threshold
         count_target = len(total_counts[total_counts['POST_COUNT_TARGET'] > threshold])
         counts_target.append(count_target)
-        
+
         # Subreddits meeting BOTH thresholds
         count_both = len(total_counts[
-            (total_counts['POST_COUNT_SOURCE'] > threshold) & 
-            (total_counts['POST_COUNT_TARGET'] > threshold)
-        ])
+                             (total_counts['POST_COUNT_SOURCE'] > threshold) &
+                             (total_counts['POST_COUNT_TARGET'] > threshold)
+                             ])
         counts_both.append(count_both)
 
         # Subreddits with POST_COUNT_TOTAL >= threshold
         count_total = len(total_counts[total_counts['POST_COUNT_TOTAL'] > threshold])
         counts_total.append(count_total)
-
 
     plt.figure(figsize=(10, 6))
     plt.plot(thresholds, counts_source, marker='o', label='Source > threshold', linewidth=2)
@@ -266,7 +265,7 @@ def plot_neighbors_2d(ax, seed_subreddits, neighbors_df, df_subreddits, top_n=20
     embeddings = viz_data.drop(columns=['SUBREDDIT']).values
 
     # TSNE
-    tsne = TSNE(n_components=2, random_state=42, perplexity=min(15, len(all_subs)-1))
+    tsne = TSNE(n_components=2, random_state=42, perplexity=min(15, len(all_subs) - 1))
     coords_2d = tsne.fit_transform(embeddings)
 
     # Separate seed and neighbor points
@@ -281,9 +280,9 @@ def plot_neighbors_2d(ax, seed_subreddits, neighbors_df, df_subreddits, top_n=20
     for i, subreddit in enumerate(viz_data['SUBREDDIT']):
         plt.annotate(subreddit, (coords_2d[i, 0], coords_2d[i, 1]), alpha=0.8, ha='center')
 
-    #ax.title(f'Embedding Space: {theme.upper()}')
-    #ax.xlabel('t-SNE Dimension 1')
-    #ax.ylabel('t-SNE Dimension 2')
+    # ax.title(f'Embedding Space: {theme.upper()}')
+    # ax.xlabel('t-SNE Dimension 1')
+    # ax.ylabel('t-SNE Dimension 2')
     ax.legend()
 
 
@@ -296,69 +295,39 @@ def plot_liwc_heatmaps(
         subreddit_col='SOURCE_SUBREDDIT',
         start_properties=0,
         size_properties=10,
-        title=None
+        title=None,
+        vmin=0,
+        vmax=None
 ):
     """
     Shows a heatmap of LIWC properties based on given subreddits for a given period of time.
     """
 
     df["TIMESTAMP"] = pd.to_datetime(df["TIMESTAMP"])
-
     df_time_filtered = df[
         (df["TIMESTAMP"] >= pd.to_datetime(start_date)) &
         (df["TIMESTAMP"] <= pd.to_datetime(end_date))
-        ]
+    ]
+    df_redd_filtered = df_time_filtered[df_time_filtered[subreddit_col].isin(subreddits)].copy()
 
-    filtered_df = df_time_filtered[df_time_filtered[subreddit_col].isin(subreddits)].copy()
+    properties_list = list(PROPERTIES.keys())[start_properties:start_properties + size_properties]
+    labels_list = list(PROPERTIES.values())[start_properties:start_properties + size_properties]
 
-    # 1. Extraction des propriétés
-    properties_split = filtered_df['PROPERTIES'].str.split(',', expand=True)
-    properties_df = properties_split.iloc[:, :-1].astype(float)
-
-    # Définir les noms génériques pour toutes les colonnes du DataFrame LIWC
-    num_total_properties = properties_df.shape[1]
-    generic_columns = [f'PROP_{i}' for i in range(num_total_properties)]
-    properties_df.columns = generic_columns
-
-    filtered_df = pd.concat([filtered_df.drop('PROPERTIES', axis=1), properties_df], axis=1)
-
-    # 2. Détermination des indices à sommer et des labels à afficher
-
-    # S'assurer que les indices ne dépassent pas la taille réelle des propriétés
-    end_properties = min(start_properties + size_properties, num_total_properties)
-
-    # Noms des colonnes à sélectionner dans filtered_df (basés sur les indices PROP_i)
-    columns_to_sum = [f'PROP_{i}' for i in range(start_properties, end_properties)]
-
-    # Noms réels des labels, tirés de la constante PROPERTIES
-    labels_to_show = PROPERTIES[start_properties:end_properties]
-
-    # Gestion des cas où start_properties est trop grand (pas de colonnes)
-    if not columns_to_sum:
-        print("Avertissement: Aucun colonne à sommer. Les indices de propriétés sont hors limites.")
-        return np.array([])
-
-    # 3. Agrégation des données
-    sum_by_source = filtered_df.groupby(subreddit_col)[columns_to_sum].sum()
-
+    sum_by_source = df_redd_filtered.groupby(subreddit_col)[properties_list].sum()
     mat_values = sum_by_source.values
+    ax.imshow(mat_values, aspect='auto', origin='lower', cmap='viridis', vmin=vmin, vmax=vmax)
 
-    # 4. Affichage et troncature des labels
-    ax.imshow(mat_values, aspect='auto', origin='lower', cmap='viridis')
-
-    # Troncature des noms de labels pour l'affichage (max 15 caractères)
-    truncated_labels = []
-    for label in labels_to_show:
-        if len(label) > 15:
-            truncated_labels.append(label[:12] + '...')  # Troncature à 12 + ...
-        else:
-            truncated_labels.append(label)
-
+    rows, cols = mat_values.shape
+    for i in range(rows):
+        for j in range(cols):
+            value_to_display = f"{mat_values[i, j]:.2f}"
+            ax.text(j, i, value_to_display, ha="center", va="center", color='white')
     ax.set_xticks(np.arange(sum_by_source.shape[1]))
-    # Utiliser les labels tronqués pour l'affichage
-    ax.set_xticklabels(truncated_labels, rotation=45, ha='right')
+
+    ax.set_xticklabels(labels_list, rotation=45, ha='right')
     ax.set_yticks(np.arange(sum_by_source.shape[0]))
-    ax.set_yticklabels(sum_by_source.index, fontsize=9)
+    ax.set_yticklabels(sum_by_source.index)
     ax.set_title(title)
+    ax.grid(False)
 
     return mat_values
