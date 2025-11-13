@@ -1,10 +1,3 @@
-"""
-Similarity analysis utilities for finding related subreddits.
-
-This module provides functions for computing similarity between subreddits
-using their embedding vectors (centroid-based and max-similarity methods).
-"""
-
 import pandas as pd
 from sklearn.metrics.pairwise import cosine_similarity
 

@@ -3,7 +3,7 @@ import pandas as pd
 from src.consts import PROPERTIES
 
 
-def count_pattern_by_period(df_body, df_title, pattern, period = "M"):
+def count_pattern_by_period(df_body, df_title: pd.DataFrame, pattern, period = "M"):
     """
     Find similar subreddits based on centroid of picked subreddits.
 
@@ -40,7 +40,7 @@ def count_pattern_by_period(df_body, df_title, pattern, period = "M"):
     counts_body = body_mentions.groupby("PERIOD").size()
 
     # Combine into DataFrame
-    return pd.DataFrame({ "Title Mentions": counts_title,"Body Mentions": counts_body }).fillna(0)
+    return pd.DataFrame({ "TITLE_ACTIVITY": counts_title,"BODY_ACTIVITY": counts_body }).fillna(0)
 
 
 def parse_properties(df: pd.DataFrame):

@@ -1,57 +1,34 @@
-"""
-Visualization utilities for Reddit data analysis.
-
-This module provides reusable plotting functions for clusters, temporal trends,
-and network visualizations.
-"""
-
-import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
-import pandas as pd
 import seaborn as sns
-import numpy as np
 from scipy.spatial import ConvexHull
-from sklearn.manifold import TSNE
 
-from .clustering import get_cluster_colors
-from .consts import OPTIMAL_K, DATA_START_DATE, DATA_END_DATE, PROPERTIES
+from .clustering import *
+from .consts import *
 
+def set_plt_style():
+    plt.rc('font', size=PLOT_FONT_SIZE)
+    plt.rc('axes', titlesize=PLOT_FONT_SIZE)
+    plt.rc('axes', labelsize=PLOT_FONT_SIZE)
+    plt.rc('xtick', labelsize=PLOT_FONT_SIZE)
+    plt.rc('ytick', labelsize=PLOT_FONT_SIZE)
+    plt.rc('legend', fontsize=PLOT_FONT_SIZE)
+    plt.rc('figure', titlesize=PLOT_TITLE_FONT_SIZE, figsize=(PLOT_WIDTH, PLOT_WIDTH/3), dpi=PLOT_DPI)
 
-def plot_mentions_over_time(counts_df, pattern, period='M', figsize=None):
+    plt.style.use('seaborn-v0_8-whitegrid')
+
+def plot_activity_over_time(df: pd.DataFrame, pattern):
     """
     Plot stacked bar chart of subreddit mentions over time.
-    
-    Args:
-        counts_df (pd.DataFrame):
-        DataFrame with 'Title Mentions' and 'Body Mentions' columns
-        pattern (str):
-        Subreddit name being analyzed
-        period (str)
-        Time period ('M' for monthly, 'W' for weekly) (default: 'M')
-        save_path (str):
-        Path to save figure (default: None, no save)
-        figsize (tuple):
-        Figure size (width, height) (default: auto-detect based on period)
-        
-    Returns:
-        matplotlib.figure.Figure
-            The generated figure
     """
-    # Auto-detect figure size
-    if figsize is None:
-        figsize = (14, 6) if period == 'M' else (24, 8)
 
-    counts_df.plot(
+    df.plot(
         kind="bar",
         stacked=True,
-        figsize=figsize,
-        color=["#66c2a5", "#fc8d62"],
         alpha=0.85
     )
-    plt.title(f"Stacked Mentions of '{pattern}' Over Time",
-              fontsize=14, fontweight='bold')
+    plt.title(f"Stacked Mentions of '{pattern}' Over Time")
     plt.xlabel('Time Period')
-    plt.ylabel('Number of Mentions')
+    plt.ylabel('Number of Hyperlinks')
     plt.xticks(rotation=90)
     plt.grid(axis='y', linestyle='--', alpha=0.4)
     plt.tight_layout()
@@ -59,18 +36,9 @@ def plot_mentions_over_time(counts_df, pattern, period='M', figsize=None):
     return
 
 
-def plot_cluster_overview(viz_df, n_clusters=OPTIMAL_K, save_path=None):
+def plot_cluster_overview(viz_df, n_clusters=OPTIMAL_K):
     """
     Plot all clusters in a single 2D scatter plot.
-    
-    Args:
-        viz_df (pd.DataFrame): Visualization DataFrame with 'x', 'y', 'cluster' columns
-        n_clusters (int): Number of clusters
-        save_path (str): Path to save figure (default: None)
-        figsize (tuple): Figure size (default: (16, 12))
-        
-    Returns:
-        The generated figure
     """
     plt.figure(figsize=(12, 12))
     colors = get_cluster_colors(n_clusters)
@@ -84,33 +52,17 @@ def plot_cluster_overview(viz_df, n_clusters=OPTIMAL_K, save_path=None):
                     alpha=0.8,
                     s=20)
 
-    plt.xlabel('t-SNE Dimension 1', fontsize=12)
-    plt.ylabel('t-SNE Dimension 2', fontsize=12)
-    plt.title(f'Subreddit Clusters (K={n_clusters}) - t-SNE Visualization',
-              fontsize=14, fontweight='bold')
-    plt.legend(bbox_to_anchor=(1.05, 1), loc='upper left', fontsize=9, ncol=2)
+    plt.xlabel('t-SNE Dimension 1')
+    plt.ylabel('t-SNE Dimension 2')
+    plt.title(f'Subreddit Clusters (K={n_clusters}) - t-SNE Visualization')
+    plt.legend(bbox_to_anchor=(1.05, 1), loc='upper left', ncol=2)
     plt.grid(True, alpha=0.3)
     plt.tight_layout()
 
-    if save_path:
-        plt.savefig(save_path, dpi=300, bbox_inches='tight')
 
-
-def plot_cluster_grid(viz_df, n_clusters=OPTIMAL_K, boundary_type='ellipse',
-                      save_path=None, figsize=(20, 24)):
+def plot_cluster_grid(viz_df, n_clusters=OPTIMAL_K, boundary_type='ellipse', figsize=(20, 24)):
     """
     Plot each cluster in a separate subplot grid with boundaries.
-    
-    Args:
-        viz_df (pd.DataFrame): Visualization DataFrame with 'x', 'y', 'cluster' columns
-        n_clusters (int): Number of clusters
-        boundary_type (str): Type of boundary: 'ellipse', 'kde', or 'hull' (default: 'ellipse')
-        save_path (str): Path to save figure (default: None)
-        figsize (tuple): Figure size (default: (20, 24))
-        
-    Returns:
-        matplotlib.figure.Figure
-            The generated figure
     """
     colors = get_cluster_colors(n_clusters)
 
@@ -160,14 +112,13 @@ def plot_cluster_grid(viz_df, n_clusters=OPTIMAL_K, boundary_type='ellipse',
     plt.tight_layout()
     plt.subplots_adjust(top=0.93)
 
-    if save_path:
-        plt.savefig(save_path, dpi=300, bbox_inches='tight')
-
     return fig
 
 
 def _add_ellipse_boundary(ax, cluster_data, color):
-    """Add elliptical boundary to cluster subplot."""
+    """
+    Add elliptical boundary to cluster subplot.
+    """
     x_mean, y_mean = cluster_data['x'].mean(), cluster_data['y'].mean()
     x_std, y_std = cluster_data['x'].std(), cluster_data['y'].std()
 
@@ -197,7 +148,9 @@ def _add_kde_boundary(ax, cluster_data, color):
 
 
 def _add_hull_boundary(ax, cluster_data, color):
-    """Add convex hull boundary to cluster subplot."""
+    """
+    Add convex hull boundary to cluster subplot.
+    """
     points = cluster_data[['x', 'y']].values
     hull = ConvexHull(points)
     for simplex in hull.simplices:
@@ -206,7 +159,9 @@ def _add_hull_boundary(ax, cluster_data, color):
 
 
 def active_subreddit_counts(df_body, df_title, df_subreddits):
-    """Plot active subreddit counts vs. activity thresholds."""
+    """
+    Plot active subreddit counts vs. activity thresholds.
+    """
     from src.preprocessing import filter_active_subreddits
     active_subreddits, total_counts = filter_active_subreddits(df_body, df_title, df_subreddits)
     total = (total_counts['POST_COUNT_TOTAL'] < 20).sum()
@@ -256,8 +211,10 @@ def active_subreddit_counts(df_body, df_title, df_subreddits):
     return
 
 
-def plot_neighbors_2d(ax, seed_subreddits, neighbors_df, df_subreddits, top_n=20, theme='sports'):
-    """Displays picked subreddits and their nearest neighbors in 2D space."""
+def plot_neighbors_2d(ax, seed_subreddits, neighbors_df, top_n = 20):
+    """
+    Displays picked subreddits and their nearest neighbors in 2D space.
+    """
 
     # Prepare data
     all_subs = seed_subreddits + list(neighbors_df.head(top_n)['SUBREDDIT'])
@@ -271,18 +228,16 @@ def plot_neighbors_2d(ax, seed_subreddits, neighbors_df, df_subreddits, top_n=20
     # Separate seed and neighbor points
     mask = viz_data['SUBREDDIT'].isin(seed_subreddits)
 
-    ax.scatter(coords_2d[~mask, 0], coords_2d[~mask, 1],
-               c='lightblue', alpha=0.6, label='Neighbors', edgecolors='black')
-    ax.scatter(coords_2d[mask, 0], coords_2d[mask, 1],
-               c='red', alpha=0.9, label='Seeds', edgecolors='black', marker='*')
+    ax.scatter(coords_2d[~mask, 0], coords_2d[~mask, 1], label='Neighbors')
+    ax.scatter(coords_2d[mask, 0], coords_2d[mask, 1], label='Seeds')
 
     # Annotations
     for i, subreddit in enumerate(viz_data['SUBREDDIT']):
         plt.annotate(subreddit, (coords_2d[i, 0], coords_2d[i, 1]), alpha=0.8, ha='center')
 
     # ax.title(f'Embedding Space: {theme.upper()}')
-    # ax.xlabel('t-SNE Dimension 1')
-    # ax.ylabel('t-SNE Dimension 2')
+    ax.set(xlabel = 't-SNE Dimension 1', ylabel = 't-SNE Dimension 2')
+    ax.legend()
     ax.legend()
 
 
@@ -307,7 +262,7 @@ def plot_liwc_heatmaps(
     df_time_filtered = df[
         (df["TIMESTAMP"] >= pd.to_datetime(start_date)) &
         (df["TIMESTAMP"] <= pd.to_datetime(end_date))
-    ]
+        ]
     df_redd_filtered = df_time_filtered[df_time_filtered[subreddit_col].isin(subreddits)].copy()
 
     properties_list = list(PROPERTIES.keys())[start_properties:start_properties + size_properties]
@@ -333,11 +288,11 @@ def plot_liwc_heatmaps(
     return mat_values
 
 
-def plot_subreddits_properties_trend(ax, tf, subreddits_list, start_time, end_time, features_list, period):
+def plot_subreddits_properties_trend(ax, tf, subreddits_list, start_time, end_time, features_list, period = "D"):
     """
     Shows a distribution of PROPERTIES on a given period of time.
     """
-    period_map = {"D": "DAY", "W": "WEEK", "M": "MONTH", "Q": "QUARTER", "Y": "YEAR"}
+    period_map = {"D": "Day", "W": "Week", "M": "Month", "Q": "Quarter", "Y": "Year"}
 
     start_time = pd.Timestamp(start_time)
     end_time = pd.Timestamp(end_time)
@@ -361,7 +316,7 @@ def plot_subreddits_properties_trend(ax, tf, subreddits_list, start_time, end_ti
     period_stats.index = period_stats.index.to_timestamp()
 
     ax.bar(period_stats.index, period_stats["Count"], color="gray", alpha=0.3)
-    ax.set_ylabel("Post Count", color="gray")
+    ax.set_ylabel("Post Count")
     ax.set_xlabel(period_map[period])
     ax.tick_params(axis="y")
 
@@ -370,7 +325,7 @@ def plot_subreddits_properties_trend(ax, tf, subreddits_list, start_time, end_ti
         ax2.plot(period_stats.index, period_stats[f], label=f, linewidth=2)
     ax2.set_ylabel("Sum of Feature Values")
     ax2.tick_params(axis="y")
-
+    plt.legend()
     # Title and legend
     plt.title(
-        f"Sentiment {features_list}\n{period_map[period]} Trends ({start_time.date()} – {end_time.date()})\nwithin {subreddits_list}")
+        f"{period_map[period]} properties within {','.join(subreddits_list)}")
