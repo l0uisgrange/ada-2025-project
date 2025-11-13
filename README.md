@@ -18,17 +18,17 @@ events.
 
 Our research questions are split into 3 parts:
 
-1. **Political events** (e.g. 2016 U.S. presidential election)
+1. **Political subreddits** (e.g. 2016 U.S. presidential election)
 
 - How do major political events affect interaction patterns and topic trends on Reddit?
 
-2. **Sports events** (e.g. English Premier League, the Super Bowl)
+2. **Sport subreddits** (e.g. English Premier League, the Super Bowl)
 
 - How do major sports events and e-sports tournaments reflect in Reddit activity and community interactions?
 
-3. **Holidays** (e.g. Christmas, New Year's Day, or Mother's Day)
+3. **Gaming subreddits** (e.g. E-Sports)
 
-- How do holidays affect subreddits activity?
+- What king of interactions do users have with gaming communities?
 
 ## 📊 Additional Datasets
 
@@ -92,7 +92,7 @@ _Outcome: identify behavioral shifts based on events_
 
 #### Week 1 (before Nov 12)
 
-- [ ] Perform Exploratory Data Analysis EDA (see Methods section above)
+- [x] Perform Exploratory Data Analysis EDA (see Methods section above)
 
 #### Week 2 (before Nov 19)
 
