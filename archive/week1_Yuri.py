@@ -1,3 +1,4 @@
+from locale import normalize
 import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
@@ -36,10 +37,10 @@ def get_dataframe_features(tf, tf2, features_list, subreddits_list):
     columns=["Feature", "Mean_Title", "Max_Title", "Sum_Title", "Std_Title", "Mean_Body", "Max_Body", "Sum_Body", "Std_Body"]
     df_features = pd.DataFrame(raw_rows, columns=columns)
     # print(df_features)
-    df_features_sentiment = df_features.loc[:2]
-    df_features_liwc = df_features.loc[3:]
-    return df_features_sentiment, df_features_liwc
-
+    # df_features_sentiment = df_features.loc[:2]
+    # df_features_liwc = df_features.loc[3:]
+    # return df_features_sentiment, df_features_liwc
+    return df_features
 
 def plot_subreddits_features_trend(tf, subreddits_list, start_time, end_time, features_list, period):
 
@@ -98,7 +99,8 @@ def plot_liwc_heatmaps_for_features_list(
     subreddit_col='TARGET_SUBREDDIT',
     title=None,
     vmin=0,
-    vmax=None
+    vmax=None,
+    normalize=False,
 ):
     import numpy as np
     """
@@ -117,6 +119,10 @@ def plot_liwc_heatmaps_for_features_list(
 
     sum_by_source = df_redd_filtered.groupby(subreddit_col)[properties_list].sum()
     mat_values = sum_by_source.values
+    # print(mat_values)
+    if normalize:
+        row_sums = mat_values.sum(axis=1, keepdims=True)
+        mat_values = mat_values / row_sums
     ax.imshow(mat_values, aspect='auto', origin='lower', cmap='viridis', vmin=vmin, vmax=vmax)
 
     rows, cols = mat_values.shape
@@ -129,7 +135,9 @@ def plot_liwc_heatmaps_for_features_list(
     ax.set_xticklabels(properties_list, rotation=45, ha='right')
     ax.set_yticks(np.arange(sum_by_source.shape[0]))
     ax.set_yticklabels(sum_by_source.index)
-    ax.set_title(title)
+    if normalize:
+        ax.set_title(f'{title} (Normalized)')
+    else:
+        ax.set_title(f'{title} (Sum)')
     ax.grid(False)
-
-    return mat_values
+    return  ax
