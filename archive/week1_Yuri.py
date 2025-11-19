@@ -1,96 +1,12 @@
+import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
 
-features = [
-    "Number of characters",
-    "Number of characters without counting white space",
-    "Fraction of alphabetical characters",
-    "Fraction of digits",
-    "Fraction of uppercase characters",
-    "Fraction of white spaces",
-    "Fraction of special characters (e.g., comma, exclamation mark, etc.)",
-    "Number of words",
-    "Number of unique words",
-    "Number of long words (at least 6 characters)",
-    "Average word length",
-    "Number of unique stopwords",
-    "Fraction of stopwords",
-    "Number of sentences",
-    "Number of long sentences (at least 10 words)",
-    "Average number of characters per sentence",
-    "Average number of words per sentence",
-    "Automated readability index",
-    "Positive sentiment (VADER)",
-    "Negative sentiment (VADER)",
-    "Compound sentiment (VADER)",
-    "LIWC_Funct",
-    "LIWC_Pronoun",
-    "LIWC_Ppron",
-    "LIWC_I",
-    "LIWC_We",
-    "LIWC_You",
-    "LIWC_SheHe",
-    "LIWC_They",
-    "LIWC_Ipron",
-    "LIWC_Article",
-    "LIWC_Verbs",
-    "LIWC_AuxVb",
-    "LIWC_Past",
-    "LIWC_Present",
-    "LIWC_Future",
-    "LIWC_Adverbs",
-    "LIWC_Prep",
-    "LIWC_Conj",
-    "LIWC_Negate",
-    "LIWC_Quant",
-    "LIWC_Numbers",
-    "LIWC_Swear",
-    "LIWC_Social",
-    "LIWC_Family",
-    "LIWC_Friends",
-    "LIWC_Humans",
-    "LIWC_Affect",
-    "LIWC_Posemo",
-    "LIWC_Negemo",
-    "LIWC_Anx",
-    "LIWC_Anger",
-    "LIWC_Sad",
-    "LIWC_CogMech",
-    "LIWC_Insight",
-    "LIWC_Cause",
-    "LIWC_Discrep",
-    "LIWC_Tentat",
-    "LIWC_Certain",
-    "LIWC_Inhib",
-    "LIWC_Incl",
-    "LIWC_Excl",
-    "LIWC_Percept",
-    "LIWC_See",
-    "LIWC_Hear",
-    "LIWC_Feel",
-    "LIWC_Bio",
-    "LIWC_Body",
-    "LIWC_Health",
-    "LIWC_Sexual",
-    "LIWC_Ingest",
-    "LIWC_Relativ",
-    "LIWC_Motion",
-    "LIWC_Space",
-    "LIWC_Time",
-    "LIWC_Work",
-    "LIWC_Achiev",
-    "LIWC_Leisure",
-    "LIWC_Home",
-    "LIWC_Money",
-    "LIWC_Relig",
-    "LIWC_Death",
-    "LIWC_Assent",
-    "LIWC_Dissent",
-    "LIWC_Nonflu",
-    "LIWC_Filler"
-]
+DATA_START_DATE = "2014-01-01"
+DATA_END_DATE = "2017-04-30"
 
-def get_dataframe_features(tf, tf2, subreddits_list):
+def get_dataframe_features(tf, tf2, features_list, subreddits_list):
+    
     df_title_prop = tf[
         (
             tf["SOURCE_SUBREDDIT"].isin(subreddits_list) |
@@ -105,7 +21,7 @@ def get_dataframe_features(tf, tf2, subreddits_list):
         )
     ]
     raw_rows =[]
-    for f in features[18:]:
+    for f in features_list:
         raw_rows.append((
             f,
             round(df_title_prop[f].mean(), 5),
@@ -119,6 +35,7 @@ def get_dataframe_features(tf, tf2, subreddits_list):
         ))
     columns=["Feature", "Mean_Title", "Max_Title", "Sum_Title", "Std_Title", "Mean_Body", "Max_Body", "Sum_Body", "Std_Body"]
     df_features = pd.DataFrame(raw_rows, columns=columns)
+    # print(df_features)
     df_features_sentiment = df_features.loc[:2]
     df_features_liwc = df_features.loc[3:]
     return df_features_sentiment, df_features_liwc
@@ -153,11 +70,11 @@ def plot_subreddits_features_trend(tf, subreddits_list, start_time, end_time, fe
     fig, ax1 = plt.subplots(figsize=(16,6))
 
     # Bar plot for post count
-    ax1.bar(period_stats.index, period_stats["Count"], color="gray", alpha=0.3)
+    ax1.bar(period_stats.index, period_stats["Count"], color="black", alpha=0.3)
     ax1.set_ylabel("Post Count", color="gray")
     ax1.set_xlabel(period_map[period])
     ax1.tick_params(axis="y")
-
+    print(period_stats["Count"].sum())
     # Line plot for each sentiment on the second axis
     ax2 = ax1.twinx()
     for f in features_list:
@@ -166,7 +83,53 @@ def plot_subreddits_features_trend(tf, subreddits_list, start_time, end_time, fe
     ax2.tick_params(axis="y")
 
     # Title and legend
-    plt.title(f"Sentiment {features_list}\n{period_map[period]} Trends ({start_time.date()} – {end_time.date()})\nwithin {subreddits_list}")
+    plt.title(f"Sentiment {features_list}\n{period_map[period]} Trends ({start_time.date()} – {end_time.date()})") #\nwithin {subreddits_list}")
     fig.legend(loc="upper right", bbox_to_anchor=(1,1), bbox_transform=ax1.transAxes, title="Features")
     fig.tight_layout()
     plt.show()
+
+def plot_liwc_heatmaps_for_features_list(
+    ax,
+    df,
+    subreddits,
+    properties_list,
+    start_date=DATA_START_DATE,
+    end_date=DATA_END_DATE,
+    subreddit_col='TARGET_SUBREDDIT',
+    title=None,
+    vmin=0,
+    vmax=None
+):
+    import numpy as np
+    """
+    Shows a heatmap of LIWC properties based on given subreddits for a given period of time.
+    """
+
+    df["TIMESTAMP"] = pd.to_datetime(df["TIMESTAMP"])
+    df_time_filtered = df[
+        (df["TIMESTAMP"] >= pd.to_datetime(start_date)) &
+        (df["TIMESTAMP"] <= pd.to_datetime(end_date))
+        ]
+    df_redd_filtered = df_time_filtered[df_time_filtered[subreddit_col].isin(subreddits)].copy()
+ 
+    # properties_list = list(PROPERTIES.keys())[start_properties:start_properties + size_properties]
+    # labels_list = list(PROPERTIES.values())[start_properties:start_properties + size_properties]
+
+    sum_by_source = df_redd_filtered.groupby(subreddit_col)[properties_list].sum()
+    mat_values = sum_by_source.values
+    ax.imshow(mat_values, aspect='auto', origin='lower', cmap='viridis', vmin=vmin, vmax=vmax)
+
+    rows, cols = mat_values.shape
+    for i in range(rows):
+        for j in range(cols):
+            value_to_display = f"{mat_values[i, j]:.2f}"
+            ax.text(j, i, value_to_display, ha="center", va="center", color='white')
+    ax.set_xticks(np.arange(sum_by_source.shape[1]))
+
+    ax.set_xticklabels(properties_list, rotation=45, ha='right')
+    ax.set_yticks(np.arange(sum_by_source.shape[0]))
+    ax.set_yticklabels(sum_by_source.index)
+    ax.set_title(title)
+    ax.grid(False)
+
+    return mat_values
