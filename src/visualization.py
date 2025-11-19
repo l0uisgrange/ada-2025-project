@@ -329,3 +329,56 @@ def plot_subreddits_properties_trend(ax, tf, subreddits_list, start_time, end_ti
     # Title and legend
     plt.title(
         f"{period_map[period]} properties within {','.join(subreddits_list)}")
+
+def plot_liwc_heatmaps_for_features_list(
+    ax,
+    df,
+    subreddits,
+    properties_list,
+    start_date=DATA_START_DATE,
+    end_date=DATA_END_DATE,
+    subreddit_col='TARGET_SUBREDDIT',
+    title=None,
+    vmin=0,
+    vmax=None,
+    normalize=False,
+):
+    import numpy as np
+    """
+    Shows a heatmap of LIWC properties based on given subreddits for a given period of time.
+    """
+
+    df["TIMESTAMP"] = pd.to_datetime(df["TIMESTAMP"])
+    df_time_filtered = df[
+        (df["TIMESTAMP"] >= pd.to_datetime(start_date)) &
+        (df["TIMESTAMP"] <= pd.to_datetime(end_date))
+        ]
+    df_redd_filtered = df_time_filtered[df_time_filtered[subreddit_col].isin(subreddits)].copy()
+ 
+    # properties_list = list(PROPERTIES.keys())[start_properties:start_properties + size_properties]
+    # labels_list = list(PROPERTIES.values())[start_properties:start_properties + size_properties]
+
+    sum_by_source = df_redd_filtered.groupby(subreddit_col)[properties_list].sum()
+    mat_values = sum_by_source.values
+    # print(mat_values)
+    if normalize:
+        row_sums = mat_values.sum(axis=1, keepdims=True)
+        mat_values = mat_values / row_sums
+    ax.imshow(mat_values, aspect='auto', origin='lower', cmap='viridis', vmin=vmin, vmax=vmax)
+
+    rows, cols = mat_values.shape
+    for i in range(rows):
+        for j in range(cols):
+            value_to_display = f"{mat_values[i, j]:.2f}"
+            ax.text(j, i, value_to_display, ha="center", va="center", color='white')
+    ax.set_xticks(np.arange(sum_by_source.shape[1]))
+
+    ax.set_xticklabels(properties_list, rotation=45, ha='right')
+    ax.set_yticks(np.arange(sum_by_source.shape[0]))
+    ax.set_yticklabels(sum_by_source.index)
+    if normalize:
+        ax.set_title(f'{title} (Normalized)')
+    else:
+        ax.set_title(f'{title} (Sum)')
+    ax.grid(False)
+    return  ax
