@@ -96,14 +96,15 @@ _Outcome: identify behavioral shifts based on events_
 
 #### Week 2 (before Nov 19)
 
-- [ ] Finish EDA (only if needed) and generate additional visualizations.
-- [ ] Identify massive interactions.
-- [ ] Identify the most active / targeted subreddits and quickly analyze interactions.
+- [x] Finish EDA (only if needed) and generate additional visualizations.
+- [x] Identify massive interactions.
+- [x] Identify the most active / targeted subreddits and quickly analyze interactions.
 
 #### Week 3 (before Nov 26)
 
 - [ ] Analyze interactions by using LIWC features, sentiment, and linguistic properties using events.
-- [ ] Plot graphs to highlight different behaviors.
+- [ ] Plot or prepare graphs to highlight different behaviors.
+- [ ] Have a complete analysis for each theme.
 
 #### Week 4 (before Dec 3)
 
