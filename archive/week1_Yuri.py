@@ -42,7 +42,7 @@ def get_dataframe_features(tf, tf2, features_list, subreddits_list):
     # return df_features_sentiment, df_features_liwc
     return df_features
 
-def plot_subreddits_features_trend(tf, subreddits_list, start_time, end_time, features_list, period):
+def plot_subreddits_features_trend(tf, subreddits_list, start_time, end_time, features_list, period, highlight_periods=None):
 
     period_map = { "D": "DAY", "W": "WEEK", "M": "MONTH", "Q": "QUARTER", "Y": "YEAR" }
 
@@ -75,13 +75,25 @@ def plot_subreddits_features_trend(tf, subreddits_list, start_time, end_time, fe
     ax1.set_ylabel("Post Count", color="gray")
     ax1.set_xlabel(period_map[period])
     ax1.tick_params(axis="y")
-    print(period_stats["Count"].sum())
+    # print(period_stats["Count"].sum())
+
+
     # Line plot for each sentiment on the second axis
     ax2 = ax1.twinx()
     for f in features_list:
         ax2.plot(period_stats.index, period_stats[f], label=f, linewidth=2)
     ax2.set_ylabel("Sum of Feature Values")
     ax2.tick_params(axis="y")
+
+    if highlight_periods is not None:
+        for i, (hs, he) in enumerate(highlight_periods):
+            ax1.axvspan(
+                pd.Timestamp(hs),
+                pd.Timestamp(he),
+                color="yellow",
+                alpha=0.25,
+                label="Tournament Period" if i == 0 else None
+            )
 
     # Title and legend
     plt.title(f"Sentiment {features_list}\n{period_map[period]} Trends ({start_time.date()} – {end_time.date()})") #\nwithin {subreddits_list}")
@@ -114,12 +126,9 @@ def plot_liwc_heatmaps_for_features_list(
         ]
     df_redd_filtered = df_time_filtered[df_time_filtered[subreddit_col].isin(subreddits)].copy()
  
-    # properties_list = list(PROPERTIES.keys())[start_properties:start_properties + size_properties]
-    # labels_list = list(PROPERTIES.values())[start_properties:start_properties + size_properties]
-
     sum_by_source = df_redd_filtered.groupby(subreddit_col)[properties_list].sum()
     mat_values = sum_by_source.values
-    # print(mat_values)
+
     if normalize:
         row_sums = mat_values.sum(axis=1, keepdims=True)
         mat_values = mat_values / row_sums
@@ -140,4 +149,4 @@ def plot_liwc_heatmaps_for_features_list(
     else:
         ax.set_title(f'{title} (Sum)')
     ax.grid(False)
-    return  ax
+    # return  ax
