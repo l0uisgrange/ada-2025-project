@@ -291,12 +291,7 @@
 
 ## ❓ Open Questions
 
-1. What's the exact submission format required?
-2. Are there rubric-specific sections we must include?
-3. Do we need methodology/data description sections?
-4. Word count or page limits?
-5. Can we use the figures as-is or need to recreate them?
-6. Do we need to include code in the final deliverable?
+1. Methodology/data description sections?
 
 ---
 
