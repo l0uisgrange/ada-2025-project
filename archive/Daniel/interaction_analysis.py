@@ -1,31 +1,10 @@
-"""
-Phase 2: Baseline Interaction Analysis
-
-This module provides:
-1. Interaction matrices (sentiment heatmaps)
-2. LIWC profiling and comparison
-3. Reciprocity analysis (asymmetric rivalries)
-4. Cross-domain comparison visualizations
-
-Usage:
-    from interaction_analysis import (
-        build_interaction_matrix,
-        analyze_reciprocity,
-        plot_sentiment_heatmap,
-        plot_liwc_comparison
-    )
-"""
-
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 from scipy import stats
 
-
-# =============================================================================
 # INTERACTION MATRICES
-# =============================================================================
 
 def build_interaction_matrix(df, metric='negative_rate', min_count=30):
     """
@@ -37,7 +16,7 @@ def build_interaction_matrix(df, metric='negative_rate', min_count=30):
         min_count: minimum interactions to include a cell
 
     Returns:
-        DataFrame pivot table (source as rows, target as columns)
+        DataFrame pivot table (source = rows, target = columns)
     """
     # Filter to labeled camps only
     df_filtered = df[(df['source_camp'] != 'other') & (df['target_camp'] != 'other')]
@@ -87,9 +66,7 @@ def get_interaction_summary(df, min_count=30):
     return agg[agg['count'] >= min_count].sort_values('count', ascending=False)
 
 
-# =============================================================================
 # RECIPROCITY ANALYSIS
-# =============================================================================
 
 def analyze_reciprocity(df, min_count=30):
     """
@@ -174,7 +151,7 @@ def analyze_reciprocity(df, min_count=30):
 
 def get_camp_hostility_profile(df):
     """
-    Calculate overall hostility profile for each camp.
+    Compute overall hostility profile for each camp.
 
     Returns:
         DataFrame with:
@@ -207,9 +184,7 @@ def get_camp_hostility_profile(df):
     return profile.sort_values('outgoing_neg_rate', ascending=False)
 
 
-# =============================================================================
 # LIWC ANALYSIS
-# =============================================================================
 
 def get_liwc_by_sentiment(df):
     """
@@ -228,7 +203,7 @@ def get_liwc_by_sentiment(df):
 
 def get_top_hostile_features(df, n=15):
     """
-    Get the LIWC features most elevated in hostile posts.
+    Get the top LIWC features in hostile posts.
 
     Returns:
         Series of top n features sorted by (negative - positive) difference
@@ -259,9 +234,7 @@ def compare_liwc_signatures(df1, df2, name1='Domain 1', name2='Domain 2'):
     return comparison.sort_values(name1, ascending=False)
 
 
-# =============================================================================
 # VISUALIZATION FUNCTIONS
-# =============================================================================
 
 def plot_sentiment_heatmap(matrix, title, figsize=(12, 10), cmap='RdYlGn_r',
                            vmin=0, vmax=0.4, save_path=None):
@@ -441,9 +414,7 @@ def plot_camp_profiles(profile_df, title, figsize=(12, 6), save_path=None):
     return fig
 
 
-# =============================================================================
 # PLOTLY INTERACTIVE VISUALIZATIONS
-# =============================================================================
 
 def create_plotly_heatmap(matrix, title):
     """
@@ -519,9 +490,7 @@ def create_plotly_bar_comparison(sig1, sig2, name1, name2, n_features=12):
     return plotly_spec
 
 
-# =============================================================================
-# MAIN EXECUTION / DEMO
-# =============================================================================
+# DEMO
 
 if __name__ == "__main__":
     from data_prep import load_prepared_data
