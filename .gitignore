@@ -8,6 +8,7 @@ venv
 **/*.ipynb
 !results.ipynb
 !**/archive/*.ipynb
+!**/archive/Daniel/digital_tribes_analysis.ipynb
 
 **/*.png
 **/*.jpg
