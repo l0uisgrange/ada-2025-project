@@ -102,16 +102,16 @@ _Outcome: identify behavioral shifts based on events_
 
 #### Week 3 (before Nov 26)
 
-- [ ] Analyze interactions by using LIWC features, sentiment, and linguistic properties using events.
-- [ ] Plot or prepare graphs to highlight different behaviors.
-- [ ] Have a complete analysis for each theme.
+- [x] Analyze interactions by using LIWC features, sentiment, and linguistic properties using events.
+- [x] Plot or prepare graphs to highlight different behaviors.
+- [x] Have a complete analysis for each theme.
 
 #### Week 4 (before Dec 3)
 
-- [ ] Clean code from the notebook and python files.
-- [ ] Finalize the `result.ipynb` notebook with explanations, figures, tables, and summaries.
-- [ ] Refine visualizations and structure to ensure readability.
-- [ ] Make the notebook interesting and easy to follow.
+- [x] Clean code from the notebook and python files.
+- [x] Finalize the `result.ipynb` notebook with explanations, figures, tables, and summaries.
+- [x] Refine visualizations and structure to ensure readability.
+- [x] Make the notebook interesting and easy to follow.
 
 #### Week 5 (before Dec 10)
 
