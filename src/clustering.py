@@ -205,4 +205,4 @@ def similarity_subreddits(df_subreddits, top_n = SIMILARITY_N_CLUSTERS):
         merged_df = df_subreddits[df_subreddits['SUBREDDIT'].isin(merged_list)].copy()
         merged_dfs[theme] = merged_df
 
-    return merged_dfs.get('gaming'), merged_dfs.get('politics'), merged_dfs.get('sports')
+    return merged_dfs.get('politics'), merged_dfs.get('sports')

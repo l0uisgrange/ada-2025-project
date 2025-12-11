@@ -68,16 +68,6 @@ THEMES_SEEDS = {
         'hillaryforprison', 'uncensorednews', 'asktrumpsupporters', 'altnewz', 'kossacks_for_sanders',
         'wayofthebern', 'republican', 'conservatives'
     ],
-    'gaming': [
-        'gaming', 'pcmasterrace', 'ps4', 'xboxone', 'games', 'rainbow6', 'minecraft', 'fo4', 'darksouls3',
-        'thedivision', 'fallout', 'dayz', 'halo', 'darksouls2', 'skyrim', 'grandtheftautov', 'oculus', 'witcher',
-        'kerbalspaceprogram', 'battlefield_one', 'battlefield_4', 'globaloffensivetrade', 'fireteams',
-        'rocketleagueexchange', 'dota2', 'leagueoflegends', 'globaloffensive', 'destinythegame', 'overwatch',
-        'hearthstone', 'wow', '2007scape', 'pokemongo', 'smite', 'runescape'
-    ],
-    'soccer': [
-        'soccer', 'football', 'premierleague', 'realmadrid', 'liverpoolfc', 'chelseafc', 'barca', 'fifa', 'coys', 'gunners', 'reddevils', 'soccerstreams', 'bayernmunich', 'fcbayern', 'juventus', 'soccerbetting', 'atletico', 'tottenham', 'epl', 'laliga'
-    ]
 }
 
 # ——————————————————————————————————————
