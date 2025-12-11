@@ -1,4 +1,4 @@
-# <img src="https://epfl-ada.github.io/assets/img/ada.svg" width="40" /> The Social Fabric They Weave
+# <img src="https://epfl-ada.github.io/assets/img/ada.svg" width="40" /> Digital tribes
 
 Reddit is one of the largest social networks in the world, and its vast and diverse communities make it the perfect
 environment to analyze how people's behavior is affected by real world events.
@@ -13,6 +13,8 @@ linguistic patterns (like the use of punctuation or specific casing). Finally, w
 community dynamics: do some subreddits boom in popularity, become aggressive targets, or otherwise act as supportive
 allies to others? This project uncovers the hidden statistical patterns that weave online social behavior to global
 events.
+
+[Data story](https://epfl-ada.github.io/ada-2025-project-baldy5/) — [Notebook](https://github.com/epfl-ada/ada-2025-project-baldy5/blob/main/results.ipynb)
 
 ## ❓ Research Questions
 
