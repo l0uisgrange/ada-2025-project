@@ -1,4 +1,4 @@
-# `<img src="https://epfl-ada.github.io/assets/img/ada.svg" width="40" />` Digital tribes
+# <img src="https://epfl-ada.github.io/assets/img/ada.svg" width="40" /> Digital tribes
 
 Reddit is one of the largest social networks in the world, and its vast and diverse communities make it the perfect
 environment to analyze how people's behavior is affected by real world events.
