@@ -14,40 +14,30 @@ community dynamics: do some subreddits boom in popularity, become aggressive tar
 allies to others? This project uncovers the hidden statistical patterns that weave online social behavior to global
 events.
 
-[Data story](https://epfl-ada.github.io/ada-2025-project-baldy5/) — [Notebook](https://github.com/epfl-ada/ada-2025-project-baldy5/blob/main/results.ipynb)
+[Data story](https://epfl-ada.github.io/ada-2025-project-baldy5/) — [Final Notebook](./results.ipynb)
 
 ## ❓ Research Questions
 
-Our research questions are split into 3 parts:
+We focus on two domains where event-driven behavior is most prominent:
 
-1. **Political subreddits** (e.g. 2016 U.S. presidential election)
+1. **Political subreddits**
 
-- How do major political events affect interaction patterns and topic trends on Reddit?
+- How do major political events (elections, debates, inaugurations) shift hostility, sentiment, and camp-to-camp interactions?
+- Do hostility patterns generalize across camps, and which linguistic markers (LIWC/VADER) best predict hostile content?
 
-2. **Sport subreddits** (e.g. English Premier League, the Super Bowl)
+2. **Sports subreddits**
 
-- How do major sports events and e-sports tournaments reflect in Reddit activity and community interactions?
-
-3. **Gaming subreddits** (e.g. E-Sports)
-
-- What king of interactions do users have with gaming communities?
+- How do marquee sports events (e.g., Super Bowl, NBA Finals) reshape activity and rivalry dynamics between team camps?
+- Are stress-test effects (before vs during vs after events) comparable to politics, and which features drive these changes?
 
 ## 📊 Additional Datasets
 
-For our project, we searched online a few datasets that would allow us to create more interesting statistics
+For our project, we searched online a few datasets that would allow us to create more interesting statistics, but after the EDA we finally decided that the following was enough.
 
-- Embedding vectors of subreddits (communities on
-  Reddit) [source](https://snap.stanford.edu/data/web-RedditEmbeddings.html)
-- List of global holidays by
-  country [source](https://www.kaggle.com/datasets/umerhaddii/global-holidays-and-travel-data/data)
-- E-Sport tournaments with start, end times, and city where each event took
-  place [source](https://www.kaggle.com/datasets/hbakker/esports-200-tournaments)
-- English Premier League (EPL) results with match dates, home teams, and away
-  teams [source](https://www.kaggle.com/datasets/irkaal/english-premier-league-results)
-- Super bowl matches [source](https://www.kaggle.com/datasets/timoboz/superbowl-history-1967-2020)
+- Embedding vectors of subreddits (communities on Reddit) [source](https://snap.stanford.edu/data/web-RedditEmbeddings.html)
 
-As we had a lot of datasets, we used [Kaggle](https://www.kaggle.com/datasets/fejwiehf3928uhcwa/ada-2025-project-bald)
-so it's easier for everyone to install automatically. It was not possible to put it on GitHub as some datasets were
+For practical reasons, we used [Kaggle](https://www.kaggle.com/datasets/fejwiehf3928uhcwa/ada-2025-project-bald)
+so it's easier for everyone to install the datasets automatically. It was not possible to put it on GitHub as the datasets were
 huge (> 200MB).
 
 ## 🏗️ Methods
@@ -75,6 +65,7 @@ _Outcome: understanding of the basic linguistic and properties around events._
 #### Community Interactions and Linguistic Analysis
 
 For each major event category (politics, sports, holidays)
+
 - Identify the most active source subreddits
 - Identify the most targeted subreddits
 - Analyze interactions by using LIWC features, sentiment, and linguistic properties before, during and after events
@@ -117,9 +108,9 @@ _Outcome: identify behavioral shifts based on events_
 
 #### Week 5 (before Dec 10)
 
-- [ ] Final polishing of notebooks, README.md, and visualizations.
-- [ ] Ensure the GitHub repository is complete and organized.
-- [ ] Make final adjustments to figures, text, or additional analyses as needed before submission.
+- [x] Final polishing of notebooks, README.md, and visualizations.
+- [x] Ensure the GitHub repository is complete and organized.
+- [x] Make final adjustments to figures, text, or additional analyses as needed before submission.
 
 #### Week 6 (before Dec 17)
 
@@ -127,8 +118,28 @@ _Margin week_
 
 ## 🤝 Team Organization
 
-For weeks 0 to 2, we are assigning tasks on a weekly basis and update the timeline above accordingly. For weeks after (3
-to 6), we will do the tasks together with meetings each week.
+For weeks 0 to 2, we are assigning tasks on a weekly basis and update the timeline above accordingly. For weeks after (3 to 6), we will do the tasks together with meetings each week.
+
+- **Badr**
+
+  - Interaction and LIWC analyses in `results_final.ipynb`.
+  - Visualizations for reciprocity, camp profiles, and LIWC comparisons (`interaction_analysis.py`).
+
+- **Daniel**
+
+  - Statistical methods and event-test analysis (`statistical_analysis.py`, `event_analysis.py`).
+  - Classifier transfer, coefficient comparison, bootstrap/permutation tests, and event timelines.
+  - Data preparation utilities (`data_prep.py`).
+
+- **Arnaud**
+
+  - storyline
+
+- **Louis**
+
+  - First iteration work on `README.md`, EDA, and `results.ipynb` with Yuri
+  - Datasets integration with Kaggle, cleaning and import (`data.py`)
+  - Storyline (`pages` branch): plots, template, structure and part of the text
 
 ## ⚙️ Quickstart
 
@@ -136,14 +147,13 @@ to 6), we will do the tasks together with meetings each week.
 2. Open a terminal and execute `python -m venv /PATH/TO/PROJECT/.venv` to create a virtual environment
 3. Execute `pip install -r requirements.txt` to install the project dependencies
 
-_Note: the datasets will be downloaded automatically
-from [Kaggle](https://www.kaggle.com/datasets/fejwiehf3928uhcwa/ada-2025-project-bald) when running the Notebook._
+_Note: the datasets will be downloaded automatically from [Kaggle](https://www.kaggle.com/datasets/fejwiehf3928uhcwa/ada-2025-project-bald) when running the Notebook._
 
-## 🗄️ Project structure
+## 🗄️ Project structure (to update)
 
 ```
 ├── ... cache             # Cached datasets files
-├── archive               # Archive files 
+├── archive               # Archive files
 ├── src                   # Source code
 │   ├── clustering.py
 │   ├── consts.py
@@ -157,5 +167,3 @@ from [Kaggle](https://www.kaggle.com/datasets/fejwiehf3928uhcwa/ada-2025-project
 ├── requirements.txt      # File for installing python dependencies
 └── README.md
 ```
-
-
