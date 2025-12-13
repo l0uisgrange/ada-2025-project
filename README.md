@@ -14,9 +14,7 @@ community dynamics: do some subreddits boom in popularity, become aggressive tar
 allies to others? This project uncovers the hidden statistical patterns that weave online social behavior to global
 events.
 
-**(TO UPDATE !!, MAKE SURE TO PUT LINKS)**
-
-[Data story](...) — [Final Notebook](#submission-files)
+[Data story](https://epfl-ada.github.io/ada-2025-project-baldy5/) — [Final Notebook](./results.ipynb)
 
 ## ❓ Research Questions
 
@@ -32,14 +30,14 @@ We focus on two domains where event-driven behavior is most prominent:
 - How do marquee sports events (e.g., Super Bowl, NBA Finals) reshape activity and rivalry dynamics between team camps?
 - Are stress-test effects (before vs during vs after events) comparable to politics, and which features drive these changes?
 
-## 📊 Additional Datasets (TO CHECK !!!)
+## 📊 Additional Datasets
 
-For our project, we searched online a few datasets that would allow us to create more interesting statistics
+For our project, we searched online a few datasets that would allow us to create more interesting statistics, but after the EDA we finally decided that the following was enough.
 
 - Embedding vectors of subreddits (communities on Reddit) [source](https://snap.stanford.edu/data/web-RedditEmbeddings.html)
 
-As we had a lot of datasets, we used [Kaggle](https://www.kaggle.com/datasets/fejwiehf3928uhcwa/ada-2025-project-bald)
-so it's easier for everyone to install automatically. It was not possible to put it on GitHub as some datasets were
+For practical reasons, we used [Kaggle](https://www.kaggle.com/datasets/fejwiehf3928uhcwa/ada-2025-project-bald)
+so it's easier for everyone to install the datasets automatically. It was not possible to put it on GitHub as the datasets were
 huge (> 200MB).
 
 ## 🏗️ Methods
@@ -150,15 +148,7 @@ _Note: the datasets will be downloaded automatically from [Kaggle](https://www.k
 └── README.md
 ```
 
-## 📦 Submission Files (to update)
-
-- `archive/Daniel/results_final.ipynb`
-- `archive/Daniel/data_prep.py`
-- `archive/Daniel/event_analysis.py`
-- `archive/Daniel/interaction_analysis.py`
-- `archive/Daniel/statistical_analysis.py`
-
-## 👥 Contributions (to update for Louis & Arnaud)
+## 👥 Contributions
 
 - **Badr**:
 
@@ -177,4 +167,6 @@ _Note: the datasets will be downloaded automatically from [Kaggle](https://www.k
 
 - **Louis**:
 
-  - storyline
+  - Initial work on EDA for politics
+  - Dataset
+  - Storyline visualization
