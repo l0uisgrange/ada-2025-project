@@ -5,7 +5,7 @@ import seaborn as sns
 
 # INTERACTION MATRICES
 
-def build_interaction_matrix(df, metric='negative_rate', min_count=30):
+def build_interaction_matrix(df, metric='negative_rate', min_count=10):
     """
     Build camp-to-camp interaction matrix.
 
@@ -42,7 +42,7 @@ def build_interaction_matrix(df, metric='negative_rate', min_count=30):
     return matrix
 
 
-def get_interaction_summary(df, min_count=30):
+def get_interaction_summary(df, min_count=10):
     """
     Get detailed interaction statistics for all camp pairs.
 
@@ -67,7 +67,7 @@ def get_interaction_summary(df, min_count=30):
 
 # RECIPROCITY ANALYSIS
 
-def analyze_reciprocity(df, min_count=30):
+def analyze_reciprocity(df, min_count=10):
     """
     Analyze reciprocity in camp interactions.
     Compares sentiment A→B vs B→A for all camp pairs.
@@ -484,8 +484,8 @@ if __name__ == "__main__":
     print("\n1. INTERACTION MATRICES")
     print("-" * 70)
 
-    pol_matrix = build_interaction_matrix(politics, metric='negative_rate', min_count=50)
-    sport_matrix = build_interaction_matrix(sports, metric='negative_rate', min_count=50)
+    pol_matrix = build_interaction_matrix(politics, metric='negative_rate', min_count=10)
+    sport_matrix = build_interaction_matrix(sports, metric='negative_rate', min_count=10)
 
     print(f"\nPolitics matrix shape: {pol_matrix.shape}")
     print(f"Sports matrix shape: {sport_matrix.shape}")
@@ -509,8 +509,8 @@ if __name__ == "__main__":
     print("\n3. RECIPROCITY ANALYSIS")
     print("-" * 70)
 
-    pol_recip = analyze_reciprocity(politics, min_count=50)
-    sport_recip = analyze_reciprocity(sports, min_count=50)
+    pol_recip = analyze_reciprocity(politics, min_count=10)
+    sport_recip = analyze_reciprocity(sports, min_count=10)
 
     print("\nPolitics - Most asymmetric rivalries:")
     pol_asym = pol_recip.sort_values('asymmetry', key=abs, ascending=False)
