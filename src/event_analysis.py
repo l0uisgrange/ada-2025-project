@@ -14,9 +14,7 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
-import seaborn as sns
 from datetime import timedelta
-from scipy import stats
 
 
 # EVENT ANALYSIS FUNCTIONS
@@ -29,7 +27,8 @@ def analyze_event(df, event_date, event_name, days_before=7, days_after=7):
         df: DataFrame with TIMESTAMP, LINK_SENTIMENT, LIWC columns
         event_date: datetime or str
         event_name: str for labeling
-        days_before, days_after: window size
+        days_before: int
+        days_after: int
 
     Returns:
         dict with:
@@ -53,7 +52,7 @@ def analyze_event(df, event_date, event_name, days_before=7, days_after=7):
     # Daily statistics
     daily = event_data.groupby('days_from_event').agg(
         count=('LINK_SENTIMENT', 'size'),
-        negative_count=('LINK_SENTIMENT', lambda x: (x == -1).sum()),
+        negative_count=('LINK_SENTIMENT', lambda x: np.sum(x == -1)),
         mean_sentiment=('LINK_SENTIMENT', 'mean'),
         vader_neg=('VADER_NEG', 'mean'),
         vader_comp=('VADER_COMP', 'mean')
@@ -71,7 +70,7 @@ def analyze_event(df, event_date, event_name, days_before=7, days_after=7):
             return {'count': 0, 'negative_rate': 0, 'vader_neg': 0}
         return {
             'count': len(subset),
-            'negative_rate': (subset['LINK_SENTIMENT'] == -1).mean(),
+            'negative_rate': np.mean(subset['LINK_SENTIMENT'] == -1),
             'vader_neg': subset['VADER_NEG'].mean(),
             'vader_comp': subset['VADER_COMP'].mean()
         }
@@ -190,7 +189,7 @@ def get_weekly_trends(df, start_date=None, end_date=None):
 
     weekly = df.groupby('week').agg(
         count=('LINK_SENTIMENT', 'size'),
-        negative_rate=('LINK_SENTIMENT', lambda x: (x == -1).mean()),
+        negative_rate=('LINK_SENTIMENT', lambda x: np.mean(x == -1)),
         vader_neg=('VADER_NEG', 'mean'),
         vader_comp=('VADER_COMP', 'mean')
     ).reset_index()
@@ -210,7 +209,7 @@ def get_monthly_trends(df):
 
     monthly = df.groupby('month').agg(
         count=('LINK_SENTIMENT', 'size'),
-        negative_rate=('LINK_SENTIMENT', lambda x: (x == -1).mean()),
+        negative_rate=('LINK_SENTIMENT', lambda x: np.mean(x == -1)),
         vader_neg=('VADER_NEG', 'mean')
     ).reset_index()
 
@@ -304,13 +303,14 @@ def plot_event_timeline(analysis, figsize=(14, 5), save_path=None):
     return fig
 
 
-def plot_before_during_after(analyses, events_to_plot, figsize=(14, 6), save_path=None):
+def plot_before_during_after(analyses, events_to_plot, figsize=(14, 6)):
     """
     Plot before/during/after comparison for multiple events.
 
     Parameters:
         analyses: dict from analyze_all_events
         events_to_plot: list of event names to include
+        figsize: figure size
 
     Returns:
         matplotlib figure
@@ -357,9 +357,6 @@ def plot_before_during_after(analyses, events_to_plot, figsize=(14, 6), save_pat
 
     plt.tight_layout()
 
-    if save_path:
-        plt.savefig(save_path, dpi=150, bbox_inches='tight')
-
     return fig
 
 
@@ -375,10 +372,7 @@ def plot_event_effects_comparison(effects_df, figsize=(12, 6), save_path=None):
     # Sort by effect
     df = effects_df.sort_values('absolute_effect', ascending=True)
 
-    colors = ['#e74c3c' if d == 'politics' else '#3498db' for d in df['domain']]
-
     y = np.arange(len(df))
-    bars = ax.barh(y, df['absolute_effect'] * 100, color=colors, alpha=0.8)
 
     ax.set_yticks(y)
     ax.set_yticklabels(df['event_name'].str[:30], fontsize=9)
