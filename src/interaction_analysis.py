@@ -2,7 +2,6 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
-from scipy import stats
 
 # INTERACTION MATRICES
 
@@ -25,7 +24,7 @@ def build_interaction_matrix(df, metric='negative_rate', min_count=30):
     agg = df_filtered.groupby(['source_camp', 'target_camp']).agg(
         count=('LINK_SENTIMENT', 'size'),
         mean_sentiment=('LINK_SENTIMENT', 'mean'),
-        negative_count=('LINK_SENTIMENT', lambda x: (x == -1).sum())
+        negative_count=('LINK_SENTIMENT', lambda x: np.sum(x == -1))
     ).reset_index()
 
     agg['negative_rate'] = agg['negative_count'] / agg['count']
@@ -56,7 +55,7 @@ def get_interaction_summary(df, min_count=30):
     agg = df_filtered.groupby(['source_camp', 'target_camp']).agg(
         count=('LINK_SENTIMENT', 'size'),
         mean_sentiment=('LINK_SENTIMENT', 'mean'),
-        negative_count=('LINK_SENTIMENT', lambda x: (x == -1).sum()),
+        negative_count=('LINK_SENTIMENT', lambda x: np.sum(x == -1)),
         vader_neg_mean=('VADER_NEG', 'mean'),
         vader_comp_mean=('VADER_COMP', 'mean')
     ).reset_index()
@@ -165,14 +164,14 @@ def get_camp_hostility_profile(df):
     # Outgoing hostility (as source)
     outgoing = df_filtered.groupby('source_camp').agg(
         outgoing_count=('LINK_SENTIMENT', 'size'),
-        outgoing_neg=('LINK_SENTIMENT', lambda x: (x == -1).sum())
+        outgoing_neg=('LINK_SENTIMENT', lambda x: np.sum(x == -1))
     )
     outgoing['outgoing_neg_rate'] = outgoing['outgoing_neg'] / outgoing['outgoing_count']
 
     # Incoming hostility (as target)
     incoming = df_filtered.groupby('target_camp').agg(
         incoming_count=('LINK_SENTIMENT', 'size'),
-        incoming_neg=('LINK_SENTIMENT', lambda x: (x == -1).sum())
+        incoming_neg=('LINK_SENTIMENT', lambda x: np.sum(x == -1))
     )
     incoming['incoming_neg_rate'] = incoming['incoming_neg'] / incoming['incoming_count']
 
@@ -277,8 +276,8 @@ def plot_sentiment_heatmap(matrix, title, figsize=(12, 10), cmap='RdYlGn_r',
     return fig
 
 
-def plot_liwc_comparison(df1, df2, name1='Politics', name2='Sports',
-                         n_features=12, figsize=(14, 6), save_path=None):
+def plot_liwc_comparison(df1, df2, n_features=12, figsize=(14, 6),
+                         save_path=None):
     """
     Plot side-by-side LIWC hostility signature comparison.
 
@@ -299,14 +298,8 @@ def plot_liwc_comparison(df1, df2, name1='Politics', name2='Sports',
 
     # Prepare data
     x = np.arange(len(top_features))
-    width = 0.35
 
     fig, ax = plt.subplots(figsize=figsize)
-
-    bars1 = ax.bar(x - width / 2, [sig1[f] for f in top_features], width,
-                   label=name1, color='#e74c3c', alpha=0.8)
-    bars2 = ax.bar(x + width / 2, [sig2[f] for f in top_features], width,
-                   label=name2, color='#3498db', alpha=0.8)
 
     ax.set_ylabel('Change in Hostile Posts\n(negative - positive)', fontsize=11)
     ax.set_title('LIWC Hostility Signatures: Politics vs Sports', fontsize=14, fontweight='bold')
@@ -350,14 +343,6 @@ def plot_reciprocity(reciprocity_df, title, top_n=15, figsize=(12, 8), save_path
     fig, ax = plt.subplots(figsize=figsize)
 
     y = np.arange(len(df))
-    height = 0.35
-
-    # A→B bars (right side)
-    bars1 = ax.barh(y - height / 2, df['a_to_b_neg_rate'], height,
-                    label='A → B hostility', color='#e74c3c', alpha=0.8)
-    # B→A bars (right side, different color)
-    bars2 = ax.barh(y + height / 2, df['b_to_a_neg_rate'], height,
-                    label='B → A hostility', color='#3498db', alpha=0.8)
 
     ax.set_xlabel('Negative Rate', fontsize=11)
     ax.set_title(title, fontsize=14, fontweight='bold')
@@ -392,12 +377,6 @@ def plot_camp_profiles(profile_df, title, figsize=(12, 6), save_path=None):
     fig, ax = plt.subplots(figsize=figsize)
 
     y = np.arange(len(df))
-    height = 0.35
-
-    bars1 = ax.barh(y - height / 2, df['outgoing_neg_rate'], height,
-                    label='Outgoing (as attacker)', color='#e74c3c', alpha=0.8)
-    bars2 = ax.barh(y + height / 2, df['incoming_neg_rate'], height,
-                    label='Incoming (as target)', color='#3498db', alpha=0.8)
 
     ax.set_xlabel('Negative Rate', fontsize=11)
     ax.set_title(title, fontsize=14, fontweight='bold')
@@ -423,7 +402,6 @@ def create_plotly_heatmap(matrix, title):
     Returns:
         dict with Plotly figure specification (for JSON export)
     """
-    import json
 
     # Prepare data for plotly
     z_data = matrix.fillna(0).values.tolist()
