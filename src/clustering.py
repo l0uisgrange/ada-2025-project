@@ -7,11 +7,7 @@ from sklearn.manifold import TSNE
 from sklearn.metrics import silhouette_score, davies_bouldin_score
 from sklearn.preprocessing import normalize
 from sklearn.metrics.pairwise import cosine_similarity
-
-
-from .consts import OPTIMAL_K, THEMES_SEEDS, SIMILARITY_N_CLUSTERS
-from .similarity import similar_by_max_similarity
-
+from consts import OPTIMAL_K, THEMES_SEEDS, SIMILARITY_N_CLUSTERS
 
 def reduce_dimensions_pca(embeddings, n_components=50, random_state=42):
     """
@@ -67,7 +63,7 @@ def perform_kmeans_clustering(embeddings, n_clusters=OPTIMAL_K, n_init=50, max_i
     return labels, kmeans
 
 
-def evaluate_clustering_range(embeddings, k_range=[5, 10, 15, 20, 25, 30, 35, 40, 45, 50],
+def evaluate_clustering_range(embeddings, k_range=None,
                               n_init=50, max_iter=1000, random_state=42):
     """
     Test K-Means with different K values and evaluate metrics.
@@ -83,6 +79,9 @@ def evaluate_clustering_range(embeddings, k_range=[5, 10, 15, 20, 25, 30, 35, 40
         pd.DataFrame
             Results with columns: n_clusters, silhouette_score, davies_bouldin_score, labels
     """
+    if k_range is None:
+        k_range = [5, 10, 15, 20, 25, 30, 35, 40, 45, 50]
+
     results = []
     
     for k in k_range:
@@ -215,14 +214,14 @@ def get_cluster_colors(n_clusters):
     """
     
     colors = np.vstack((
-        plt.cm.tab20(np.linspace(0, 1, 20)),
-        plt.cm.tab20b(np.linspace(0, 1, 20)),
-        plt.cm.tab20c(np.linspace(0, 1, 20))
+        plt.cm.get_cmap('tab20')(np.linspace(0, 1, 20)),
+        plt.cm.get_cmap('tab20b')(np.linspace(0, 1, 20)),
+        plt.cm.get_cmap('tab20c')(np.linspace(0, 1, 20))
     ))
     
     if n_clusters > len(colors):
         # Fallback to continuous colormap for >60 clusters
-        colors = plt.cm.nipy_spectral(np.linspace(0, 1, n_clusters))
+        colors = plt.cm.get_cmap('nipy_spectral')(np.linspace(0, 1, n_clusters))
     else:
         colors = colors[:n_clusters]
     
