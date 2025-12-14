@@ -1,5 +1,79 @@
+"""
+    This module takes care of all the data preparation. For clustering
+    and for the later analysis done on it.
+"""
 import pandas as pd
-from pathlib import Path
+import kagglehub
+import os
+from src.consts import *
+
+# =============================================================================
+# CLUSTERING DATA
+# =============================================================================
+
+def download_data():
+    """
+    Downloads all required datasets from Kaggle and returns the path to the downloaded files.
+
+    Returns:
+        str: Path to the downloaded dataset directory
+    """
+    return kagglehub.dataset_download("fejwiehf3928uhcwa/ada-2025-project-bald")
+
+
+def parse_properties(df: pd.DataFrame):
+    """
+    Parses properties column into multiple columns.
+    """
+
+    df_temp = df["PROPERTIES"].str.split(',', expand=True)
+    df_temp = df_temp.astype(float)
+    df_temp.columns = PROPERTIES.keys()
+    df_resultat = pd.concat([df.drop(columns=["PROPERTIES"]), df_temp], axis=1)
+    return df_resultat
+
+
+def load_data():
+    """
+    Loads all required Reddit and event datasets as pandas DataFrames from Kaggle.
+
+    Returns:
+        tuple: (df_body, df_title, df_subreddits, df_users, df_events)
+            - df_body: Reddit hyperlinks from post bodies
+            - df_title: Reddit hyperlinks from post titles
+            - df_subreddits: Subreddit embeddings (300-dimensional vectors)
+            - df_english_pl
+            - df_esports
+            - df_superbowl
+            - df_holidays: Global holidays filtered for 2014-2017
+    """
+
+    datasets_path = download_data()
+
+    # Reddit body dataset
+    df_body = pd.read_csv(
+        os.path.join(datasets_path, "soc-redditHyperlinks-body.tsv"),
+        sep="\t",
+        parse_dates=["TIMESTAMP"],
+    )
+
+    # Reddit title dataset
+    df_title = pd.read_csv(
+        os.path.join(datasets_path, "soc-redditHyperlinks-title.tsv"),
+        sep="\t",
+        parse_dates=["TIMESTAMP"],
+    )
+
+    # Reddit subreddits embeddings
+    df_subreddits = pd.read_csv(
+        os.path.join(datasets_path, "web-redditEmbeddings-subreddits.csv"),
+        names=["SUBREDDIT"] + [f"EMBEDDING_{i}" for i in range(EMBEDDING_DIMENSIONS)],
+    )
+
+    df_body = parse_properties(df_body)
+    df_title = parse_properties(df_title)
+
+    return df_body, df_title, df_subreddits
 
 # =============================================================================
 # CAMP DEFINITIONS
@@ -558,38 +632,3 @@ def print_data_summary(politics, sports):
         camp_counts = df['source_camp'].value_counts()
         for camp, count in camp_counts.head(8).items():
             print(f"    {camp}: {count:,}")
-
-
-# =============================================================================
-# MAIN EXECUTION
-# =============================================================================
-
-if __name__ == "__main__":
-    # Load data
-    print("Loading and preparing data...")
-    politics, sports = load_prepared_data()
-
-    # Print summary
-    print_data_summary(politics, sports)
-
-    # Show camp interaction matrices
-    print("\n" + "=" * 60)
-    print("CAMP INTERACTION VOLUMES (top interactions)")
-    print("=" * 60)
-
-    for name, df in [('POLITICS', politics), ('SPORTS', sports)]:
-        print(f"\n{name} - Top 15 camp->camp interactions:")
-        interactions = get_camp_interactions(df)
-        interactions = interactions[
-            (interactions['source_camp'] != 'other') &
-            (interactions['target_camp'] != 'other')
-            ].sort_values('count', ascending=False)
-
-        for _, row in interactions.head(15).iterrows():
-            print(f"  {row['source_camp']:20} -> {row['target_camp']:20}: "
-                  f"{row['count']:5} posts, {row['negative_rate'] * 100:5.1f}% negative")
-
-    print("\n" + "=" * 60)
-    print("EVENTS DEFINED")
-    print("=" * 60)
-    print(EVENTS.to_string(index=False))

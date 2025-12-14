@@ -16,13 +16,12 @@ warnings.filterwarnings('ignore')
 # IMPORTS FROM PROJECT MODULES
 
 from src.consts import *
-from src.data import load_data
 from src.visualization import set_plt_style
 from src.preprocessing import *
 from src.clustering import evaluate_clustering_range, reduce_dimensions_pca
 
 from data_prep import (
-    load_prepared_data, POLITICS_CAMPS, SPORTS_CAMPS, EVENTS,
+    load_data, load_prepared_data, POLITICS_CAMPS, SPORTS_CAMPS, EVENTS,
     LIWC_COLS, TEXT_STRUCTURE_COLS, VADER_COLS
 )
 from interaction_analysis import (
@@ -72,7 +71,7 @@ def load_all_data():
 
     # Load raw data if src modules available
     raw_body, raw_title, subreddits = None, None, None
-    raw_body, raw_title, subreddits, _, _, _ = load_data()
+    raw_body, raw_title, subreddits = load_data()
     print(f"✓ Raw body posts:        {len(raw_body):,}")
     print(f"✓ Raw title posts:       {len(raw_title):,}")
     print(f"✓ Subreddit embeddings:  {len(subreddits):,}")
