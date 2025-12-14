@@ -6,6 +6,8 @@ from sklearn.decomposition import PCA
 from sklearn.manifold import TSNE
 from sklearn.metrics import silhouette_score, davies_bouldin_score
 from sklearn.preprocessing import normalize
+from sklearn.metrics.pairwise import cosine_similarity
+
 
 from .consts import OPTIMAL_K, THEMES_SEEDS, SIMILARITY_N_CLUSTERS
 from .similarity import similar_by_max_similarity
@@ -150,6 +152,55 @@ def create_cluster_visualization_df(embeddings_2d, subreddit_names, cluster_labe
     })
     
     return viz_df
+
+
+def similar_by_max_similarity(picked_subreddits, embeddings, top_n=20):
+    """
+    Find similar subreddits based on maximum similarity to any picked subreddit.
+
+    For each subreddit, finds its closest match among the picked subreddits.
+    Useful when picked subreddits cover different sub-topics.
+
+    Args:
+        picked_subreddits (list of str): List of seed subreddit names
+        embeddings (pd.DataFrame): DataFrame with 'SUBREDDIT' column and embedding columns
+        top_n (int): Number of top similar subreddits to return (default: 10)
+
+    Returns:
+        pd.DataFrame
+            Top N similar subreddits with columns: subreddit, max_similarity, closest_seed, is_seed
+    """
+    # Isolate embeddings of picked subreddits
+    isolate_subreddits = embeddings[embeddings['SUBREDDIT'].isin(picked_subreddits)]
+
+    if len(isolate_subreddits) == 0:
+        raise ValueError("None of the picked subreddits found in embeddings")
+
+    # Compute cosine similarity matrix
+    similarities = cosine_similarity(
+        isolate_subreddits.drop(columns=['SUBREDDIT']),
+        embeddings.drop(columns=['SUBREDDIT'])
+    )
+
+    # Create DataFrame with similarities to each seed
+    similarity_df = pd.DataFrame(
+        similarities.T,
+        columns=picked_subreddits
+    )
+
+    # Get max similarity for each subreddit
+    results = pd.DataFrame({
+        'SUBREDDIT': embeddings['SUBREDDIT'],
+        'MAX_SIMILARITY': similarity_df.max(axis=1),
+        'CLOSEST_SEED': similarity_df.idxmax(axis=1),
+        'IS_SEED': embeddings['SUBREDDIT'].isin(picked_subreddits)
+    })
+
+    # Remove seed subreddits and sort
+    results = results[~results['IS_SEED']]
+    results = results.sort_values(by='MAX_SIMILARITY', ascending=False).head(top_n)
+
+    return results
 
 
 def get_cluster_colors(n_clusters):
