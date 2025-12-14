@@ -37,7 +37,7 @@ def reduce_dimensions_pca(embeddings, n_components=50, random_state=42):
     pca = PCA(n_components=n_components, random_state=random_state)
     embeddings_reduced = pca.fit_transform(embeddings_norm)
     
-    print(f"PCA explained variance ratio: {pca.explained_variance_ratio_.sum():.2f}")
+    print(f"PCA explained variance ratio: {pca.explained_variance_ratio_.sum():.2%}")
     
     return embeddings_reduced, pca
 

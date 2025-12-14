@@ -20,7 +20,7 @@ from src.data import load_data
 from src.utils import *
 from src.visualization import set_plt_style, plot_cluster_overview
 from src.preprocessing import *
-from src.clustering import similarity_subreddits
+from src.clustering import evaluate_clustering_range, reduce_dimensions_pca
 
 from data_prep import (
     load_prepared_data, POLITICS_CAMPS, SPORTS_CAMPS, EVENTS,
@@ -97,6 +97,31 @@ def load_all_data():
         'events': EVENTS
     }
 
+def show_pca_and_clustering_score(data):
+    """Display PCA explained variance and clustering score."""
+    # Filter to get only active subreddits
+    active_subreddits, total_counts = filter_active_subreddits(data['raw_body'],
+                                                               data['raw_title'],
+                                                               data['subreddits'])
+    embeddings_pca, pca_model = reduce_dimensions_pca(active_subreddits.drop(
+                                                        columns=['SUBREDDIT']),
+                                                        n_components=50)
+
+    metrics_df = evaluate_clustering_range(embeddings_pca)
+
+    fig, axs = plt.subplots(1, 2, figsize=(12, 4))
+    axs[0].plot(metrics_df['n_clusters'], metrics_df['silhouette_score'], marker='o')
+    axs[0].set_title('Silhouette Score (higher is better)')
+    axs[0].set_xlabel('Number of Clusters')
+    axs[0].set_ylabel('Silhouette Score')
+
+    axs[1].plot(metrics_df['n_clusters'], metrics_df['davies_bouldin_score'], marker='o', color='orange')
+    axs[1].set_title('Davies-Bouldin Score (lower is better)')
+    axs[1].set_xlabel('Number of Clusters')
+    axs[1].set_ylabel('Davies-Bouldin Score')
+
+    plt.tight_layout()
+    plt.show()
 
 def show_camp_definitions():
     """Display the camp definitions used in our analysis."""
@@ -1077,7 +1102,7 @@ def initialize_plotting():
 # To import everything in a row
 __all__ = [
     # Data
-    'load_all_data', 'show_camp_definitions', 'show_camp_coverage',
+    'load_all_data', 'show_pca_and_clustering_score','show_camp_definitions', 'show_camp_coverage',
     # Baseline
     'analyze_baseline_hostility', 'plot_baseline_hostility',
     # Interactions
