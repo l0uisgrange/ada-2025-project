@@ -232,8 +232,8 @@ def analyze_camp_interactions(data):
     sports = data['sports']
 
     # Build matrices
-    pol_matrix = build_interaction_matrix(politics, metric='negative_rate', min_count=50)
-    sport_matrix = build_interaction_matrix(sports, metric='negative_rate', min_count=50)
+    pol_matrix = build_interaction_matrix(politics, metric='negative_rate', min_count=10)
+    sport_matrix = build_interaction_matrix(sports, metric='negative_rate', min_count=10)
 
     # Get profiles
     pol_profile = get_camp_hostility_profile(politics)
@@ -258,8 +258,8 @@ def plot_interaction_heatmaps(data):
     politics = data['politics']
     sports = data['sports']
 
-    pol_matrix = build_interaction_matrix(politics, metric='negative_rate', min_count=50)
-    sport_matrix = build_interaction_matrix(sports, metric='negative_rate', min_count=50)
+    pol_matrix = build_interaction_matrix(politics, metric='negative_rate', min_count=10)
+    sport_matrix = build_interaction_matrix(sports, metric='negative_rate', min_count=10)
 
     fig, axes = plt.subplots(1, 2, figsize=(18, 7))
 
