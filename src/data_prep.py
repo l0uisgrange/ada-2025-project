@@ -3,6 +3,7 @@
     and for the later analysis done on it.
 """
 import pandas as pd
+import numpy as np
 import kagglehub
 import os
 from src.consts import *
@@ -427,8 +428,8 @@ def get_camp_interactions(df):
     agg = df.groupby(['source_camp', 'target_camp']).agg(
         count=('LINK_SENTIMENT', 'size'),
         mean_sentiment=('LINK_SENTIMENT', 'mean'),
-        negative_count=('LINK_SENTIMENT', lambda x: (x == -1).sum()),
-        positive_count=('LINK_SENTIMENT', lambda x: (x == 1).sum())
+        negative_count=('LINK_SENTIMENT', lambda x: np.sum(x == -1)),
+        positive_count=('LINK_SENTIMENT', lambda x: np.sum(x == 1))
     ).reset_index()
 
     agg['negative_rate'] = agg['negative_count'] / agg['count']
@@ -701,14 +702,14 @@ def print_data_summary(politics, sports):
         print(f"  Unique target subreddits: {df['TARGET_SUBREDDIT'].nunique()}")
 
         # Camp coverage
-        labeled_source = (df['source_camp'] != 'other').sum()
-        labeled_target = (df['target_camp'] != 'other').sum()
+        labeled_source = np.sum(df['source_camp'] != 'other')
+        labeled_target = np.sum(df['target_camp'] != 'other')
         print(f"  Posts with labeled source camp: {labeled_source:,} ({labeled_source / len(df) * 100:.1f}%)")
         print(f"  Posts with labeled target camp: {labeled_target:,} ({labeled_target / len(df) * 100:.1f}%)")
 
         # Sentiment breakdown
-        neg = (df['LINK_SENTIMENT'] == -1).sum()
-        pos = (df['LINK_SENTIMENT'] == 1).sum()
+        neg = np.sum(df['LINK_SENTIMENT'] == -1)
+        pos = np.sum(df['LINK_SENTIMENT'] == 1)
         print(
             f"  Sentiment: {pos:,} positive ({pos / len(df) * 100:.1f}%), {neg:,} negative ({neg / len(df) * 100:.1f}%)")
 
