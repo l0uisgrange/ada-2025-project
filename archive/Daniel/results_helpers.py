@@ -17,8 +17,7 @@ warnings.filterwarnings('ignore')
 
 from src.consts import *
 from src.data import load_data
-from src.utils import *
-from src.visualization import set_plt_style, plot_cluster_overview
+from src.visualization import set_plt_style
 from src.preprocessing import *
 from src.clustering import evaluate_clustering_range, reduce_dimensions_pca
 
@@ -1096,7 +1095,16 @@ def initialize_plotting():
     """Set up matplotlib styling."""
     plt.style.use('seaborn-v0_8-whitegrid')
     sns.set_palette('husl')
-    set_plt_style()
+    # Set plot style
+    plt.rc('font', size=PLOT_FONT_SIZE)
+    plt.rc('axes', titlesize=PLOT_FONT_SIZE)
+    plt.rc('axes', labelsize=PLOT_FONT_SIZE)
+    plt.rc('xtick', labelsize=PLOT_FONT_SIZE)
+    plt.rc('ytick', labelsize=PLOT_FONT_SIZE)
+    plt.rc('legend', fontsize=PLOT_FONT_SIZE)
+    plt.rc('figure', titlesize=PLOT_TITLE_FONT_SIZE, figsize=(PLOT_WIDTH, PLOT_WIDTH / 3), dpi=PLOT_DPI)
+
+    plt.style.use('seaborn-v0_8-whitegrid')
 
 
 # To import everything in a row
