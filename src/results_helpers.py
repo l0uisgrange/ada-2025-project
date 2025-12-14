@@ -5,6 +5,7 @@ to keep the main notebook clean and focused on interpretation.
 """
 
 import numpy as np
+import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 from scipy import stats
@@ -15,12 +16,11 @@ warnings.filterwarnings('ignore')
 # IMPORTS FROM PROJECT MODULES
 
 from src.consts import *
-from src.preprocessing import *
 from src.clustering import evaluate_clustering_range, reduce_dimensions_pca
 
 from data_prep import (
     load_data, load_prepared_data, POLITICS_CAMPS, SPORTS_CAMPS, EVENTS,
-    LIWC_COLS, TEXT_STRUCTURE_COLS, VADER_COLS
+    LIWC_COLS, TEXT_STRUCTURE_COLS, VADER_COLS, filter_active_subreddits
 )
 from interaction_analysis import (
     build_interaction_matrix, get_camp_hostility_profile,
@@ -144,8 +144,8 @@ def show_camp_coverage(data):
     politics = data['politics']
     sports = data['sports']
 
-    pol_coverage = (politics['source_camp'] != 'other').mean() * 100
-    sport_coverage = (sports['source_camp'] != 'other').mean() * 100
+    pol_coverage = np.mean(politics['source_camp'] != 'other') * 100
+    sport_coverage = np.mean(sports['source_camp'] != 'other') * 100
 
     print("Camp Assignment Coverage")
     print("=" * 40)
@@ -166,8 +166,8 @@ def analyze_baseline_hostility(data):
     politics = data['politics']
     sports = data['sports']
 
-    pol_neg_rate = (politics['LINK_SENTIMENT'] == -1).mean()
-    sport_neg_rate = (sports['LINK_SENTIMENT'] == -1).mean()
+    pol_neg_rate = float(np.mean(politics['LINK_SENTIMENT'] == -1))
+    sport_neg_rate = float(np.mean(sports['LINK_SENTIMENT'] == -1))
     ratio = pol_neg_rate / sport_neg_rate
 
     print("=" * 60)
@@ -190,8 +190,8 @@ def plot_baseline_hostility(data):
     politics = data['politics']
     sports = data['sports']
 
-    pol_neg_rate = (politics['LINK_SENTIMENT'] == -1).mean()
-    sport_neg_rate = (sports['LINK_SENTIMENT'] == -1).mean()
+    pol_neg_rate = np.mean(politics['LINK_SENTIMENT'] == -1)
+    sport_neg_rate = np.mean(sports['LINK_SENTIMENT'] == -1)
 
     fig, ax = plt.subplots(figsize=(8, 5))
 
@@ -1016,8 +1016,10 @@ def run_network_analysis(data):
         nx.draw_networkx_nodes(G, pos, ax=ax, node_size=node_sizes,
                                node_color=color, alpha=0.7)
         nx.draw_networkx_labels(G, pos, ax=ax, font_size=8)
-        nx.draw_networkx_edges(G, pos, ax=ax, width=edge_widths,
-                               edge_color=edge_colors, edge_cmap=plt.cm.Reds,
+        nx.draw_networkx_edges(G, pos, ax=ax,
+                               width=edge_widths, # type: ignore[arg-type]
+                               edge_color=edge_colors, # type: ignore[arg-type]
+                               edge_cmap=plt.get_cmap('Reds'),
                                alpha=0.6, arrows=True, arrowsize=10)
 
         ax.set_title(f'{title} Interaction Network\n(Edge color = hostility)',
@@ -1054,8 +1056,8 @@ def generate_summary_table(data, prop_results, corr_results, transfer_results, c
     politics = data['politics']
     sports = data['sports']
 
-    pol_neg_rate = (politics['LINK_SENTIMENT'] == -1).mean()
-    sport_neg_rate = (sports['LINK_SENTIMENT'] == -1).mean()
+    pol_neg_rate = float(np.mean(politics['LINK_SENTIMENT'] == -1))
+    sport_neg_rate = float(np.mean(sports['LINK_SENTIMENT'] == -1))
 
     print("\n" + "=" * 70)
     print("FINAL STATISTICAL SUMMARY")
