@@ -4,7 +4,6 @@ encapsulating data loading, analysis, and visualization logic
 to keep the main notebook clean and focused on interpretation.
 """
 
-import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
@@ -16,7 +15,6 @@ warnings.filterwarnings('ignore')
 # IMPORTS FROM PROJECT MODULES
 
 from src.consts import *
-from src.visualization import set_plt_style
 from src.preprocessing import *
 from src.clustering import evaluate_clustering_range, reduce_dimensions_pca
 
@@ -70,7 +68,6 @@ def load_all_data():
     politics, sports = load_prepared_data()
 
     # Load raw data if src modules available
-    raw_body, raw_title, subreddits = None, None, None
     raw_body, raw_title, subreddits = load_data()
     print(f"✓ Raw body posts:        {len(raw_body):,}")
     print(f"✓ Raw title posts:       {len(raw_title):,}")
@@ -1040,14 +1037,13 @@ def plot_interaction_networks(data):
     Args:
         data: dict containing 'politics' and 'sports' DataFrames
     """
-    import networkx as nx
 
     politics = data['politics']
     sports = data['sports']
 
     # Build networks
-    G_politics = build_interaction_network(politics, min_interactions=30)
-    G_sports = build_interaction_network(sports, min_interactions=30)
+    build_interaction_network(politics, min_interactions=30)
+    build_interaction_network(sports, min_interactions=30)
 
 
 
