@@ -3,7 +3,6 @@ import kagglehub
 import os
 
 from src.consts import *
-from src.utils import parse_properties
 
 
 def download_data():
@@ -15,6 +14,16 @@ def download_data():
     """
     return kagglehub.dataset_download("fejwiehf3928uhcwa/ada-2025-project-bald")
 
+def parse_properties(df: pd.DataFrame):
+    """
+    Parses properties column into multiple columns.
+    """
+
+    df_temp = df["PROPERTIES"].str.split(',', expand=True)
+    df_temp = df_temp.astype(float)
+    df_temp.columns = PROPERTIES.keys()
+    df_resultat = pd.concat([df.drop(columns=["PROPERTIES"]), df_temp], axis=1)
+    return df_resultat
 
 def load_data():
     """
