@@ -369,10 +369,10 @@ SPORTS_ALL_SUBS = _get_all_subreddits(SPORTS_CAMPS)
 # =============================================================================
 
 def load_prepared_data(
-        politics_body_path='../../data/politics_body.csv',
-        politics_title_path='../../data/politics_title.csv',
-        sports_body_path='../../data/sports_body.csv',
-        sports_title_path='../../data/sports_title.csv'
+        politics_body_path='data/politics_body.csv',
+        politics_title_path='data/politics_title.csv',
+        sports_body_path='data/sports_body.csv',
+        sports_title_path='data/sports_title.csv'
 ):
     """
     Load and prepare politics and sports dataframes with camp labels.

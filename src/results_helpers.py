@@ -18,18 +18,18 @@ warnings.filterwarnings('ignore')
 from src.consts import *
 from src.clustering import evaluate_clustering_range, reduce_dimensions_pca
 
-from data_prep import (
+from src.data_prep import (
     load_data, load_prepared_data, POLITICS_CAMPS, SPORTS_CAMPS, EVENTS,
     LIWC_COLS, TEXT_STRUCTURE_COLS, VADER_COLS, filter_active_subreddits
 )
-from interaction_analysis import (
+from src.interaction_analysis import (
     build_interaction_matrix, get_camp_hostility_profile,
     get_liwc_by_sentiment
 )
-from event_analysis import (
+from src.event_analysis import (
     analyze_all_events, compare_event_effects, get_weekly_trends
 )
-from statistical_analysis import (
+from src.statistical_analysis import (
     compare_domain_hostility, full_transfer_analysis,
     compare_logistic_coefficients, full_correlation_significance,
     event_diff_in_diff, build_interaction_network,
@@ -934,7 +934,6 @@ def run_diff_in_diff(data, event_name='2016 Election'):
         politics,
         event_date='2016-11-08',
         treatment_camps=['trump_conservative', 'anti_trump', 'progressive'],
-        control_camps=['meta_drama', 'conspiracy', 'libertarian'],
         pre_days=7, post_days=7
     )
 
