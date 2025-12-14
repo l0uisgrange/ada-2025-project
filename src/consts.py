@@ -26,35 +26,6 @@ SIMILARITY_N_CLUSTERS = 100
 OPTIMAL_K = 20
 MIN_ACTIVE_POSTS = 100
 
-# Politics by subcategory
-RIGHT_SUBREDDITS = [
-    "republican",
-    "conservative",
-    "conservatives",
-    "conservatives_r_us",
-    "whitenationalism",
-    "white_pride",
-    "the_donald",
-    "askthe_donald",
-    "hillaryforprison",
-    "asktrumpsupporters",
-    "mr_trump",
-    "conservativesonly"
-]
-
-LEFT_SUBREDDITS = [
-    "sandersforpresident",
-    "hillaryclinton",
-    "enoughtrumpspam",
-    "latestagecapitalism",
-    "the_mueller",
-    "political_revolution",
-    "democrats",
-    "askhillarysupporters",
-    "governmentoppression",
-    "conflictofinterest",
-]
-
 # Seeds to use for clustering
 THEMES_SEEDS = {
     'sports': [
