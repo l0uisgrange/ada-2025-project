@@ -47,7 +47,7 @@ def prepare_classification_data(df, feature_cols):
     available_cols = [c for c in feature_cols if c in df.columns]
 
     X = df[available_cols].fillna(0).values
-    y = (df['LINK_SENTIMENT'] == -1).astype(int).values
+    y = np.asarray(df['LINK_SENTIMENT'] == -1)
 
     scaler = StandardScaler()
     X_scaled = scaler.fit_transform(X)
@@ -77,7 +77,7 @@ def cross_domain_classifier_test(df_train, df_test, feature_cols,
     # Prepare test data with same scaler
     available_cols = [c for c in used_cols if c in df_test.columns]
     X_test = df_test[available_cols].fillna(0).values
-    y_test = (df_test['LINK_SENTIMENT'] == -1).astype(int).values
+    y_test = np.asarray(df_test['LINK_SENTIMENT'] == -1)
     X_test_scaled = scaler.transform(X_test)
 
     # Initialize model
@@ -259,10 +259,10 @@ def compare_logistic_coefficients(politics_df, sports_df, feature_cols):
 
     # Calculate correlation of coefficients
     pearson_r, pearson_p = stats.pearsonr(pol_aligned, sport_aligned)
-    spearman_r, spearman_p = stats.spearmanr(pol_aligned, sport_aligned)
+    spearman_r, spearman_p = stats.spearmanr(np.asarray(pol_aligned), np.asarray(sport_aligned)) # type: ignore[arg-type]
 
     # Sign agreement (do coefficients point the same direction?)
-    sign_agreement = (np.sign(pol_aligned) == np.sign(sport_aligned)).mean()
+    sign_agreement = np.mean(np.sign(pol_aligned) == np.sign(sport_aligned))
 
     # Top features comparison
     pol_top10 = set(pol_results['coefficients'].head(10)['feature'])
@@ -505,10 +505,10 @@ def compare_domain_hostility(politics_df, sports_df):
     Returns:
         dict with proportion test results
     """
-    pol_hostile = (politics_df['LINK_SENTIMENT'] == -1).sum()
+    pol_hostile = np.sum(politics_df['LINK_SENTIMENT'] == -1)
     pol_total = len(politics_df)
 
-    sport_hostile = (sports_df['LINK_SENTIMENT'] == -1).sum()
+    sport_hostile = np.sum(sports_df['LINK_SENTIMENT'] == -1)
     sport_total = len(sports_df)
 
     results = test_proportion_difference(pol_hostile, pol_total,
@@ -526,7 +526,7 @@ def compare_domain_hostility(politics_df, sports_df):
 # 5. DIFFERENCE-IN-DIFFERENCES FOR EVENT ANALYSIS
 # =============================================================================
 
-def event_diff_in_diff(df, event_date, treatment_camps, control_camps,
+def event_diff_in_diff(df, event_date, treatment_camps,
                        pre_days=7, post_days=7):
     """
     Difference-in-differences analysis for event effects.
@@ -538,7 +538,6 @@ def event_diff_in_diff(df, event_date, treatment_camps, control_camps,
         df: DataFrame with TIMESTAMP, source_camp, LINK_SENTIMENT
         event_date: datetime of the event
         treatment_camps: list of camps expected to be affected
-        control_camps: list of camps as control group
         pre_days: days before event for "pre" period
         post_days: days after event for "post" period
 
@@ -561,7 +560,7 @@ def event_diff_in_diff(df, event_date, treatment_camps, control_camps,
     # Assign treatment/control and pre/post
     df_filtered['is_treatment'] = df_filtered['source_camp'].isin(treatment_camps)
     df_filtered['is_post'] = df_filtered['TIMESTAMP'] >= event_date
-    df_filtered['is_hostile'] = (df_filtered['LINK_SENTIMENT'] == -1).astype(int)
+    df_filtered['is_hostile'] = np.asarray(df_filtered['LINK_SENTIMENT'] == -1)
 
     # Calculate group means
     groups = df_filtered.groupby(['is_treatment', 'is_post'])['is_hostile'].agg(['mean', 'count', 'sum'])
@@ -667,7 +666,7 @@ def build_interaction_network(df, min_interactions=10, weight_col='count'):
 
     agg = df_filtered.groupby(['source_camp', 'target_camp']).agg(
         count=('LINK_SENTIMENT', 'size'),
-        negative_count=('LINK_SENTIMENT', lambda x: (x == -1).sum())
+        negative_count=('LINK_SENTIMENT', lambda x: np.sum(x == -1))
     ).reset_index()
 
     agg['negative_rate'] = agg['negative_count'] / agg['count']
