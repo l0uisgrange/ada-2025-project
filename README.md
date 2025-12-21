@@ -141,6 +141,8 @@ huge (> 200MB).
 
 ## 🤝 Team organization
 
+We would like to point out that for the P3 of this project, Yuri did not participate as she chose to drop this course. Please take that into consideration upon grading this project.
+
 - **Badr**
 
   - Interaction and LIWC analyses in `results.ipynb`
