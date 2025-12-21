@@ -151,11 +151,11 @@ We would like to point out that for the P3 of this project, Yuri did not partici
 - **Daniel**
 
   - End-to-end analysis pipeline from data preparation to statistical validation
-  - Clustering and camp definitions (clustering.py, data_prep.py), full module
-  - Interaction matrices and LIWC signature analysis (interaction_analysis.py), full module
-  - Event impact analysis with before/during/after comparisons (event_analysis.py), full module
-  - Statistical validation: classifier transfer, coefficient comparison, bootstrap, permutation, DiD (statistical_analysis.py), full module
-  - Final results notebook and wrapper functions (results.ipynb, results_helpers.py), except mathematical markdown cells.
+  - Clustering and camp definitions (`clustering.py`, `data_prep.pyp`, full module
+  - Interaction matrices and LIWC signature analysis (`interaction_analysis.py`, full module
+  - Event impact analysis with before/during/after comparisons (`event_analysis.py`), full module
+  - Statistical validation: classifier transfer, coefficient comparison, bootstrap, permutation, DiD (`statistical_analysis.py`), full module
+  - Final results notebook and wrapper functions (`results.ipynb`, `results_helpers.py`), except mathematical markdown cells.
 
 - **Arnaud**
 
