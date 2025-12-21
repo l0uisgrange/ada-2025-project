@@ -149,21 +149,20 @@ For weeks 0 to 2, we are assigning tasks on a weekly basis and update the timeli
 
 _Note: the datasets will be downloaded automatically from [Kaggle](https://www.kaggle.com/datasets/fejwiehf3928uhcwa/ada-2025-project-bald) when running the Notebook._
 
-## 🗄️ Project structure (to update)
+## 🗄️ Project structure
 
 ```
-├── ... cache             # Cached datasets files
-├── archive               # Archive files
-├── src                   # Source code
+├── ... cache                   # Cached datasets files
+├── src                         # Source code
 │   ├── clustering.py
 │   ├── consts.py
-│   ├── data.py
-│   ├── preprocessing.py
-│   ├── similarity.py
-│   ├── utils.py
-│   └── visualization.py
-├── results.ipynb         # Notebook showing the results
+│   ├── data_prep.py
+│   ├── event_analysis.py
+│   ├── interaction_analysis.py
+│   ├── results_helpers.py
+│   └── statistical_helpers.py
 ├── .gitignore
-├── requirements.txt      # File for installing python dependencies
+├── results.ipynb               # Notebook showing the results
+├── requirements.txt            # File for installing python dependencies
 └── README.md
 ```
