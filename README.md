@@ -154,7 +154,7 @@ We would like to point out that for the P3 of this project, Yuri did not partici
   - Interaction matrices and LIWC signature analysis (interaction_analysis.py), full module
   - Event impact analysis with before/during/after comparisons (event_analysis.py), full module
   - Statistical validation: classifier transfer, coefficient comparison, bootstrap, permutation, DiD (statistical_analysis.py), full module
-  - Final results notebook and wrapper functions (results.ipynb, results_helpers.py), except mathmatical markdown cells.
+  - Final results notebook and wrapper functions (results.ipynb, results_helpers.py), except mathematical markdown cells.
 
 - **Arnaud**
 
