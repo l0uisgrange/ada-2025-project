@@ -146,7 +146,7 @@ We would like to point out that for the P3 of this project, Yuri did not partici
 - **Badr**
 
   - Mathematical sections of `results.ipynb`
-  - `digital_tribes_analysis_2.ipynb` notebook with interactions exploration
+  - `digital_tribes_analysis_2.ipynb` notebook with interactions exploration using existing modules
 
 - **Daniel**
 
