@@ -1,4 +1,4 @@
-# <img src="https://epfl-ada.github.io/assets/img/ada.svg" width="40" /> Digital Tribes: The Universal Language of Online Hostility
+# <img src="https://epfl-ada.github.io/assets/img/ada.svg" width="40" /> Digital tribes
 
 Reddit is one of the largest social networks in the world, and its vast and diverse communities make it the perfect
 environment to analyze how tribal behavior manifests in online interactions.
@@ -8,9 +8,9 @@ comparing political and sports communities. Our main goal is to **discover wheth
 linguistic patterns across different domains**, examining how the *frequency* vs *vocabulary* of conflict varies between
 political discourse and sports rivalry.
 
-[Data story](https://epfl-ada.github.io/ada-2025-project-baldy5/) — [Final Notebook](./results.ipynb)
+[Data story](https://epfl-ada.github.io/ada-2025-project-baldy5/) — [Final notebook](./results.ipynb)
 
-## ❓ Research Questions
+## ❓ Research questions
 
 We focus on understanding the nature of tribal hostility across domains:
 
@@ -31,7 +31,7 @@ We focus on understanding the nature of tribal hostility across domains:
    - How do major events (elections, championships) affect hostility patterns?
    - Are these effects temporary spikes or lasting behavioral changes?
 
-## 📊 Additional Datasets
+## 📊 Additional datasets
 
 For our project, we searched online a few datasets that would allow us to create more interesting statistics, but after the EDA we finally decided that the following was enough.
 
@@ -87,10 +87,10 @@ huge (> 200MB).
 - **Bootstrap/Permutation tests**: Robust confidence intervals and null hypothesis testing
 - **Network analysis**: Compare interaction network structures (density, reciprocity, clustering)
 
-## 📈 Key Results
+## 📈 Key results
 
 | Finding | Evidence |
-| ------- | -------- |
+| :------- | :-------- |
 | Politics is 3.3× more hostile than sports | 17.3% vs 5.2% negative interaction rate (Cohen's h = 0.40) |
 | Hostility "sounds" the same across domains | r = 0.937 LIWC signature correlation |
 | Cross-domain classifiers transfer successfully | AUC = 0.91 for politics→sports transfer |
@@ -98,7 +98,7 @@ huge (> 200MB).
 | Events cause temporary spikes, not permanent change | Behavior returns to baseline within days |
 | Observer communities are universally hostile | meta_drama shows ~25% hostility in both domains |
 
-## ⏰ Proposed Timeline
+## ⏰ Proposed timeline
 
 #### Week 0 (before Nov 5)
 
@@ -139,7 +139,7 @@ huge (> 200MB).
 
 - [x] Final review and submission
 
-## 🤝 Team Organization
+## 🤝 Team organization
 
 - **Badr**
 
