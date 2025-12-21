@@ -159,6 +159,7 @@ We would like to point out that for the P3 of this project, Yuri did not partici
 - **Arnaud**
 
   - Datastory (`pages` branch): shockwaves and universal signature
+  - First EDA on Sports and `results.ipynb` with Yuri
 
 - **Louis**
 
