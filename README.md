@@ -8,7 +8,7 @@ comparing political and sports communities. Our main goal is to **discover wheth
 linguistic patterns across different domains**, examining how the *frequency* vs *vocabulary* of conflict varies between
 political discourse and sports rivalry.
 
-[Data story](https://epfl-ada.github.io/ada-2025-project-baldy5/) — [Final notebook](./results.ipynb)
+[Datastory](https://epfl-ada.github.io/ada-2025-project-baldy5/) — [Final notebook](./results.ipynb)
 
 ## ❓ Research questions
 
@@ -141,12 +141,11 @@ huge (> 200MB).
 
 ## 🤝 Team organization
 
-We would like to point out that for the P3 of this project, Yuri did not participate as she chose to drop this course. Please take that into consideration upon grading this project.
+We would like to point out that for the P3 of this project, Yuri did not participate as she chosed to drop this course. Please take that into consideration upon grading this project.
 
 - **Badr**
 
-  - Interaction and LIWC analyses in `results.ipynb`
-  - Visualizations for reciprocity, camp profiles, and LIWC comparisons (`interaction_analysis.py`)
+  - Mathematical sections of `results.ipynb`
 
 - **Daniel**
 
@@ -159,13 +158,14 @@ We would like to point out that for the P3 of this project, Yuri did not partici
 
 - **Arnaud**
 
-  - Storyline
+  - Datastory (`pages` branch): shockwaves and universal signature
 
 - **Louis**
 
-  - First iteration work on `README.md`, EDA, and `results.ipynb` with Yuri
-  - Datasets integration with Kaggle, cleaning and import (`data.py`)
-  - Storyline (`pages` branch): plots, template, structure and part of the text
+  - Writing of `README.md`
+  - Datasets integration with Kaggle, cleaning and import (`data_prep.py`)
+  - Datastory (`pages` branch): plots, template, structure and content
+  - First EDA on Politics and `results.ipynb` with Yuri
 
 ## ⚙️ Quickstart
 
