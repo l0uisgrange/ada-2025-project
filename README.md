@@ -181,7 +181,7 @@ _Note: the datasets will be downloaded automatically from [Kaggle](https://www.k
 │   ├── event_analysis.py
 │   ├── interaction_analysis.py
 │   ├── results_helpers.py
-│   └── statistical_helpers.py
+│   └── statistical_analyisis.py
 ├── .gitignore
 ├── results.ipynb               # Notebook showing the results
 ├── requirements.txt            # File for installing python dependencies
