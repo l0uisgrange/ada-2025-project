@@ -87,17 +87,6 @@ huge (> 200MB).
 - **Bootstrap/Permutation tests**: Robust confidence intervals and null hypothesis testing
 - **Network analysis**: Compare interaction network structures (density, reciprocity, clustering)
 
-## 📈 Key results
-
-| Finding | Evidence |
-| :------- | :-------- |
-| Politics is 3.3× more hostile than sports | 17.3% vs 5.2% negative interaction rate (Cohen's h = 0.40) |
-| Hostility "sounds" the same across domains | r = 0.937 LIWC signature correlation |
-| Cross-domain classifiers transfer successfully | AUC = 0.91 for politics→sports transfer |
-| Same features predict hostility in both domains | 73.5% coefficient sign agreement |
-| Events cause temporary spikes, not permanent change | Behavior returns to baseline within days |
-| Observer communities are universally hostile | meta_drama shows ~25% hostility in both domains |
-
 ## ⏰ Proposed timeline
 
 #### Week 0 (before Nov 5)
